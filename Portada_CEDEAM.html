@@ -10,7 +10,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
-      /* Tu paleta de colores CEDEAM */
+      /* Paleta de colores CEDEAM */
       --verde-principal: #2c8e72;
       --verde-oscuro: #428b76;
       --verde-profundo: #5c8b7e;
@@ -39,7 +39,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 0.75rem 2rem;
+      padding: 1rem 2rem;
     }
 
     .navbar-container {
@@ -52,24 +52,18 @@
 
     .brand {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      flex-direction: column;
       text-decoration: none;
-    }
-
-    .brand img {
-      height: 55px; /* Ajuste para el logo cargado */
-      width: auto;
-      object-fit: contain;
     }
 
     .brand-text {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 800;
       text-transform: uppercase;
-      line-height: 1;
-      color: var(--verde-oscuro);
+      line-height: 0.9;
+      color: var(--verde-principal);
+      letter-spacing: 0.5px;
     }
 
     .brand-text span {
@@ -78,8 +72,8 @@
       font-size: 0.85rem;
       font-family: 'Inter', sans-serif;
       font-weight: 500;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
+      letter-spacing: 1px;
+      margin-top: 4px;
     }
 
     .nav-links {
@@ -244,7 +238,7 @@
       color: var(--verde-oscuro);
     }
 
-    /* PILAR 2: PUBLICACIONES EN DIARIOS (ESTILO PRENSA) */
+    /* PILAR 2: PUBLICACIONES EN DIARIOS WEB */
     .press-bg { background: #ffffff; border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
     
     .grid-press {
@@ -331,6 +325,55 @@
 
     .btn-download:hover { background: var(--verde-oscuro); }
 
+    /* NUEVA SECCIÓN: MULTIMEDIA Y YOUTUBE */
+    .youtube-bg { background: #ffffff; border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+    
+    .grid-youtube {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .video-card {
+      background: var(--gris-fondo);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--borde);
+    }
+
+    /* Contenedor responsivo para el reproductor iframe de YouTube */
+    .video-responsive {
+      position: relative;
+      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-body {
+      padding: 1.25rem;
+    }
+
+    .video-body h4 {
+      font-size: 1.1rem;
+      color: var(--negro-institucional);
+      margin-bottom: 0.5rem;
+    }
+
+    .video-body p {
+      font-size: 0.9rem;
+      color: var(--gris-texto);
+    }
+
     /* FOOTER INSTITUCIONAL */
     footer {
       background: var(--negro-institucional);
@@ -347,10 +390,9 @@
   <nav class="navbar">
     <div class="navbar-container">
       <a href="#" class="brand">
-        <img src="logo cedeam.jfif" alt="Logo CEDEAM">
         <div class="brand-text">
           CEDEAM
-          <span>Área Metropolitana</span>
+          <span>Centro de Estudios del Desarrollo del Área Metropolitana</span>
         </div>
       </a>
       <div class="nav-links">
@@ -358,14 +400,15 @@
         <a href="#portal-datos" class="nav-link">Portal de Datos</a>
         <a href="#publicaciones" class="nav-link">En los Medios</a>
         <a href="#informes" class="nav-link">Informes PDF</a>
+        <a href="#multimedia" class="nav-link">Videos</a>
       </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="hero-content">
-      <h1>Centro de Estudios del Desarrollo del <span>Área Metropolitana</span></h1>
-      <p>Investigación, monitoreo de indicadores socioeconómicos y análisis territorializado para el desarrollo urbano sustentable.</p>
+      <h1>Plataforma de Investigación y Monitoreo Territorial</h1>
+      <p>Análisis territorializado, visualización de indicadores y divulgación académica para el desarrollo socioeconómico urbano sustentable.</p>
     </div>
   </header>
 
@@ -444,10 +487,7 @@
           <h4>Reporte de Desarrollo Humano Metropolitano 2026</h4>
           <p>Compendio completo indexado con cruce de variables sociodemográficas y habitacionales.</p>
         </div>
-        <a href="documentos/informe_anual_2026.pdf" download class="btn-download">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline; vertical-align:middle;"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-          Descargar PDF
-        </a>
+        <a href="documentos/informe_anual_2026.pdf" download class="btn-download">Descargar PDF</a>
       </div>
 
       <div class="report-card">
@@ -456,13 +496,38 @@
           <h4>Incidencia Fiscal y Presupuesto por Comunas</h4>
           <p>Metodología y resultados de la distribución del gasto público en el territorio analizado.</p>
         </div>
-        <a href="documentos/incidencia_fiscal.pdf" download class="btn-download">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline; vertical-align:middle;"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
-          Descargar PDF
-        </a>
+        <a href="documentos/incidencia_fiscal.pdf" download class="btn-download">Descargar PDF</a>
       </div>
     </div>
   </section>
+
+  <div class="youtube-bg" id="multimedia">
+    <section class="section-container">
+      <h2 class="section-title">Material Audiovisual y Conferencias</h2>
+      
+      <div class="grid-youtube">
+        <div class="video-card">
+          <div class="video-responsive">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Conferencia CEDEAM" allowfullscreen></iframe>
+          </div>
+          <div class="video-body">
+            <h4>Presentación de Indicadores de Vivienda</h4>
+            <p>Seminario virtual sobre políticas habitacionales sustentables en los cordones metropolitanos.</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-responsive">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Panel de Debate" allowfullscreen></iframe>
+          </div>
+          <div class="video-body">
+            <h4>Debate Abierto: Mercado del Suelo en CABA</h4>
+            <p>Intervención de los investigadores del centro analizando las permisologías y dinámicas constructivas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <footer>
     <p>&copy; 2026 CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana. <br> Facultad de Ciencias Económicas (FCE).</p>
