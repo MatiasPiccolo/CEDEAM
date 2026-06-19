@@ -103,15 +103,6 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%; right: -10%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(174,208,199,0.15) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
     .hero-content {
       max-width: 850px;
       margin: 0 auto;
@@ -127,12 +118,6 @@
       letter-spacing: -0.5px;
       line-height: 1.1;
       margin-bottom: 1.5rem;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(to right, var(--verde-claro), #ffffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
@@ -170,7 +155,7 @@
       border-radius: 2px;
     }
 
-    /* PILAR 1: PORTAL DE DATOS (GRID CATEGORÍAS) */
+    /* PILAR 1: PORTAL DE DATOS */
     .grid-categories {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -206,15 +191,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1.25rem;
-      transition: all 0.3s;
     }
-
-    .category-card:hover .card-icon {
-      background: var(--verde-principal);
-      color: white;
-    }
-
-    .card-icon svg { width: 22px; height: 22px; }
 
     .category-card h3 {
       font-family: 'Barlow Condensed', sans-serif;
@@ -224,171 +201,93 @@
       margin-bottom: 0.5rem;
     }
 
-    .category-card p {
-      font-size: 0.95rem;
-      color: var(--gris-texto);
-      margin-bottom: 1.5rem;
-    }
-
-    .card-footer {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--verde-oscuro);
-    }
+    .category-card p { font-size: 0.95rem; color: var(--gris-texto); margin-bottom: 1.5rem; }
+    .card-footer { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--verde-oscuro); }
 
     /* PILAR 2: PUBLICACIONES EN DIARIOS WEB */
     .press-bg { background: #ffffff; border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
-    
-    .grid-press {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2rem;
-    }
-
-    .press-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.5rem;
-      border-left: 4px solid var(--verde-claro);
-      background: var(--gris-fondo);
-      border-radius: 0 8px 8px 0;
-    }
-
-    .press-media {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--verde-principal);
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-    }
-
+    .grid-press { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+    .press-card { display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; border-left: 4px solid var(--verde-claro); background: var(--gris-fondo); border-radius: 0 8px 8px 0; }
+    .press-media { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--verde-principal); margin-bottom: 0.5rem; letter-spacing: 1px; }
     .press-card h4 { font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--negro-institucional); }
     .press-card p { font-size: 0.9rem; color: var(--gris-texto); margin-bottom: 1rem; }
-    
-    .press-link {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--verde-oscuro);
-      text-decoration: none;
-    }
+    .press-link { font-size: 0.9rem; font-weight: 600; color: var(--verde-oscuro); text-decoration: none; }
     .press-link:hover { text-decoration: underline; }
 
-    /* PILAR 3: SECCIÓN DE INFORMES (DESCARGA DE PDFS) */
-    .grid-reports {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .report-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      border: 1px solid var(--borde);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .report-tag {
-      background: var(--verde-muy-claro);
-      color: var(--verde-profundo);
-      font-size: 0.75rem;
+    /* PILAR 3: SECCIÓN DE INFORMES (SISTEMA DE PESTAÑAS INTERACTIVAS) */
+    .tabs-container { margin-top: 1.5rem; }
+    .tabs-nav { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--borde); margin-bottom: 2rem; }
+    
+    .tab-btn {
+      padding: 0.75rem 1.5rem;
+      background: none;
+      border: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
       font-weight: 700;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      width: fit-content;
-      margin-bottom: 1rem;
+      color: var(--gris-texto);
+      cursor: pointer;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
     }
 
-    /* Tag de color diferenciado para Informes de Coyuntura */
-    .report-tag.coyuntura {
-      background: #ffeeba;
-      color: #856404;
-    }
+    .tab-btn:hover { color: var(--verde-principal); }
+    .tab-btn.active { color: var(--verde-principal); border-bottom-color: var(--verde-principal); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
+    .grid-reports { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .report-card { background: white; border-radius: 8px; padding: 1.5rem; border: 1px solid var(--borde); display: flex; flex-direction: column; justify-content: space-between; }
+    .report-tag { background: var(--verde-muy-claro); color: var(--verde-profundo); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 4px; width: fit-content; margin-bottom: 1rem; }
     .report-card h4 { font-size: 1.1rem; color: var(--negro-institucional); margin-bottom: 0.5rem; }
+
+    /* TABLA COMPACTA PARA COYUNTURA TRIMESTRAL */
+    .coyuntura-table-container { background: white; border: 1px solid var(--borde); border-radius: 8px; overflow: hidden; }
+    .coyuntura-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+    .coyuntura-table th { background: var(--negro-institucional); color: white; padding: 1rem; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-size: 1.1rem; font-weight: 600; }
+    .coyuntura-table td { padding: 1rem; border-bottom: 1px solid var(--borde); }
+    .coyuntura-table tr:last-child td { border-bottom: none; }
+    .coyuntura-table tr:hover { background-color: var(--gris-fondo); }
     
-    .btn-download {
+    .btn-table-download {
+      color: var(--verde-principal);
+      text-decoration: none;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-      padding: 0.5rem 1rem;
-      background: var(--verde-principal);
-      color: white;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border-radius: 4px;
-      transition: background 0.2s;
+      gap: 0.25rem;
     }
+    .btn-table-download:hover { color: var(--verde-oscuro); text-decoration: underline; }
 
+    .btn-download { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.25rem; padding: 0.5rem 1rem; background: var(--verde-principal); color: white; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-radius: 4px; transition: background 0.2s; }
     .btn-download:hover { background: var(--verde-oscuro); }
 
-    /* NUEVA SECCIÓN: MULTIMEDIA Y YOUTUBE */
+    /* PILAR 4: MULTIMEDIA Y YOUTUBE */
     .youtube-bg { background: #ffffff; border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+    .grid-youtube { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .video-card { background: var(--gris-fondo); border-radius: 12px; overflow: hidden; border: 1px solid var(--borde); }
+    .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
+    .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .video-body { padding: 1.25rem; }
+    .video-body h4 { font-size: 1.1rem; color: var(--negro-institucional); margin-bottom: 0.5rem; }
+    .video-body p { font-size: 0.9rem; color: var(--gris-texto); }
+
+    /* NUEVA SECCIÓN: GALERÍA DE FOTOS */
+    .grid-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .gallery-card { background: white; border: 1px solid var(--borde); border-radius: 12px; overflow: hidden; transition: transform 0.3s; }
+    .gallery-card:hover { transform: translateY(-3px); }
+    .gallery-img-wrapper { width: 100%; height: 200px; background: #e2ece9; overflow: hidden; position: relative; }
     
-    .grid-youtube {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .video-card {
-      background: var(--gris-fondo);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--borde);
-    }
-
-    /* Contenedor responsivo para el reproductor iframe de YouTube */
-    .video-responsive {
-      position: relative;
-      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-      height: 0;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .video-responsive iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .video-body {
-      padding: 1.25rem;
-    }
-
-    .video-body h4 {
-      font-size: 1.1rem;
-      color: var(--negro-institucional);
-      margin-bottom: 0.5rem;
-    }
-
-    .video-body p {
-      font-size: 0.9rem;
-      color: var(--gris-texto);
-    }
+    /* Configuración por si usas imágenes reales o relativas en tu carpeta */
+    .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-info { padding: 1rem; }
+    .gallery-info span { font-size: 0.75rem; font-weight: 700; color: var(--verde-principal); text-transform: uppercase; }
+    .gallery-info h4 { font-size: 1rem; color: var(--negro-institucional); margin-top: 0.25rem; }
 
     /* FOOTER INSTITUCIONAL */
-    footer {
-      background: var(--negro-institucional);
-      color: var(--verde-pastel);
-      padding: 3rem 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      border-top: 3px solid var(--verde-principal);
-    }
+    footer { background: var(--negro-institucional); color: var(--verde-pastel); padding: 3rem 2rem; text-align: center; font-size: 0.9rem; border-top: 3px solid var(--verde-principal); }
   </style>
 </head>
 <body>
@@ -407,6 +306,7 @@
         <a href="#publicaciones" class="nav-link">En los Medios</a>
         <a href="#informes" class="nav-link">Informes PDF</a>
         <a href="#multimedia" class="nav-link">Videos</a>
+        <a href="#galeria" class="nav-link">Fotos</a>
       </div>
     </div>
   </nav>
@@ -420,7 +320,6 @@
 
   <main class="section-container" id="portal-datos">
     <h2 class="section-title">Portal de Datos Territoriales</h2>
-    
     <div class="grid-categories">
       <a href="#" class="category-card" onclick="navegarA('ocupacion')">
         <div>
@@ -460,7 +359,6 @@
   <div class="press-bg" id="publicaciones">
     <section class="section-container">
       <h2 class="section-title">Columnas y Notas en Diarios</h2>
-      
       <div class="grid-press">
         <div class="press-card">
           <div>
@@ -486,32 +384,61 @@
   <section class="section-container" id="informes">
     <h2 class="section-title">Informes Técnicos y Documentos</h2>
     
-    <div class="grid-reports">
-      <div class="report-card">
-        <div>
-          <div class="report-tag">PDF / Informe Anual</div>
-          <h4>Reporte de Desarrollo Humano Metropolitano 2026</h4>
-          <p>Compendio completo indexado con cruce de variables sociodemográficas y habitacionales.</p>
-        </div>
-        <a href="documentos/informe_anual_2026.pdf" download class="btn-download">Descargar PDF</a>
+    <div class="tabs-container">
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="cambiarPestana(event, 'anuales')">Informes Anuales y Técnicos</button>
+        <button class="tab-btn" onclick="cambiarPestana(event, 'coyuntura')">Monitoreo de Coyuntura (Trimestral)</button>
       </div>
 
-      <div class="report-card">
-        <div>
-          <div class="report-tag">PDF / Documento de Trabajo</div>
-          <h4>Incidencia Fiscal y Presupuesto por Comunas</h4>
-          <p>Metodología y resultados de la distribución del gasto público en el territorio analizado.</p>
+      <div id="anuales" class="tab-content active">
+        <div class="grid-reports">
+          <div class="report-card">
+            <div>
+              <div class="report-tag">PDF / Informe Anual</div>
+              <h4>Reporte de Desarrollo Humano Metropolitano 2026</h4>
+              <p>Compendio completo indexado con cruce de variables sociodemográficas y habitacionales.</p>
+            </div>
+            <a href="documentos/informe_anual_2026.pdf" download class="btn-download">Descargar PDF</a>
+          </div>
+
+          <div class="report-card">
+            <div>
+              <div class="report-tag">PDF / Documento de Trabajo</div>
+              <h4>Incidencia Fiscal y Presupuesto por Comunas</h4>
+              <p>Metodología y resultados de la distribución del gasto público en el territorio analizado.</p>
+            </div>
+            <a href="documentos/incidencia_fiscal.pdf" download class="btn-download">Descargar PDF</a>
+          </div>
         </div>
-        <a href="documentos/incidencia_fiscal.pdf" download class="btn-download">Descargar PDF</a>
       </div>
 
-      <div class="report-card">
-        <div>
-          <div class="report-tag coyuntura">PDF / Coyuntura</div>
-          <h4>INFORME CABA - 1ER TRIMESTRE 2026</h4>
-          <p>Evolución económica trimestral, análisis sectorial y monitoreo de la actividad en la Ciudad Autónoma de Buenos Aires.</p>
+      <div id="coyuntura" class="tab-content">
+        <div class="coyuntura-table-container">
+          <table class="coyuntura-table">
+            <thead>
+              <tr>
+                <th>Período</th>
+                <th>Nombre del Informe</th>
+                <th>Descripción Básica</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>2026 - 1T</strong></td>
+                <td>Informe CABA - 1er Trimestre 2026</td>
+                <td>Evolución económica trimestral y monitoreo de actividad sectorial.</td>
+                <td><a href="Informes_coyuntura/informe_caba_1trim_2026.pdf" download class="btn-table-download">Descargar PDF ⬇️</a></td>
+              </tr>
+              <tr>
+                <td><strong>2026 - 2T</strong></td>
+                <td>Informe CABA - 2do Trimestre 2026</td>
+                <td>Monitoreo de indicadores de empleo y mercado del suelo.</td>
+                <td><a href="#" class="btn-table-download" style="color: var(--gris-oscuro); pointer-events: none;">Próximamente</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <a href="Informes_coyuntura/informe_caba_1trim_2026.pdf" download class="btn-download">Descargar PDF</a>
       </div>
     </div>
   </section>
@@ -519,7 +446,6 @@
   <div class="youtube-bg" id="multimedia">
     <section class="section-container">
       <h2 class="section-title">Material Audiovisual y Conferencias</h2>
-      
       <div class="grid-youtube">
         <div class="video-card">
           <div class="video-responsive">
@@ -544,25 +470,59 @@
     </section>
   </div>
 
+  <section class="section-container" id="galeria">
+    <h2 class="section-title">Registro Fotográfico y Eventos</h2>
+    <div class="grid-gallery">
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80" alt="Presentación de Libro">
+        </div>
+        <div class="gallery-info">
+          <span>Presentación de Libro / 2026</span>
+          <h4>Lanzamiento "Innovación Tecnológica en Buenos Aires"</h4>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Seminario FCE">
+        </div>
+        <div class="gallery-info">
+          <span>Seminario Académico</span>
+          <h4>Debate sobre Políticas Metropolitanas - Aula Magna FCE</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2026 CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana. <br> Facultad de Ciencias Económicas (FCE).</p>
   </footer>
 
 <script>
+  // Script para manejar el cambio de pestañas de los informes
+  function cambiarPestana(evt, nombrePestana) {
+    let i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].classList.remove("active");
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].classList.remove("active");
+    }
+    document.getElementById(nombrePestana).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+
+  // Script de navegación de matrices
   function navegarA(destino) {
     let nombreArchivo = "";
-
-    if (destino === 'ocupacion') {
-      nombreArchivo = "Ind.Ocup.html"; 
-    } else if (destino === 'sociales') {
-      nombreArchivo = "Ind.Sociales.html";
-    } else if (destino === 'demograficos') {
-      nombreArchivo = "Ind.Demograficos.html";
-    } else if (destino === 'fiscales') {
-      nombreArchivo = "Ind.Fiscales.html";
-    } else if (destino === 'inmobiliario') {
-      nombreArchivo = "Mercado_inm.html";
-    }
+    if (destino === 'ocupacion') { nombreArchivo = "Ind.Ocup.html"; } 
+    else if (destino === 'sociales') { nombreArchivo = "Ind.Sociales.html"; } 
+    else if (destino === 'demograficos') { nombreArchivo = "Ind.Demograficos.html"; } 
+    else if (destino === 'fiscales') { nombreArchivo = "Ind.Fiscales.html"; } 
+    else if (destino === 'inmobiliario') { nombreArchivo = "Mercado_inm.html"; }
 
     const urlParams = new URLSearchParams(window.location.search);
     const comunaActual = urlParams.get('comuna') || 'todas';
