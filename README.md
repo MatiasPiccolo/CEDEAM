@@ -8,4 +8,4 @@ Portal de informes y visualizaciones interactivas.
 
 | Sección | URL |
 |---|---|
-| Portal principal | [Portada.html](https://matiaspiccolo.github.io/Comunas_CABA/Portada_CEDEAM.html) |
+| Portal principal | [Portada.html](https://matiaspiccolo.github.io/CEDEAM/Portada_CEDEAM.html) |
