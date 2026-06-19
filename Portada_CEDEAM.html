@@ -3,343 +3,496 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal de Monitoreo Territorial - FDHI</title>
+  <title>CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
-      --bg: #ffffff;
-      --bg-content: #f8fafc;
-      --bg-card: #ffffff;
-      --border-card: #1c9eda;
-      --text-main: #1a1a1a;
-      --text-muted: #4a5568;
-      --text-sub: #718096;
-      --celeste: #1c9eda;
-      --amarillo: #fec700;
-    }
-
-    [data-theme="dark"] {
-      --bg: #0f1923;
-      --bg-content: #0f1923;
-      --bg-card: #1a2530;
-      --border-card: #243040;
-      --text-main: #ffffff;
-      --text-muted: #8a9bb0;
-      --text-sub: #a0aec0;
+      /* Tu paleta de colores CEDEAM */
+      --verde-principal: #2c8e72;
+      --verde-oscuro: #428b76;
+      --verde-profundo: #5c8b7e;
+      --verde-claro: #86b3a7;
+      --verde-pastel: #aed0c7;
+      --verde-muy-claro: #d1e0dc;
+      --gris-fondo: #f1f9f8;
+      --gris-texto: #667b75;
+      --gris-oscuro: #8c9a96;
+      --negro-institucional: #1d2b27;
+      --borde: #d1e0dc;
     }
 
     body { 
       font-family: 'Inter', sans-serif; 
-      background: var(--bg); 
-      color: var(--text-main);
-      min-height: 100vh; 
-      display: flex;
-      flex-direction: column;
+      background: var(--gris-fondo); 
+      color: var(--negro-institucional); 
+      line-height: 1.5;
     }
-    
-    /* BARRA SUPERIOR */
-    .topbar { 
-      background: var(--celeste); 
-      padding: .6rem 2rem; 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      flex-wrap: wrap; 
-      gap: .5rem; 
+
+    /* BARRA DE NAVEGACIÓN SUPERIOR */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--borde);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.75rem 2rem;
     }
-    .topbar-left { 
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; 
-      letter-spacing: .08em; 
-      text-transform: uppercase; 
-      color: #ffffff; 
-      font-weight: 500;
-    }
-    
-    /* HERO */
-    .hero { 
-      background: var(--celeste); 
-      padding: 4rem 2rem 3.5rem; 
-      position: relative; 
-      overflow: hidden; 
-    }
-    .hero::before { content:''; position:absolute; top:-80px; right:-80px; width:400px; height:400px; border:1px solid rgba(255,255,255,.08); border-radius:50%; pointer-events:none; }
-    .hero::after  { content:''; position:absolute; top:-40px; right:-40px; width:220px; height:220px; border:1px solid rgba(255,255,255,.06); border-radius:50%; pointer-events:none; }
-    
-    .hero-org { 
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px; 
-      letter-spacing: .1em;
-      color: #ffffff; 
-      text-transform: uppercase;
-      margin-bottom: 0.5rem; 
-      opacity: 0.9;
-    }
-    .hero-title { 
-      font-family: 'Barlow Condensed', sans-serif; 
-      font-size: 42px; 
-      font-weight: 700;
-      color: #ffffff; 
-      line-height: 1.1; 
-      margin: 0 0 .75rem; 
-      max-width: 700px; 
-      text-transform: uppercase;
-    }
-    .hero-desc { 
-      font-size: 15px; 
-      color: rgba(255,255,255,.85); 
-      max-width: 600px; 
-      line-height: 1.4; 
-    }
-    
-    /* LÍNEA DE ACENTO AMARILLA */
-    .accent-bar { height: 4px; background-color: var(--amarillo); }
-    
-    /* CONTENIDO */
-    .content { 
-      padding: 3rem 2rem; 
-      max-width: 1200px; 
+
+    .navbar-container {
+      max-width: 1200px;
       margin: 0 auto;
-      width: 100%;
-      background: var(--bg-content);
-      flex: 1;
-    }
-    .section-label { 
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px; 
-      letter-spacing: .1em; 
-      text-transform: uppercase; 
-      color: var(--celeste); 
-      margin-bottom: 1.5rem; 
-      font-weight: 600; 
-    }
-    [data-theme="dark"] .section-label { color: #ffffff; }
-
-    /* GRILLA DE TARJETAS RECONFIGURADA */
-    .cards { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-      gap: 1.5rem; 
-      margin-bottom: 2.5rem; 
-    }
-    
-    /* TARJETAS */
-    .card { 
-      background: var(--bg-card); 
-      border-radius: 12px; 
-      border: 1px solid var(--border-card); 
-      padding: 1.75rem 1.5rem 1.25rem; 
-      transition: transform .2s, box-shadow .2s; 
-      position: relative; 
-      overflow: hidden; 
-      text-decoration: none; 
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
     }
-    .card:hover { 
-      transform: translateY(-4px); 
-      box-shadow: 0 12px 32px rgba(28, 158, 218, .15); 
-    }
-    
-    /* Detalle superior en amarillo fijo */
-    .card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background: var(--amarillo); }
-    
-    .card-icon { 
-      width: 44px; 
-      height: 44px; 
-      border-radius: 10px; 
-      background: rgba(28, 158, 218, 0.1); 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin-bottom: 1.25rem; 
-    }
-    .card-icon i { font-size: 22px; color: var(--celeste); }
-    
-    .card-tag { 
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px; 
-      letter-spacing: .1em; 
-      text-transform: uppercase; 
-      color: var(--celeste); 
-      margin-bottom: .3rem; 
-      font-weight: 600; 
-    }
-    .card-title { 
-      font-family: 'Barlow Condensed', sans-serif; 
-      font-size: 22px; 
-      font-weight: 600;
-      color: var(--text-main); 
-      margin: 0 0 .5rem; 
-      line-height: 1.2; 
-    }
-    .card-desc { 
-      font-size: 13.5px; 
-      color: var(--text-muted); 
-      line-height: 1.5; 
-      margin: 0 0 1.5rem; 
-      flex: 1;
-    }
-    
-    /* Footer interno de la tarjeta */
-    .card-footer { 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      border-top: 1px solid rgba(28, 158, 218, 0.15); 
-      padding-top: .9rem; 
-    }
-    [data-theme="dark"] .card-footer { border-color: var(--border-card); }
 
-    .card-cta { 
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand img {
+      height: 55px; /* Ajuste para el logo cargado */
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-text {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; 
-      color: var(--celeste); 
-      font-weight: 600; 
-      display: flex; 
-      align-items: center; 
-      gap: 4px; 
+      font-size: 1.6rem;
+      font-weight: 800;
       text-transform: uppercase;
+      line-height: 1;
+      color: var(--verde-oscuro);
     }
-    .card-cta i { font-size: 15px; transition: transform .2s; }
-    .card:hover .card-cta i { transform: translateX(4px); }
-    .card-update { font-size: 11px; color: var(--text-sub); }
-    
-    /* PIE DE PÁGINA */
-    .bottom-strip { 
-      background: var(--celeste); 
-      padding: 1.5rem 2rem; 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      flex-wrap: wrap; 
-      gap: .5rem; 
-      margin-top: auto; 
+
+    .brand-text span {
+      color: var(--gris-texto);
+      display: block;
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
     }
-    .bottom-strip p { 
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--negro-institucional);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--verde-principal);
+    }
+
+    /* SECCIÓN HERO INSTITUCIONAL */
+    .hero {
+      background: linear-gradient(135deg, var(--negro-institucional) 0%, var(--verde-profundo) 100%);
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(174,208,199,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; 
-      color: #ffffff; 
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(to right, var(--verde-claro), #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--verde-muy-claro);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* CONTENEDORES DE SECCIONES */
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--negro-institucional);
+      margin-bottom: 2rem;
       letter-spacing: 0.5px;
     }
-    .dot { color: rgba(255, 255, 255, 0.6); margin: 0 .5rem; }
 
-    /* BOTÓN MODO OSCURO */
-    .dark-toggle { 
-      background: none; 
-      border: 1px solid rgba(255,255,255,.4); 
-      border-radius: 20px; 
-      padding: 5px 12px; 
-      cursor: pointer; 
-      color: #ffffff; 
-      font-size: 12px; 
-      font-family: 'Barlow Condensed', sans-serif; 
-      display: flex; 
-      align-items: center; 
-      gap: 6px; 
-      transition: all .15s; 
-      text-transform: uppercase;
-      font-weight: 500;
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--verde-principal);
+      margin-top: 0.5rem;
+      border-radius: 2px;
     }
-    .dark-toggle:hover { background: rgba(255,255,255,.15); border-color: #ffffff; }
+
+    /* PILAR 1: PORTAL DE DATOS (GRID CATEGORÍAS) */
+    .grid-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      background: white;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 2rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(44, 142, 114, 0.08);
+      border-color: var(--verde-principal);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gris-fondo);
+      color: var(--verde-principal);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      transition: all 0.3s;
+    }
+
+    .category-card:hover .card-icon {
+      background: var(--verde-principal);
+      color: white;
+    }
+
+    .card-icon svg { width: 22px; height: 22px; }
+
+    .category-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--negro-institucional);
+      margin-bottom: 0.5rem;
+    }
+
+    .category-card p {
+      font-size: 0.95rem;
+      color: var(--gris-texto);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-footer {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--verde-oscuro);
+    }
+
+    /* PILAR 2: PUBLICACIONES EN DIARIOS (ESTILO PRENSA) */
+    .press-bg { background: #ffffff; border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
+    
+    .grid-press {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .press-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border-left: 4px solid var(--verde-claro);
+      background: var(--gris-fondo);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .press-media {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--verde-principal);
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .press-card h4 { font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--negro-institucional); }
+    .press-card p { font-size: 0.9rem; color: var(--gris-texto); margin-bottom: 1rem; }
+    
+    .press-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--verde-oscuro);
+      text-decoration: none;
+    }
+    .press-link:hover { text-decoration: underline; }
+
+    /* PILAR 3: SECCIÓN DE INFORMES (DESCARGA DE PDFS) */
+    .grid-reports {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .report-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid var(--borde);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .report-tag {
+      background: var(--verde-muy-claro);
+      color: var(--verde-profundo);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      width: fit-content;
+      margin-bottom: 1rem;
+    }
+
+    .report-card h4 { font-size: 1.1rem; color: var(--negro-institucional); margin-bottom: 0.5rem; }
+    
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      padding: 0.5rem 1rem;
+      background: var(--verde-principal);
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .btn-download:hover { background: var(--verde-oscuro); }
+
+    /* FOOTER INSTITUCIONAL */
+    footer {
+      background: var(--negro-institucional);
+      color: var(--verde-pastel);
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 3px solid var(--verde-principal);
+    }
   </style>
 </head>
 <body>
 
-<div class="topbar">
-  <span class="topbar-left">Fundación para el Desarrollo Humano Integral · FDHI</span>
-  <button class="dark-toggle" onclick="toggleDark()"><span id="dark-icon">🌙</span> Modo oscuro</button>
-</div>
-
-<div class="hero">
-  <div class="hero-org">Equipo de Informes Técnicos</div>
-  <h1 class="hero-title">Portal de Monitoreo Territorial</h1>
-  <p class="hero-desc">Plataforma interactiva para el seguimiento, visualización y análisis de los principales indicadores estadísticos y geográficos de las Comunas de la Ciudad Autónoma de Buenos Aires.</p>
-</div>
-
-<div class="accent-bar"></div>
-
-<div class="content">
-  <div class="section-label">Módulos Temáticos de la Ciudad</div>
-  
-  <div class="cards">
-
-    <!-- SECCIÓN 1: OCUPACIÓN -->
-    <a class="card" href="Ind.Ocup.html">
-      <div class="card-icon"><i class="ti ti-trending-up"></i></div>
-      <div class="card-tag">Sección 01</div>
-      <div class="card-title">OCUPACIÓN E INGRESOS</div>
-      <p class="card-desc">Análisis de la estructura del mercado laboral, niveles de ingreso, tasas de empleo y actividad comercial por territorio.</p>
-      <div class="card-footer">
-        <span class="card-cta">Ingresar al módulo <i class="ti ti-arrow-right"></i></span>
-        <span class="card-update">Actualizado</span>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="brand">
+        <img src="logo cedeam.jfif" alt="Logo CEDEAM">
+        <div class="brand-text">
+          CEDEAM
+          <span>Área Metropolitana</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#" class="nav-link active">Inicio</a>
+        <a href="#portal-datos" class="nav-link">Portal de Datos</a>
+        <a href="#publicaciones" class="nav-link">En los Medios</a>
+        <a href="#informes" class="nav-link">Informes PDF</a>
       </div>
-    </a>
+    </div>
+  </nav>
 
-    <!-- SECCIÓN 2: SOCIALES -->
-    <a class="card" href="Ind.Sociales.html">
-      <div class="card-icon"><i class="ti ti-users"></i></div>
-      <div class="card-tag">Sección 02</div>
-      <div class="card-title">INDICADORES SOCIALES</div>
-      <p class="card-desc">Monitoreo de la tasa de escolaridad, cobertura de salud pública y privada, y variables de necesidades básicas insatisfechas (NBI).</p>
-      <div class="card-footer">
-        <span class="card-cta">Ingresar al módulo <i class="ti ti-arrow-right"></i></span>
-        <span class="card-update">Actualizado</span>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Centro de Estudios del Desarrollo del <span>Área Metropolitana</span></h1>
+      <p>Investigación, monitoreo de indicadores socioeconómicos y análisis territorializado para el desarrollo urbano sustentable.</p>
+    </div>
+  </header>
+
+  <main class="section-container" id="portal-datos">
+    <h2 class="section-title">Portal de Datos Territoriales</h2>
+    
+    <div class="grid-categories">
+      <a href="#" class="category-card" onclick="navegarA('ocupacion')">
+        <div>
+          <div class="card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3>Ocupación e Ingresos</h3>
+          <p>Análisis de las tasas de empleo, niveles de ingreso y líneas de pobreza en la región metropolitana.</p>
+        </div>
+        <div class="card-footer">Explorar Matriz →</div>
+      </a>
+
+      <a href="#" class="category-card" onclick="navegarA('sociales')">
+        <div>
+          <div class="card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3>Indicadores Sociales</h3>
+          <p>Acceso a salud, educación, vulnerabilidad habitacional y canastas de consumo territorializadas.</p>
+        </div>
+        <div class="card-footer">Explorar Matriz →</div>
+      </a>
+
+      <a href="#" class="category-card" onclick="navegarA('inmobiliario')">
+        <div>
+          <div class="card-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <h3>Mercado Inmobiliario</h3>
+          <p>Evolución del valor del suelo, costo del metro cuadrado, dinámicas de alquileres y permisologías.</p>
+        </div>
+        <div class="card-footer">Explorar Matriz →</div>
+      </a>
+    </div>
+  </main>
+
+  <div class="press-bg" id="publicaciones">
+    <section class="section-container">
+      <h2 class="section-title">Columnas y Notas en Diarios</h2>
+      
+      <div class="grid-press">
+        <div class="press-card">
+          <div>
+            <div class="press-media">Infobae / Opinión</div>
+            <h4>El desafío del transporte interurbano en el AMBA</h4>
+            <p>Un desglose de las asimetrías tarifarias y la infraestructura necesaria para conectar los cordones periféricos.</p>
+          </div>
+          <a href="https://www.infobae.com" target="_blank" class="press-link">Leer artículo completo ↗</a>
+        </div>
+        
+        <div class="press-card">
+          <div>
+            <div class="press-media">Ámbito Financiero</div>
+            <h4>Mercado de alquileres: ¿Hacia dónde va el Sur metropolitano?</h4>
+            <p>Análisis estadístico basado en los relevamientos del centro sobre el impacto de la oferta constructiva.</p>
+          </div>
+          <a href="https://www.ambito.com" target="_blank" class="press-link">Leer artículo completo ↗</a>
+        </div>
       </div>
-    </a>
-
-    <!-- SECCIÓN 3: DEMOGRÁFICOS -->
-    <a class="card" href="Ind.Demograficos.html">
-      <div class="card-icon"><i class="ti ti-chart-pie"></i></div>
-      <div class="card-tag">Sección 03</div>
-      <div class="card-title">INDICADORES DEMOGRÁFICOS</div>
-      <p class="card-desc">Evolución poblacional, densidad demográfica, tasas de natalidad, mortalidad y distribución de habitantes por comuna.</p>
-      <div class="card-footer">
-        <span class="card-cta">Ingresar al módulo <i class="ti ti-arrow-right"></i></span>
-        <span class="card-update">Actualizado</span>
-      </div>
-    </a>
-
-    <!-- SECCIÓN 4: FISCALES -->
-    <a class="card" href="Ind.Fiscales.html">
-      <div class="card-icon"><i class="ti ti-building-bank"></i></div>
-      <div class="card-tag">Sección 04</div>
-      <div class="card-title">INDICADORES FISCALES</div>
-      <p class="card-desc">Seguimiento de la recaudación presupuestaria, inversión pública territorializada y ejecución de partidas presupuestarias.</p>
-      <div class="card-footer">
-        <span class="card-cta">Ingresar al módulo <i class="ti ti-arrow-right"></i></span>
-        <span class="card-update">Actualizado</span>
-      </div>
-    </a>
-
+    </section>
   </div>
-</div>
 
-<div class="bottom-strip">
-  <p>Fundación para el Desarrollo Humano Integral<span class="dot">·</span> Monitoreo Estratégico CABA <span class="dot">·</span> FDHI</p>
-  <p></p>
-</div>
+  <section class="section-container" id="informes">
+    <h2 class="section-title">Informes Técnicos y Documentos</h2>
+    
+    <div class="grid-reports">
+      <div class="report-card">
+        <div>
+          <div class="report-tag">PDF / Informe Anual</div>
+          <h4>Reporte de Desarrollo Humano Metropolitano 2026</h4>
+          <p>Compendio completo indexado con cruce de variables sociodemográficas y habitacionales.</p>
+        </div>
+        <a href="documentos/informe_anual_2026.pdf" download class="btn-download">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline; vertical-align:middle;"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+          Descargar PDF
+        </a>
+      </div>
+
+      <div class="report-card">
+        <div>
+          <div class="report-tag">PDF / Documento de Trabajo</div>
+          <h4>Incidencia Fiscal y Presupuesto por Comunas</h4>
+          <p>Metodología y resultados de la distribución del gasto público en el territorio analizado.</p>
+        </div>
+        <a href="documentos/incidencia_fiscal.pdf" download class="btn-download">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="display:inline; vertical-align:middle;"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+          Descargar PDF
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana. <br> Facultad de Ciencias Económicas (FCE).</p>
+  </footer>
 
 <script>
-const root = document.documentElement;
-const saved = localStorage.getItem('theme') || 'light';
-root.setAttribute('data-theme', saved);
+  function navegarA(destino) {
+    let nombreArchivo = "";
 
-function toggleDark() {
-  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  document.getElementById('dark-icon').textContent = next === 'dark' ? '☀️' : '🌙';
-}
+    if (destino === 'ocupacion') {
+      nombreArchivo = "Ind.Ocup.html"; 
+    } else if (destino === 'sociales') {
+      nombreArchivo = "Ind.Sociales.html";
+    } else if (destino === 'demograficos') {
+      nombreArchivo = "Ind.Demograficos.html";
+    } else if (destino === 'fiscales') {
+      nombreArchivo = "Ind.Fiscales.html";
+    } else if (destino === 'inmobiliario') {
+      nombreArchivo = "Mercado_inm.html";
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const icon = document.getElementById('dark-icon');
-  if (icon) icon.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
-});
+    const urlParams = new URLSearchParams(window.location.search);
+    const comunaActual = urlParams.get('comuna') || 'todas';
+
+    if (window.location.protocol === 'file:') {
+      window.location.href = nombreArchivo;
+    } else {
+      window.location.href = `${nombreArchivo}?comuna=${comunaActual}`;
+    }
+  }
 </script>
 </body>
 </html>
