@@ -3,874 +3,831 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana de Buenos Aires</title>
+  <title>CEDEAM — Centro de Estudios del Desarrollo del Área Metropolitana de Buenos Aires</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
-      --uba-azul: #002f56;
-      --uba-naranja: #f39200;
-      --uba-gris-bg: #f4f6f8;
-      --uba-texto: #333333;
-      --uba-texto-mutado: #666666;
-      --borde: #dddddd;
+      --bg-principal: #f8fafc;
       --blanco: #ffffff;
+      --texto-oscuro: #0f172a;
+      --texto-mutado: #475569;
+      --accent-deep: #1e3a8a; /* Azul noche profundo */
+      --accent-vivid: #0284c7; /* Azul cielo eléctrico */
+      --accent-warm: #f59e0b; /* Toque dorado sutil */
+      --borde-suave: #e2e8f0;
+      --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+      --shadow-hover: 0 20px 40px -4px rgba(15, 23, 42, 0.08);
     }
 
     body { 
-      font-family: 'Open Sans', sans-serif; 
-      background: var(--uba-gris-bg); 
-      color: var(--uba-texto); 
-      line-height: 1.6;
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background: var(--bg-principal); 
+      color: var(--texto-oscuro); 
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    /* BARRA SUPERIOR INSTITUCIONAL (ESTILO UBA ECONÓMICAS) */
-    .top-uba-bar {
-      background: #efefef;
-      border-bottom: 4px solid var(--uba-naranja);
-      padding: 0.5rem 2rem;
-    }
-    .top-uba-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
+    /* MINI BARRA INSTITUTIONAL */
+    .fce-badge-bar {
+      background: var(--texto-oscuro);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.75rem;
       font-weight: 600;
-      color: #555;
-    }
-    .top-uba-logo-text {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--uba-azul);
-    }
-    .top-uba-logo-text span {
-      color: var(--uba-naranja);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0.5rem 1rem;
     }
 
-    /* NAVBAR PRINCIPAL DEL CENTRO */
-    .navbar {
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    /* HEADER / NAVBAR MINIMALISTA */
+    .header-nav {
+      background: rgba(248, 250, 252, 0.85);
+      backdrop-filter: blur(20px);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--borde);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+      transition: all 0.3s ease;
     }
-    .navbar-container {
-      max-width: 1200px;
+    .nav-container {
+      max-width: 1300px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 1.5rem;
+      padding: 1.25rem 2rem;
     }
-    .brand-logo-container {
+    .brand-wrapper {
       display: flex;
       align-items: center;
       gap: 1rem;
-    }
-    .brand-logo {
-      height: 55px;
-      width: auto;
-      object-fit: contain;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .nav-link {
       text-decoration: none;
-      color: var(--uba-azul);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 0.5rem 0.75rem;
-      border-radius: 4px;
-      transition: all 0.2s;
+      color: var(--texto-oscuro);
     }
-    .nav-link:hover, .nav-link.active {
-      background: var(--uba-naranja);
-      color: var(--blanco);
+    .logo-img {
+      height: 45px;
+      width: auto;
+      border-radius: 6px;
+    }
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .menu-links {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .menu-item {
+      text-decoration: none;
+      color: var(--texto-mutado);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .menu-item:hover, .menu-item.active {
+      color: var(--accent-deep);
+      background: rgba(30, 58, 138, 0.05);
     }
 
-    /* HERO BANNER PRINCIPAL CON FACHADA FCE UBA */
-    .hero {
-      background: linear-gradient(rgba(0, 47, 86, 0.75), rgba(0, 47, 86, 0.85)), 
-                  url('https://economicas.uba.ar/wp-content/uploads/2016/09/fce_fachada.jpg') no-repeat center center;
-      background-size: cover;
-      color: var(--blanco);
-      padding: 5rem 2rem;
-      text-align: left;
-    }
-    .hero-content {
-      max-width: 1200px;
+    /* HERO EDITORIAL REFINADO */
+    .hero-editorial {
+      max-width: 1300px;
       margin: 0 auto;
+      padding: 7rem 2rem 5rem 2rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
     }
-    .hero h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 3.8rem;
+    @media(max-width: 968px) {
+      .hero-editorial { grid-template-columns: 1fr; padding-top: 4rem; gap: 2rem; }
+    }
+    .hero-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      line-height: 1;
+      line-height: 1.1;
+      color: var(--accent-deep);
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+    .hero-left p {
+      font-size: 1.25rem;
+      color: var(--texto-mutado);
+      font-weight: 400;
+      max-width: 650px;
+    }
+    .hero-right-decorative {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.04) 0%, rgba(2, 132, 199, 0.08) 100%);
+      border: 1px solid rgba(30, 58, 138, 0.1);
+      padding: 3rem;
+      border-radius: 24px;
+      position: relative;
+    }
+    .hero-right-decorative::before {
+      content: "“";
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      color: var(--accent-vivid);
+      opacity: 0.15;
+      position: absolute;
+      top: -20px;
+      left: 20px;
+    }
+    .hero-right-decorative h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--accent-deep);
+    }
+
+    /* CONTENEDORES Y BLOQUES MÁSTER */
+    .main-wrapper {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .content-section {
+      background: var(--blanco);
+      border-radius: 24px;
+      padding: 4rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(15, 23, 42, 0.02);
+    }
+    @media(max-width: 768px) { .content-section { padding: 2rem; } }
+    
+    .section-header {
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-vivid);
+      display: inline-block;
       margin-bottom: 0.5rem;
     }
-    .hero h2 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: var(--uba-naranja);
-      max-width: 800px;
+    .section-main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--accent-deep);
     }
 
-    /* ESTRUCTURA GENERAL DE SECCIONES */
-    .section-white {
-      background: var(--blanco);
-      border-bottom: 1px solid var(--borde);
-    }
-    .section-grey {
-      background: var(--uba-gris-bg);
-      border-bottom: 1px solid var(--borde);
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-    }
-    .section-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2.2rem;
-      color: var(--uba-azul);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      border-bottom: 3px solid var(--uba-naranja);
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    /* DISEÑO: ¿QUÉ ES EL CEDEAM? */
-    .cedeam-intro-p {
-      font-size: 1.15rem;
-      color: var(--uba-azul);
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    .objectives-grid {
+    /* GRID DE OBJETIVOS MODERNO */
+    .objectives-modern-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
     }
-    .objective-card {
-      background: #fafafa;
-      border: 1px solid var(--borde);
-      border-left: 5px solid var(--uba-azul);
-      padding: 1.25rem;
-      border-radius: 4px;
-      display: flex;
-      gap: 1rem;
+    .obj-modern-card {
+      padding: 2rem;
+      border-radius: 16px;
+      background: var(--bg-principal);
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
     }
-    .objective-num {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      color: var(--uba-naranja);
-      font-weight: 700;
-      line-height: 1;
+    .obj-modern-card:hover {
+      background: var(--blanco);
+      border-color: var(--borde-suave);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
     }
-    .highlight-box {
-      background: rgba(243, 146, 0, 0.08);
-      border-left: 5px solid var(--uba-naranja);
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      border-radius: 0 4px 4px 0;
+    .obj-index {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-style: italic;
+      color: var(--accent-vivid);
+      margin-bottom: 0.5rem;
     }
-    .highlight-box p {
-      margin-bottom: 0.75rem;
+    .obj-text {
+      font-size: 0.95rem;
+      color: var(--texto-oscuro);
       font-weight: 500;
     }
-    .highlight-box p:last-child { margin-bottom: 0; }
 
-    /* CATEGORÍAS EN ACCIONES / TEMAS DE ANÁLISIS */
-    .themes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    /* CALLOUT DE DESTACADOS (EVIDENCIA) */
+    .evidence-callout {
+      background: linear-gradient(to right, var(--accent-deep), #0f172a);
+      color: var(--blanco);
+      padding: 3rem;
+      border-radius: 20px;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
     }
-    .theme-card {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      padding: 1.5rem;
-      border-radius: 4px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    }
-    .theme-card h4 {
-      color: var(--uba-azul);
+    .evidence-p {
       font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 1px solid var(--borde);
-      padding-bottom: 0.25rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+      border-left: 3px solid var(--accent-warm);
+      padding-left: 1.5rem;
     }
-    .theme-card p {
-      font-size: 0.9rem;
-      color: var(--uba-texto-mutado);
+    .evidence-p:last-child { margin-bottom: 0; }
+
+    /* MOSAICO DE LÍNEAS DE INVESTIGACIÓN */
+    .research-mosaic {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .mosaic-card {
+      border: 1px solid var(--borde-suave);
+      padding: 2rem;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    .mosaic-card:hover {
+      border-color: var(--accent-deep);
+      box-shadow: var(--shadow-hover);
+    }
+    .mosaic-card h4 {
+      font-size: 1.1rem;
+      color: var(--accent-deep);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    .mosaic-card p {
+      font-size: 0.88rem;
+      color: var(--texto-mutado);
     }
 
-    /* PUBLICACIONES E INFORMES */
-    .pub-block {
-      margin-bottom: 2.5rem;
-    }
-    .pub-block h3 {
-      font-family: 'Oswald', sans-serif;
-      color: var(--uba-azul);
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-    }
-    .book-item {
-      background: #fdfdfd;
-      border: 1px solid var(--borde);
-      padding: 1.5rem;
-      border-radius: 4px;
-    }
-    .doc-list, .media-list {
-      list-style: none;
-    }
-    .doc-item {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      padding: 1rem 1.5rem;
-      margin-bottom: 0.75rem;
-      border-radius: 4px;
+    /* DISEÑO EDITORIAL PARA PUBLICACIONES */
+    .pub-category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--texto-oscuro);
+      margin: 2.5rem 0 1.5rem 0;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       gap: 1rem;
     }
-    .doc-info h5 {
-      font-size: 1.05rem;
-      color: var(--uba-texto);
+    .pub-category-title::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background: var(--borde-suave);
     }
-    .doc-info span {
+    .book-showcase {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 2.5rem;
+      border-radius: 16px;
+      border-left: 6px solid var(--accent-deep);
+    }
+    .paper-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--borde-suave);
+    }
+    .paper-item:last-child { border-bottom: none; }
+    .paper-meta {
       font-size: 0.8rem;
-      color: var(--uba-texto-mutado);
+      font-weight: 700;
+      color: var(--accent-vivid);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
     }
-    .btn-download {
-      background: var(--uba-azul);
-      color: var(--blanco);
-      text-decoration: none;
-      padding: 0.4rem 1rem;
-      font-size: 0.85rem;
+    .paper-title {
+      font-size: 1.05rem;
       font-weight: 600;
-      border-radius: 4px;
-      white-space: nowrap;
-      transition: background 0.2s;
+      color: var(--texto-oscuro);
     }
-    .btn-download:hover { background: #001f38; }
-
-    .coyuntura-box {
-      background: #f0f4f8;
-      border: 1px solid var(--borde);
-      padding: 1.5rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
+    .btn-minimal-download {
+      color: var(--accent-deep);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 1px solid var(--accent-deep);
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .btn-minimal-download:hover {
+      background: var(--accent-deep);
+      color: var(--blanco);
     }
 
-    /* SECCIÓN MEDIOS DE PRENSA */
-    .media-grid {
+    /* MEDIOS GRID (DISEÑO REVISTA) */
+    .media-magazine-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
-    .media-card {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      padding: 1.25rem;
-      border-radius: 4px;
+    .media-magazine-card {
+      border-bottom: 2px solid var(--borde-suave);
+      padding-bottom: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s;
     }
-    .media-card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    .media-card a {
-      color: var(--uba-azul);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;
-      word-break: break-all;
+    .media-magazine-card:hover {
+      border-bottom-color: var(--accent-vivid);
+    }
+    .media-source {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--texto-mutated);
+      text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: 0.5rem;
     }
-    .media-card a:hover { color: var(--uba-naranja); text-decoration: underline; }
-    .media-date {
-      font-size: 0.8rem;
-      color: var(--uba-texto-mutado);
-      font-weight: bold;
+    .media-magazine-card a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--texto-oscuro);
+      text-decoration: none;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
     }
+    .media-magazine-card a:hover { color: var(--accent-vivid); }
 
-    /* EVENTOS Y CONGRESOS */
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    /* CARDS DE EVENTOS */
+    .events-flex {
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
     }
-    .event-card {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      border-top: 4px solid var(--uba-naranja);
-      padding: 1.5rem;
-      border-radius: 4px;
+    .event-strip {
+      background: var(--bg-principal);
+      padding: 2rem;
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      align-items: center;
+      gap: 2rem;
     }
-    .event-card h4 {
-      color: var(--uba-azul);
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+    @media(max-width: 600px) { .event-strip { grid-template-columns: 1fr; gap: 1rem; } }
+    .event-date-box {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--accent-deep);
+      font-weight: 700;
+      border-right: 2px solid var(--borde-suave);
+      padding-right: 1rem;
     }
-    .event-days {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .day-badge {
-      background: var(--uba-gris-bg);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border-radius: 4px;
-      border: 1px solid var(--borde);
+    @media(max-width: 600px) { .event-date-box { border-right: none; border-bottom: 2px solid var(--borde-suave); padding-bottom: 0.5rem; } }
+
+    /* SECCIÓN COMPARTIDA GEIAL */
+    .geial-premium-card {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(30, 58, 138, 0.02) 100%);
+      border: 1px dashed var(--accent-vivid);
+      padding: 3rem;
+      border-radius: 20px;
     }
 
-    /* COLABORACIÓN GEIAL */
-    .geial-box {
-      background: linear-gradient(135deg, #ffffff 0%, #f4f6f8 100%);
-      border: 1px solid var(--borde);
-      padding: 2rem;
-      border-radius: 6px;
-    }
-    .geial-badge {
-      background: var(--uba-azul);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      width: fit-content;
-      margin-bottom: 1rem;
-      border-radius: 4px;
-    }
-
-    /* QUIÉNES SOMOS (CON MATRIZ DE AUTORIDADES SEGÚN SE REQUIRIÓ) */
-    .staff-container {
-      margin-top: 2rem;
-    }
-    .director-block {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      padding: 2rem;
-      border-radius: 6px;
+    /* SECCIÓN EQUIPO HUMANO (MÁS LIMPIO Y MODERNO) */
+    .director-wrapper {
       text-align: center;
-      max-width: 400px;
-      margin: 0 auto 3rem auto;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      margin-bottom: 4rem;
     }
-    .avatar-placeholder {
-      width: 100px;
-      height: 100px;
-      background: #e1e7ec;
-      border-radius: 50%;
-      margin: 0 auto 1rem auto;
+    .director-avatar-clean {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, var(--accent-deep), var(--accent-vivid));
+      color: var(--blanco);
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--uba-azul);
-      font-size: 2.5rem;
-      font-weight: bold;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.3);
     }
-    .director-block h4 {
-      font-size: 1.25rem;
-      color: var(--uba-azul);
-    }
-    .director-block span {
-      color: var(--uba-naranja);
-      font-weight: bold;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-    .team-section h3 {
-      font-family: 'Oswald', sans-serif;
-      text-align: center;
-      color: var(--uba-azul);
-      margin-bottom: 1.5rem;
-      font-size: 1.6rem;
-    }
-    .team-grid {
+    .team-clean-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
     }
-    .team-member {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      padding: 1rem;
-      border-radius: 4px;
+    .member-clean-card {
+      background: var(--bg-principal);
+      padding: 1.25rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
       text-align: center;
+      color: var(--texto-oscuro);
+    }
+
+    /* SECCIÓN CONTACTO MINIMALISTA */
+    .contact-clean-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+    }
+    @media(max-width: 850px) { .contact-clean-layout { grid-template-columns: 1fr; gap: 2rem; } }
+    
+    .info-column h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--accent-deep);
+      margin-bottom: 1.5rem;
+    }
+    .info-row-item {
+      margin-bottom: 1.5rem;
+    }
+    .info-row-item label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-vivid);
+      margin-bottom: 0.25rem;
+    }
+    .info-row-item p, .info-row-item a {
+      font-size: 1rem;
+      color: var(--texto-oscuro);
+      text-decoration: none;
       font-weight: 500;
     }
 
-    /* CONTACTO */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+    .form-clean-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
     }
-    @media(max-width: 768px) {
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    .contact-info-card {
-      background: var(--uba-azul);
-      color: white;
-      padding: 2rem;
-      border-radius: 6px;
-    }
-    .contact-info-card h4 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      color: var(--uba-naranja);
-      margin-bottom: 1.5rem;
-    }
-    .contact-item {
-      margin-bottom: 1rem;
-    }
-    .contact-item strong {
-      display: block;
-      color: #9abfdc;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-    }
-    .contact-form {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      padding: 2rem;
-      border-radius: 6px;
-    }
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-    .form-group input, .form-group textarea {
+    .clean-input {
       width: 100%;
-      padding: 0.5rem;
-      border: 1px solid var(--borde);
-      border-radius: 4px;
+      padding: 1rem;
+      background: var(--bg-principal);
+      border: 1px solid transparent;
+      border-radius: 12px;
       font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.2s;
     }
-    .btn-submit {
-      background: var(--uba-naranja);
-      color: white;
+    .clean-input:focus {
+      outline: none;
+      background: var(--blanco);
+      border-color: var(--accent-vivid);
+      box-shadow: var(--shadow-soft);
+    }
+    .btn-clean-submit {
+      background: var(--accent-deep);
+      color: var(--blanco);
       border: none;
-      padding: 0.6rem 1.5rem;
-      font-weight: bold;
-      border-radius: 4px;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      border-radius: 12px;
       cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s;
     }
+    .btn-clean-submit:hover { background: #0f255c; }
 
-    /* FOOTER INSTITUCIONAL */
-    footer {
-      background: #111111;
-      color: #aaaaaa;
-      padding: 3rem 2rem;
+    /* FOOTER EDITORIAL */
+    .footer-editorial {
+      background: #090d16;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 4rem 2rem;
       text-align: center;
       font-size: 0.85rem;
-      border-top: 5px solid var(--uba-azul);
     }
-    footer a { color: var(--blanco); text-decoration: none; }
+    .footer-editorial strong { color: var(--blanco); }
   </style>
 </head>
 <body>
 
-  <!-- BARRA SUPERIOR UBA ECONÓMICAS -->
-  <div class="top-uba-bar">
-    <div class="top-uba-container">
-      <div class="top-uba-logo-text">.UBA<span>ECONÓMICAS</span></div>
-      <div>FACULTAD DE CIENCIAS ECONÓMICAS</div>
-    </div>
-  </div>
+  <!-- BARRA DE PERTENENCIA -->
+  <div class="fce-badge-bar">Facultad de Ciencias Económicas — Universidad de Buenos Aires</div>
 
-  <!-- NAVBAR CON LOGO PROPIO DEL CENTRO -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="brand-logo-container">
-        <!-- El script buscará tu archivo local 'logo cedeam.jfif' -->
-        <img src="logo cedeam.jfif" alt="Logo CEDEAM" class="brand-logo" onerror="this.style.display='none'">
-        <div style="font-family:'Oswald', sans-serif; font-size: 1.5rem; font-weight:700; color:var(--uba-azul);">CEDEAM</div>
-      </div>
-      <div class="nav-links">
-        <a href="#que-es" class="nav-link">¿Qué es?</a>
-        <a href="#informes" class="nav-link">Publicaciones</a>
-        <a href="#medios" class="nav-link">En los Medios</a>
-        <a href="#eventos" class="nav-link">Eventos</a>
-        <a href="#geial" class="nav-link">GEIAL</a>
-        <a href="#quienes-somos" class="nav-link">Quiénes Somos</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO PRINCIPAL -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>CEDEAM</h1>
-      <h2>Centro de Estudios del Desarrollo del Área Metropolitana de Buenos Aires (AMBA)</h2>
+  <!-- MENU / NAVBAR -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="#" class="brand-wrapper">
+        <img src="logo cedeam.jfif" alt="Logo CEDEAM" class="logo-img" onerror="this.style.display='none'">
+        <div class="brand-title">CEDEAM</div>
+      </a>
+      <nav class="menu-links">
+        <a href="#concepto" class="menu-item">El Centro</a>
+        <a href="#produccion" class="menu-item">Publicaciones</a>
+        <a href="#prensa" class="menu-item">Medios</a>
+        <a href="#agenda" class="menu-item">Eventos</a>
+        <a href="#equipo" class="menu-item">Quiénes Somos</a>
+        <a href="#buzon" class="menu-item">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <!-- SECCIÓN 1: ¿QUÉ ES EL CEDEAM? -->
-  <div class="section-white" id="que-es">
-    <section class="container">
-      <h2 class="section-title">¿Qué es el CEDEAM?</h2>
-      <p class="cedeam-intro-p">El CEDEAM es un Centro de Estudios que aborda el desarrollo económico del Área Metropolitana de Buenos Aires (AMBA).</p>
+  <!-- SECCIÓN HERO CON ESTILO EDITORIAL -->
+  <section class="hero-editorial">
+    <div class="hero-left">
+      <h1>Monitoreo &<br>Desarrollo Territorial</h1>
+      <p>Investigación aplicada y sistematización estadística estratégica para el entramado productivo, PyMEs y dinámicas sociodemográficas del Área Metropolitana de Buenos Aires[cite: 1].</p>
+    </div>
+    <div class="hero-right-decorative">
+      <h3>Evidencia para el Territorio</h3>
+      <p style="font-size: 0.9rem; color: var(--texto-mutado);">Abordamos integralmente el desarrollo económico y la renta urbana con metodologías rigurosas y de libre acceso público[cite: 1].</p>
+    </div>
+  </section>
+
+  <!-- CONTENEDOR MAESTRO -->
+  <main class="main-wrapper">
+
+    <!-- ¿QUÉ ES EL CEDEAM? -->
+    <article class="content-section" id="concepto">
+      <div class="section-header">
+        <span class="section-tag">Naturaleza Institucional</span>
+        <h2 class="section-main-title">¿Qué es el CEDEAM?</h2>
+      </div>
+      <p style="font-size: 1.2rem; color: var(--accent-deep); margin-bottom: 2.5rem; font-weight: 500;">
+        El CEDEAM es un Centro de Estudios que aborda el desarrollo económico del Área Metropolitana de Buenos Aires (AMBA)[cite: 1].
+      </p>
+
+      <h3 style="margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Objetivos Fundamentales</h3>
+      <div class="objectives-modern-grid">
+        <div class="obj-modern-card"><div class="obj-index">01</div><div class="obj-text">Producir informes sobre las problemáticas y potencialidades del AMBA[cite: 1].</div></div>
+        <div class="obj-modern-card"><div class="obj-index">02</div><div class="obj-text">Generar información primaria a través de la implementación de encuestas[cite: 1].</div></div>
+        <div class="obj-modern-card"><div class="obj-index">03</div><div class="obj-text">Sistematizar información estadística secundaria sobre el entramado miPyME haciendo especial hincapié en los emprendimientos[cite: 1].</div></div>
+        <div class="obj-modern-card"><div class="obj-index">04</div><div class="obj-text">Contribuir a la formación de alumnos, docentes, investigadores y funcionarios de gobierno[cite: 1].</div></div>
+        <div class="obj-modern-card"><div class="obj-index">05</div><div class="obj-text">Difundir y debatir las temáticas abordadas con distintos actores[cite: 1].</div></div>
+        <div class="obj-modern-card"><div class="obj-index">06</div><div class="obj-text">Realizar actividades de transferencia de conocimiento[cite: 1].</div></div>
+      </div>
+
+      <div class="evidence-callout">
+        <p class="evidence-p">▶ Las políticas públicas requieren basarse en evidencia. En Argentina, aún es necesario fortalecer la disponibilidad de información sobre empresas y el sector productivo[cite: 1].</p>
+        <p class="evidence-p">▶ Se propone desarrollar un sistema de información sobre emprendimientos y MiPyMEs que genere y difunda datos relevantes para mejorar el diseño, implementación y evaluación de políticas[cite: 1].</p>
+      </div>
+
+      <h3 style="margin: 4rem 0 1.5rem 0; font-family: 'Playfair Display', serif; font-size: 1.5rem;">Líneas de Investigación Temática</h3>
+      <div class="research-mosaic">
+        <div class="mosaic-card">
+          <h4>Financiamiento</h4>
+          <p>Acceso al crédito para MiPyMEs, inclusión financiera y programas públicos de asistencia productiva[cite: 1].</p>
+        </div>
+        <div class="mosaic-card">
+          <h4>Demografía Empresarial</h4>
+          <p>Dinámica de creación de nuevas firmas y cálculo del capital inicial para la puesta en marcha de negocios[cite: 1].</p>
+        </div>
+        <div class="mosaic-card">
+          <h4>Desarrollo Sostenible</h4>
+          <p>Modelos de negocio sostenibles en PyMEs que equilibren rentabilidad con impacto social y ambiental[cite: 1].</p>
+        </div>
+        <div class="mosaic-card">
+          <h4>Género e Inclusión</h4>
+          <p>Comprensión profunda del rol, posición y desafíos de las mujeres dentro del universo empresarial PyME[cite: 1].</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- PUBLICACIONES E INFORMES -->
+    <article class="content-section" id="produccion">
+      <div class="section-header">
+        <span class="section-tag">Repositorio Académico</span>
+        <h2 class="section-main-title">Publicaciones e Informes</h2>
+      </div>
+
+      <div class="pub-category-title">Libros Editados</div>
+      <div class="book-showcase">
+        <span style="font-size:0.75rem; font-weight:700; color:var(--accent-vivid); text-transform:uppercase;">Novedad Editorial (2025)[cite: 1]</span>
+        <h4 style="font-family:'Playfair Display', serif; font-size:1.4rem; color:var(--accent-deep); margin:0.5rem 0;">La ciudad posible: Innovación y política[cite: 1]</h4>
+        <p style="font-size:0.95rem; color:var(--texto-mutado);">Sánchez, R. (Comp.). Editorial Punto de Encuentro[cite: 1].</p>
+      </div>
+
+      <div class="pub-category-title">Documentos de Trabajo</div>
+      <div class="papers-list">
+        <div class="paper-item">
+          <div>
+            <div class="paper-meta">Junio 2023[cite: 1]</div>
+            <div class="paper-title">El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente[cite: 1].</div>
+          </div>
+          <a href="#" class="btn-minimal-download">Ver Documento</a>
+        </div>
+        <div class="paper-item">
+          <div>
+            <div class="paper-meta">Enero 2024[cite: 1]</div>
+            <div class="paper-title">Creación de empresas en el AMBA: realidades, oportunidades, desafíos y propuestas[cite: 1].</div>
+          </div>
+          <a href="#" class="btn-minimal-download">Ver Documento</a>
+        </div>
+        <div class="paper-item">
+          <div>
+            <div class="paper-meta">Julio 2024[cite: 1]</div>
+            <div class="paper-title">Los Distritos Económicos de la Ciudad Autónoma de Buenos Aires. Historia y resultados de la política pública[cite: 1].</div>
+          </div>
+          <a href="#" class="btn-minimal-download">Ver Documento</a>
+        </div>
+        <div class="paper-item">
+          <div>
+            <div class="paper-meta">Septiembre 2024[cite: 1]</div>
+            <div class="paper-title">Situación laboral en la Ciudad de Buenos Aires[cite: 1].</div>
+          </div>
+          <a href="#" class="btn-minimal-download">Ver Documento</a>
+        </div>
+      </div>
+
+      <div class="pub-category-title">Monitoreo de Coyuntura Económica</div>
+      <div style="background: var(--bg-principal); padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+        <p style="font-size:0.95rem; color:var(--texto-mutado); margin-bottom: 1rem;">Desarrollado en conjunto con el <strong>Centro de Economía Política Argentina (CEPA)</strong>, este informe ofrece un termómetro trimestral de la actividad económica, empleo, consumo y cuentas públicas de la Ciudad de Buenos Aires[cite: 1].</p>
+        <div class="paper-item" style="padding: 1rem 0 0 0; border: none;">
+          <div>
+            <div class="paper-meta" style="color:var(--accent-warm);">Tercer Trimestre 2025[cite: 1]</div>
+            <div class="paper-title" style="font-weight:700;">Indicadores de la Economía Porteña en un contexto de alta incertidumbre[cite: 1]</div>
+          </div>
+          <a href="#" class="btn-minimal-download" style="border-color:var(--accent-warm); color:var(--accent-warm);">Descargar Reporte</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- EN LOS MEDIOS -->
+    <article class="content-section" id="prensa">
+      <div class="section-header">
+        <span class="section-tag">Divulgación y Opinión</span>
+        <h2 class="section-main-title">En los Medios</h2>
+      </div>
+      <div class="media-magazine-grid">
+        <div class="media-magazine-card">
+          <span class="media-source">Página/12 — 15/09/2023[cite: 1]</span>
+          <a href="https://www.pagina12.com.ar/588201-los-exterminadores-de-las-industrias" target="_blank">Los exterminadores de las industrias[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">El Economista — 15/09/2023[cite: 1]</span>
+          <a href="https://eleconomista.com.ar/economia/la-ciudad-buenos-aires-perdio-195-sus-empresas-industriales-2008-2021-n66304" target="_blank">La CABA perdió 19,5% de sus empresas industriales[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Página/12 — 11/06/2023[cite: 1]</span>
+          <a href="https://www.pagina12.com.ar/556119-la-ciudad-expulsiva-que-diseno-el-gobierno-del-pro" target="_blank">La ciudad expulsiva que diseñó el gobierno del PRO[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Télam[cite: 1]</span>
+          <a href="https://www.telam.com.ar/notas/202308/635810-subte-caba-larreta.html" target="_blank">Análisis de infraestructura y transporte subterráneo[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Infobae — 06/03/2024[cite: 1]</span>
+          <a href="https://www.infobae.com/opinion/2024/03/06/es-momento-de-cuidar-mas-que-nunca-a-las-pymes-y-a-los-emprendedores/" target="_blank">Es momento de cuidar más que nunca a las pymes y emprendedores[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">El Cronista — 16/04/2024[cite: 1]</span>
+          <a href="https://www.cronista.com/columnistas/impuesto-a-las-ganancias-aniquilar-a-la-clase-media" target="_blank">Impuesto a las Ganancias y el impacto en clase media[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Ciudad Imaginaria — 17/07/2024[cite: 1]</span>
+          <a href="https://ciudadimaginaria.com.ar/2024/07/17/los-distritos-economicos-en-la-ciudad-de-buenos-aires-historia-y-resultados-de-la-politica-publica/" target="_blank">Los distritos económicos en la Ciudad de Buenos Aires[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">El Cronista — 16/07/2024[cite: 1]</span>
+          <a href="https://www.cronista.com/columnistas/politicas-productivas-de-la-ciudad-discontinuidad-y-magros-resultados/" target="_blank">Políticas productivas locales y discontinuidades[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">El Cronista — 03/10/2024[cite: 1]</span>
+          <a href="https://www.cronista.com/columnistas/la-coparticipacion-y-el-debate-tributario-en-la-ciudad/" target="_blank">La coparticipación y el debate tributario[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Página/12 — 04/10/2024[cite: 1]</span>
+          <a href="https://www.pagina12.com.ar/772514-repensar-el-sistema-contributivo-argentino-se-celebro-el-1-e" target="_blank">Repensar el sistema contributivo argentino[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">El Grito del Sur — 22/07/2025[cite: 1]</span>
+          <a href="https://elgritodelsur.com.ar/2025/07/la-ciudad-sin-estrategia-adios-a-desarrollo-economico-hola-agencia-bienes/" target="_blank">La ciudad sin estrategia de desarrollo productivo[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">iProfesional — 29/08/2025[cite: 1]</span>
+          <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnológica" target="_blank">Buenos Aires y su retroceso en innovación tecnológica[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Motor Económico — 24/01/2026[cite: 1]</span>
+          <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank">Cómo hacer de CABA una ciudad más equitativa[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Página/12 — 30/01/2026[cite: 1]</span>
+          <a href="https://www.pagina12.com.ar/2026/01/29/quien-mas-pierde-con-la-reforma/" target="_blank">Quién más pierde con la reforma[cite: 1]</a>
+        </div>
+        <div class="media-magazine-card">
+          <span class="media-source">Página/12 — 25/02/2026[cite: 1]</span>
+          <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad/" target="_blank">La gastronomía afectada en la Ciudad[cite: 1]</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- AGENDA DE EVENTOS -->
+    <article class="content-section" id="agenda">
+      <div class="section-header">
+        <span class="section-tag">Espacios de Encuentro</span>
+        <h2 class="section-main-title">Eventos y Congresos</h2>
+      </div>
+      <div class="events-flex">
+        <div class="event-strip">
+          <div class="event-date-box">Anual[cite: 1]</div>
+          <div>
+            <h4 style="font-size: 1.2rem; color: var(--accent-deep); margin-bottom: 0.25rem;">Congreso Tributario Internacional[cite: 1]</h4>
+            <p style="font-size:0.9rem; color:var(--texto-mutado);">Paneles académicos y profesionales dedicados al debate y análisis de estructuras impositivas.</p>
+          </div>
+        </div>
+        <div class="event-strip">
+          <div class="event-date-box">Marzo 2025[cite: 1]</div>
+          <div>
+            <h4 style="font-size: 1.2rem; color: var(--accent-deep); margin-bottom: 0.25rem;">Primer Congreso de Mujeres Líderes[cite: 1]</h4>
+            <p style="font-size:0.9rem; color:var(--texto-mutado);">Bajo la consigna <strong>“Liderazgo femenino, desafíos y oportunidades”</strong>[cite: 1].</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VÍNCULO GEIAL -->
+      <div class="geial-premium-card" style="margin-top: 3rem;">
+        <span style="font-size: 0.75rem; font-weight: 800; background: var(--accent-deep); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; text-transform: uppercase;">Alianza Regional 2026[cite: 1]</span>
+        <h4 style="font-family:'Playfair Display', serif; font-size:1.5rem; margin:1rem 0 0.5rem 0; color:var(--accent-deep);">Medición del Ecosistema Emprendedor con GEIAL[cite: 1]</h4>
+        <p style="font-size:0.95rem; color:var(--texto-mutado);">Durante 2026, el CEDEAM lidera el relevamiento aplicado en la Ciudad de Buenos Aires en vinculación con GEIAL, integrándonos a una red regional de más de 30 ecosistemas y 80 organizaciones de América Latina[cite: 1].</p>
+      </div>
+    </article>
+
+    <!-- QUIÉNES SOMOS -->
+    <article class="content-section" id="equipo">
+      <div class="section-header">
+        <span class="section-tag">Cuerpo Técnico</span>
+        <h2 class="section-main-title">¿Quiénes Somos?</h2>
+      </div>
       
-      <h3>Nuestros Objetivos:</h3>
-      <div class="objectives-grid">
-        <div class="objective-card">
-          <div class="objective-num">1</div>
-          <div>Producir informes sobre las problemáticas y potencialidades del AMBA.</div>
-        </div>
-        <div class="objective-card">
-          <div class="objective-num">2</div>
-          <div>Generar información primaria a través de la implementación de encuestas.</div>
-        </div>
-        <div class="objective-card">
-          <div class="objective-num">3</div>
-          <div>Sistematizar información estadística secundaria sobre el entramado miPyME haciendo especial hincapié en los emprendimientos.</div>
-        </div>
-        <div class="objective-card">
-          <div class="objective-num">4</div>
-          <div>Contribuir a la formación de alumnos, docentes, investigadores y funcionarios de gobierno.</div>
-        </div>
-        <div class="objective-card">
-          <div class="objective-num">5</div>
-          <div>Difundir y debatir las temáticas abordadas con distintos actores.</div>
-        </div>
-        <div class="objective-card">
-          <div class="objective-num">6</div>
-          <div>Realizar actividades de transferencia de conocimiento.</div>
-        </div>
+      <div class="director-wrapper">
+        <div class="director-avatar-clean">RS</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--accent-deep);">Dr. Raúl Oscar Sánchez[cite: 1]</h3>
+        <p style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--accent-warm); letter-spacing: 1px;">Director General[cite: 1]</p>
       </div>
 
-      <div class="highlight-box">
-        <p>▶ Las políticas públicas requieren basarse en evidencia. En Argentina, aún es necesario fortalecer la disponibilidad de información sobre empresas y el sector productivo.</p>
-        <p>▶ Se propone desarrollar un sistema de información sobre emprendimientos y MiPyMEs que genere y difunda datos relevantes para mejorar el diseño, implementación y evaluación de políticas.</p>
+      <h4 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; text-align: center; margin-bottom: 1.5rem; color: var(--texto-oscuro);">Investigadores e Integrantes del Centro[cite: 1]</h4>
+      <div class="team-clean-grid">
+        <div class="member-clean-card">Lic. Sofía Rojo[cite: 1]</div>
+        <div class="member-clean-card">Lic. Alan Plummer[cite: 1]</div>
+        <div class="member-clean-card">Lic. Alejandra Vivas[cite: 1]</div>
+        <div class="member-clean-card">Lic. H. Javier Peralta[cite: 1]</div>
+        <div class="member-clean-card">Lic. Nahuel March Ríos[cite: 1]</div>
+        <div class="member-clean-card">Lic. Matías Piccolo[cite: 1]</div>
+        <div class="member-clean-card">Lic. Pablo Barreto[cite: 1]</div>
+        <div class="member-clean-card">Lic. Sabrina Canelas[cite: 1]</div>
+        <div class="member-clean-card">Lic. Victoria Quayat[cite: 1]</div>
       </div>
+    </article>
 
-      <h3 style="margin-top:2.5rem; color:var(--uba-azul);">Principales Acciones:</h3>
-      <div class="themes-grid">
-        <div class="theme-card"><h4>Monitoreo</h4><p>Generación de indicadores sobre problemáticas empresariales, actividad, empleo y exportaciones.</p></div>
-        <div class="theme-card"><h4>Investigación</h4><p>Elaboración de publicaciones científicas y académicas.</p></div>
-        <div class="theme-card"><h4>Relevamiento</h4><p>Realización de encuestas estructuradas en el territorio.</p></div>
-        <div class="theme-card"><h4>Divulgación</h4><p>Elaboración de informes, gacetillas y difusión de resultados en medios de prensa.</p></div>
+    <!-- CONTACTO -->
+    <article class="content-section" id="buzon">
+      <div class="section-header">
+        <span class="section-tag">Comunicación</span>
+        <h2 class="section-main-title">Contacto</h2>
       </div>
-
-      <h3 style="margin-top:2.5rem; color:var(--uba-azul);">Publicaciones y Temas de Análisis:</h3>
-      <div class="themes-grid">
-        <div class="theme-card">
-          <h4>Financiamiento e Inclusión</h4>
-          <p>Acceso al financiamiento para MiPyMEs e inclusión financiera. Políticas públicas de asistencia con foco en el acceso al crédito.</p>
-        </div>
-        <div class="theme-card">
-          <h4>Dinámica Empresarial</h4>
-          <p>Demografía empresarial y dinámica de creación de nuevas firmas. Estimación de requisitos de capital inicial para la puesta en marcha.</p>
-        </div>
-        <div class="theme-card">
-          <h4>Territorio y Sustentabilidad</h4>
-          <p>Análisis de renta urbana. Sostenibilidad en PyMEs: promoción de modelos de negocio con impacto positivo en sociedad, empresa y ambiente.</p>
-        </div>
-        <div class="theme-card">
-          <h4>Evaluación e Inclusión</h4>
-          <p>Medición de impacto de programas dirigidos a PyMEs. Rol del Estado en desarrollo urbano. Inclusión de género y posición de las mujeres en el sector.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- SECCIÓN 2: PUBLICACIONES E INFORMES -->
-  <div class="section-grey" id="informes">
-    <section class="container">
-      <h2 class="section-title">Publicaciones e Informes</h2>
-      
-      <!-- Libros -->
-      <div class="pub-block">
-        <h3>Libros</h3>
-        <div class="book-item">
-          <strong>Sánchez, R. (Comp.). (2025).</strong> <em>La ciudad posible: Innovación y política.</em> Punto de Encuentro.
-        </div>
-      </div>
-
-      <!-- Documentos de Trabajo -->
-      <div class="pub-block">
-        <h3>Documentos de Trabajo</h3>
-        <ul class="doc-list">
-          <li class="doc-item">
-            <div class="doc-info">
-              <h5>El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente.</h5>
-              <span>Junio 2023</span>
-            </div>
-            <a href="#" class="btn-download">PDF</a>
-          </li>
-          <li class="doc-item">
-            <div class="doc-info">
-              <h5>Creación de empresas en el AMBA: realidades, oportunidades, desafíos y propuestas</h5>
-              <span>Enero 2024</span>
-            </div>
-            <a href="#" class="btn-download">PDF</a>
-          </li>
-          <li class="doc-item">
-            <div class="doc-info">
-              <h5>Los Distritos Económicos de la Ciudad Autónoma de Buenos Aires. Historia y resultados de la política pública</h5>
-              <span>Julio 2024</span>
-            </div>
-            <a href="#" class="btn-download">PDF</a>
-          </li>
-          <li class="doc-item">
-            <div class="doc-info">
-              <h5>Situación laboral en la Ciudad de Buenos Aires</h5>
-              <span>Septiembre 2024</span>
-            </div>
-            <a href="#" class="btn-download">PDF</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Informes de Coyuntura -->
-      <div class="pub-block">
-        <h3>Informes de Coyuntura Económica</h3>
-        <div class="coyuntura-box">
-          <p>Desde el CEDEAM, en conjunto con el Centro de Economía Política Argentina (CEPA), desarrollamos este informe que busca ofrecer un termómetro del funcionamiento de la economía de la Ciudad de Buenos Aires.</p>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--uba-texto-mutado);">Este material se elaborará con una periodicidad trimestral, con el objetivo de brindar un diagnóstico preciso y actualizado sobre la evolución de la actividad económica porteña...</p>
-        </div>
-        <ul class="doc-list">
-          <li class="doc-item" style="border-left: 5px solid var(--uba-naranja);">
-            <div class="doc-info">
-              <h5>Tercer Trimestre 2025: Indicadores de la Economía Porteña</h5>
-              <p style="font-size:0.85rem; color: var(--uba-texto-mutado);">Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre</p>
-            </div>
-            <a href="#" class="btn-download" style="background:var(--uba-naranja);">Descargar</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </div>
-
-  <!-- SECCIÓN 3: EN LOS MEDIOS -->
-  <div class="section-white" id="medios">
-    <section class="container">
-      <h2 class="section-title">En los Medios</h2>
-      <div class="media-grid">
-        <div class="media-card">
-          <a href="https://www.pagina12.com.ar/588201-los-exterminadores-de-las-industrias" target="_blank">Los exterminadores de las industrias</a>
-          <div class="media-date">Página/12 — 15/09/2023</div>
-        </div>
-        <div class="media-card">
-          <a href="https://eleconomista.com.ar/economia/la-ciudad-buenos-aires-perdio-195-sus-empresas-industriales-2008-2021-n66304" target="_blank">La Ciudad de Buenos Aires perdió 19,5% de sus empresas industriales entre 2008 y 2021</a>
-          <div class="media-date">El Economista — 15/09/2023</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.pagina12.com.ar/556119-la-ciudad-expulsiva-que-diseno-el-gobierno-del-pro" target="_blank">La ciudad expulsiva que diseñó el gobierno del PRO</a>
-          <div class="media-date">Página/12 — 11/06/2023</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.telam.com.ar/notas/202308/635810-subte-caba-larreta.html" target="_blank">Análisis sobre la infraestructura del Subte en CABA</a>
-          <div class="media-date">Télam — Agosto 2023</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.infobae.com/opinion/2024/03/06/es-momento-de-cuidar-mas-que-nunca-a-las-pymes-y-a-los-emprendedores/" target="_blank">Es momento de cuidar más que nunca a las pymes y a los emprendedores</a>
-          <div class="media-date">Infobae — 06/03/2024</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.cronista.com/columnistas/impuesto-a-las-ganancias-aniquilar-a-la-clase-media" target="_blank">Impuesto a las Ganancias: aniquilar a la clase media</a>
-          <div class="media-date">El Cronista — 16/04/2024</div>
-        </div>
-        <div class="media-card">
-          <a href="https://ciudadimaginaria.com.ar/2024/07/17/los-distritos-economicos-en-la-ciudad-de-buenos-aires-historia-y-resultados-de-la-politica-publica/" target="_blank">Los distritos económicos en la Ciudad de Buenos Aires</a>
-          <div class="media-date">Ciudad Imaginaria — 17/07/2024</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.cronista.com/columnistas/politicas-productivas-de-la-ciudad-discontinuidad-y-magros-resultados/" target="_blank">Políticas productivas de la Ciudad: discontinuidad y magros resultados</a>
-          <div class="media-date">El Cronista — 16/07/2024</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.cronista.com/columnistas/la-coparticipacion-y-el-debate-tributario-en-la-ciudad/" target="_blank">La coparticipación y el debate tributario en la Ciudad</a>
-          <div class="media-date">El Cronista — 03/10/2024</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.pagina12.com.ar/772514-repensar-el-sistema-contributivo-argentino-se-celebro-el-1-e" target="_blank">Repensar el sistema contributivo argentino</a>
-          <div class="media-date">Página/12 — 04/10/2024</div>
-        </div>
-        <div class="media-card">
-          <a href="https://elgritodelsur.com.ar/2025/07/la-ciudad-sin-estrategia-adios-a-desarrollo-economico-hola-agencia-bienes/" target="_blank">La ciudad sin estrategia: adiós a Desarrollo Económico</a>
-          <div class="media-date">El Grito del Sur — 22/07/2025</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnológica" target="_blank">Buenos Aires: por qué retrocede en innovación tecnológica</a>
-          <div class="media-date">iProfesional — 29/08/2025</div>
-        </div>
-        <div class="media-card">
-          <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank">Informe del CEDEAM: cómo hacer de CABA una ciudad más equitativa</a>
-          <div class="media-date">Motor Económico — 24/01/2026</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.pagina12.com.ar/2026/01/29/quien-mas-pierde-con-la-reforma/" target="_blank">Quién más pierde con la reforma</a>
-          <div class="media-date">Página/12 — 30/01/2026</div>
-        </div>
-        <div class="media-card">
-          <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad/" target="_blank">La gastronomía afectada en la Ciudad</a>
-          <div class="media-date">Página/12 — 25/02/2026</div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- SECCIÓN 4: EVENTOS Y CONGRESOS -->
-  <div class="section-grey" id="eventos">
-    <section class="container">
-      <h2 class="section-title">Eventos y Congresos</h2>
-      <div class="events-grid">
-        <div class="event-card">
-          <h4>Congreso Tributario Internacional</h4>
-          <p style="color:var(--uba-texto-mutado)">Encuentro de debate avanzado sobre matrices fiscales y tributarias nacionales.</p>
-          <div class="event-days">
-            <span class="day-badge">Día 1</span>
-            <span class="day-badge">Día 2</span>
+      <div class="contact-clean-layout">
+        <div class="info-column">
+          <h4>Canales Oficiales</h4>
+          <div class="info-row-item">
+            <label>Sede Física[cite: 1]</label>
+            <p>Facultad de Ciencias Económicas, Planta Baja, Sector Rotonda (entre aulas 13 y 14)[cite: 1].</p>
+          </div>
+          <div class="info-row-item">
+            <label>Teléfonos[cite: 1]</label>
+            <p>5285-6785 / 5285-7000 (Int. 56785)[cite: 1]</p>
+          </div>
+          <div class="info-row-item">
+            <label>Email Institucional[cite: 1]</label>
+            <a href="mailto:cedeam@economicas.uba.ar">cedeam@economicas.uba.ar</a>[cite: 1]
           </div>
         </div>
-        <div class="event-card">
-          <h4>Primer Congreso de Mujeres Líderes</h4>
-          <p><strong>“Liderazgo femenino, desafíos y oportunidades”</strong></p>
-          <div class="event-days">
-            <span class="day-badge" style="background:var(--uba-azul); color:white;">26 y 27 de Marzo, 2025</span>
+        <div>
+          <div class="form-clean-box">
+            <input type="text" placeholder="Nombre completo" class="clean-input">
+            <input type="email" placeholder="Dirección de correo electrónico" class="clean-input">
+            <textarea placeholder="Escriba aquí su mensaje o consulta institucional..." rows="4" class="clean-input"></textarea>
+            <button class="btn-clean-submit" onclick="alert('Mensaje enviado.')">Enviar Mensaje</button>
           </div>
         </div>
       </div>
-    </section>
-  </div>
+    </article>
 
-  <!-- SECCIÓN 5: COLABORACIÓN CON GEIAL -->
-  <div class="section-white" id="geial">
-    <section class="container">
-      <h2 class="section-title">Colaboración Institucional</h2>
-      <div class="geial-box">
-        <div class="geial-badge">Alianza Estratégica GEIAL</div>
-        <p>Desde el CEDEAM — Facultad de Ciencias Económicas UBA estaremos liderando la medición del ecosistema emprendedor de la Ciudad de Buenos Aires, en articulación con GEIAL.</p>
-        <p style="margin-top:0.75rem;">Este proceso permitirá relevar información clave sobre las condiciones para emprender, identificar fortalezas y brechas, y construir un diagnóstico aplicado para mejorar las estrategias de desarrollo productivo e innovación.</p>
-        <p style="margin-top:0.75rem; font-size:0.9rem; color:var(--uba-texto-mutado);">Formar parte de GEIAL implica integrarse a una red de +30 ecosistemas y +80 organizaciones de América Latina comprometidas con el emprendimiento dinámico regional.</p>
-      </div>
-    </section>
-  </div>
+  </main>
 
-  <!-- SECCIÓN 6: ¿QUIÉNES SOMOS? -->
-  <div class="section-grey" id="quienes-somos">
-    <section class="container">
-      <h2 class="section-title">¿Quiénes Somos?</h2>
-      
-      <div class="staff-container">
-        <!-- Director -->
-        <div class="director-block">
-          <div class="avatar-placeholder">RS</div>
-          <h4>Dr. Raúl Oscar Sánchez</h4>
-          <span>Director General</span>
-        </div>
-
-        <!-- Investigadores e Integrantes -->
-        <div class="team-section">
-          <h3>Investigadores e Integrantes del Equipo</h3>
-          <div class="team-grid">
-            <div class="team-member">Lic. Sofía Rojo</div>
-            <div class="team-member">Lic. Alan Plummer</div>
-            <div class="team-member">Lic. Alejandra Vivas</div>
-            <div class="team-member">Lic. H. Javier Peralta</div>
-            <div class="team-member">Lic. Nahuel March Ríos</div>
-            <div class="team-member">Lic. Matías Piccolo</div>
-            <div class="team-member">Lic. Pablo Barreto</div>
-            <div class="team-member">Lic. Sabrina Canelas</div>
-            <div class="team-member">Lic. Victoria Quayat</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- SECCIÓN 7: CONTACTO -->
-  <div class="section-white" id="contacto">
-    <section class="container">
-      <h2 class="section-title">Contacto</h2>
-      <div class="contact-grid">
-        <div class="contact-info-card">
-          <h4>CEDEAM Oficina Central</h4>
-          <div class="contact-item">
-            <strong>Ubicación:</strong>
-            Facultad de Ciencias Económicas, Planta Baja, Sector Rotonda (entre aulas 13 y 14)
-          </div>
-          <div class="contact-item">
-            <strong>Teléfonos:</strong>
-            5285-6785 / 5285-7000 (Interno 56785)
-          </div>
-          <div class="contact-item">
-            <strong>Correo Electrónico:</strong>
-            <a href="mailto:cedeam@economicas.uba.ar" style="color:var(--uba-naranja); font-weight:bold;">cedeam@economicas.uba.ar</a>
-          </div>
-        </div>
-        
-        <div class="contact-form">
-          <form onsubmit="event.preventDefault(); alert('Mensaje simulado correctamente.');">
-            <div class="form-group">
-              <label>Nombre y Apellido</label>
-              <input type="text" required>
-            </div>
-            <div class="form-group">
-              <label>Correo electrónico</label>
-              <input type="email" required>
-            </div>
-            <div class="form-group">
-              <label>Consulta o mensaje</label>
-              <textarea rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Enviar consulta</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- FOOTER FINAL -->
-  <footer>
-    <p>&copy; 2026 CEDEAM - Centro de Estudios del Desarrollo del Área Metropolitana de Buenos Aires.</p>
-    <p style="margin-top:0.5rem; font-size:0.75rem; color:#777;">Facultad de Ciencias Económicas — Universidad de Buenos Aires.</p>
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <p>&copy; 2026 <strong>CEDEAM</strong> — Centro de Estudios del Desarrollo del Área Metropolitana de Buenos Aires.</p>
+    <p style="margin-top: 0.5rem; opacity: 0.5; font-size: 0.75rem;">Facultad de Ciencias Económicas — Universidad de Buenos Aires.</p>
   </footer>
 
   <script>
-    // Marcado automático de enlaces activos según scroll del usuario
-    const links = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('div[id], section[id]');
+    // Resaltado dinámico inteligente del menú de navegación por intersección de scroll
+    const navItems = document.querySelectorAll('.menu-item');
+    const pageSections = document.querySelectorAll('.content-section');
 
     window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
+      let activeId = '';
+      pageSections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 120) {
-          current = section.getAttribute('id');
+        if (pageYOffset >= sectionTop - 150) {
+          activeId = section.getAttribute('id');
         }
       });
-      links.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-          link.classList.add('active');
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').includes(activeId)) {
+          item.classList.add('active');
         }
       });
     });
