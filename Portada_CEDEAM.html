@@ -10,7 +10,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
-      /* Paleta de colores CEDEAM basada en el código original */
+      /* Paleta de colores CEDEAM basada en verdes técnicos y contrastes institucionales */
       --verde-principal: #2c8e72;
       --verde-oscuro: #428b76;
       --verde-profundo: #5c8b7e;
@@ -108,39 +108,135 @@
       background: rgba(44, 142, 114, 0.05);
     }
 
-    /* SECCIÓN HERO INSTITUCIONAL */
-    .hero {
-      background: linear-gradient(135deg, var(--negro-institucional) 0%, var(--verde-profundo) 100%);
-      color: white;
-      padding: 7rem 2rem;
-      text-align: center;
+    /* NUEVA PORTADA EDITORIAL (HERO) */
+    .hero-editorial {
+      background: linear-gradient(135deg, #1d2b27 0%, #355e53 100%);
       position: relative;
+      padding: 6rem 2rem;
       overflow: hidden;
+      border-bottom: 4px solid var(--verde-principal);
     }
 
-    .hero-content {
-      max-width: 850px;
+    /* Textura urbana/matemática sutil de fondo */
+    .hero-editorial::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.04;
+      background-image: linear-gradient(var(--borde) 1px, transparent 1px), linear-gradient(90deg, var(--borde) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    .hero-editorial-container {
+      max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
       position: relative;
       z-index: 2;
     }
 
-    .hero h1 {
+    @media (max-width: 968px) {
+      .hero-editorial-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+    }
+
+    .hero-editorial-text h1 {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 3.8rem;
+      font-size: 3.5rem;
       font-weight: 800;
       text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1.05;
       letter-spacing: -0.5px;
-      line-height: 1.1;
       margin-bottom: 1.5rem;
     }
 
-    .hero p {
-      font-size: 1.3rem;
-      font-weight: 300;
+    .hero-editorial-text h1 span {
+      color: var(--verde-claro);
+      display: block;
+    }
+
+    .hero-editorial-text p {
+      font-size: 1.15rem;
       color: var(--verde-muy-claro);
-      max-width: 700px;
-      margin: 0 auto;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    @media (max-width: 968px) { .hero-editorial-text p { text-align: center; } }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    @media (max-width: 968px) { .hero-actions { justify-content: center; } }
+
+    .btn-hero-primary {
+      padding: 0.85rem 1.75rem;
+      background: var(--verde-principal);
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(44, 142, 114, 0.2);
+    }
+    .btn-hero-primary:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-1px);
+    }
+
+    /* Tarjeta de Datos de Impacto Académico */
+    .hero-academic-badge {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(209, 224, 220, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 2.5rem;
+      border-radius: 14px;
+      color: #ffffff;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .institution-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--verde-claro);
+      border-bottom: 1px solid rgba(209, 224, 220, 0.2);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .academic-stat-item {
+      margin-bottom: 1.25rem;
+    }
+    .academic-stat-item:last-child { margin-bottom: 0; }
+
+    .academic-stat-item h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+    .academic-stat-item p {
+      font-size: 0.88rem;
+      color: var(--verde-pastel);
+      line-height: 1.4;
     }
 
     /* CONTENEDORES DE SECCIONES */
@@ -274,7 +370,7 @@
     .btn-table-download { color: var(--verde-principal); text-decoration: none; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
     .btn-table-download:hover { color: var(--verde-oscuro); text-decoration: underline; }
 
-    /* NUEVA SECCIÓN: CEDEAM EN LOS MEDIOS */
+    /* SECCIÓN CEDEAM EN LOS MEDIOS */
     .media-bg { background: var(--blanco); border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde); }
     .media-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; margin-bottom: 4rem; align-items: start; }
     @media(max-width: 968px) { .media-layout { grid-template-columns: 1fr; gap: 2rem; } }
@@ -301,7 +397,7 @@
     .press-link { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; color: var(--verde-principal); text-decoration: none; text-transform: uppercase; margin-top: 0.5rem; display: inline-block; }
     .press-link:hover { color: var(--verde-profundo); text-decoration: underline; }
 
-    /* SECCIÓN QUIÉNES SOMOS (REDISÉÑO EDITORIAL CON FOTOS Y BIO) */
+    /* SECCIÓN ¿QUIÉNES SOMOS? */
     .team-section h3 {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.8rem;
@@ -364,7 +460,6 @@
       height: 100%;
       object-fit: cover;
     }
-    /* Estilo por defecto si no hay foto cargada (Muestra iniciales) */
     .avatar-placeholder {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.8rem;
@@ -433,17 +528,43 @@
         <a href="#" class="nav-link active">Inicio</a>
         <a href="#que-es" class="nav-link">El Centro</a>
         <a href="#informes" class="nav-link">Informes</a>
-        <a href="#medios" class="nav-link">En los Medios</a>
+        <a href="#medios" class="nav-link">CEDEAM en los Medios</a>
         <a href="#equipo" class="nav-link">Equipo</a>
         <a href="#contacto" class="nav-link">Contacto</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Plataforma de Investigación y Monitoreo Territorial</h1>
-      <p>Análisis territorializado, sistematización de indicadores estratégicos y divulgación académica para el desarrollo socioeconómico urbano del Área Metropolitana de Buenos Aires.</p>
+  <header class="hero-editorial">
+    <div class="hero-editorial-container">
+      
+      <div class="hero-editorial-text">
+        <h1>Investigación, Datos y Políticas Públicas <span>para el Desarrollo Metropolitano</span></h1>
+        <p>Espacio institucional de la Facultad de Ciencias Económicas (UBA) dedicado al análisis estructural, la producción de evidencia empírica aplicada y el debate socioeconómico sobre el Área Metropolitana de Buenos Aires.</p>
+        <div class="hero-actions">
+          <a href="#que-es" class="btn-hero-primary">Conocer líneas de investigación</a>
+        </div>
+      </div>
+
+      <div class="hero-academic-badge">
+        <span class="institution-tag">FCE — Universidad de Buenos Aires</span>
+        
+        <div class="academic-stat-item">
+          <h4>Evidencia Territorializada</h4>
+          <p>Generación de datos primarios y marcos de diagnóstico para el fortalecimiento del entramado MiPyME y el ecosistema urbano.</p>
+        </div>
+        
+        <div class="academic-stat-item" style="border-top: 1px dashed rgba(209, 224, 220, 0.1); padding-top: 1rem;">
+          <h4>Articulación Regional</h4>
+          <p>Sincronización técnica en 2026 con redes latinoamericanas para el monitoreo del dinamismo empresarial.</p>
+        </div>
+
+        <div class="academic-stat-item" style="border-top: 1px dashed rgba(209, 224, 220, 0.1); padding-top: 1rem;">
+          <h4>Transferencia de Conocimiento</h4>
+          <p>Divulgación abierta de documentos de trabajo, libros editados e indicadores de coyuntura económica de acceso público.</p>
+        </div>
+      </div>
+
     </div>
   </header>
 
@@ -538,7 +659,7 @@
             <div>
               <div class="report-tag">Documento Técnico / 2023</div>
               <h4>El tejido empresarial en la CABA</h4>
-              <p>Análisis de composición interna, distribución sectorial y evolución reciente de las firmas porteñas.</p>
+              <p>Análisis de composición interna, distribution sectorial y evolución reciente de las firmas porteñas.</p>
             </div>
             <a href="#" class="btn-download">Descargar PDF</a>
           </div>
@@ -719,7 +840,7 @@
         <div class="member-info">
           <h4>Lic. Sofia Rojo</h4>
           <span class="member-role">Investigadora asociada</span>
-          <p class="member-bio">Especialista en dinámicas del mercado de trabajo, indicadores de ocupación y brechas de género en el sector productivo PyME.</p>
+          <p class="member-bio">Especialista en dinámicas del mercado de trabajo, indicadores de ocupación estructural y brechas de género en el sector productivo MiPyME.</p>
         </div>
       </div>
 
@@ -730,7 +851,7 @@
         <div class="member-info">
           <h4>Lic. Alan Plummer</h4>
           <span class="member-role">Investigador asociado</span>
-          <p class="member-bio">Línea de investigación abocada al estudio de financiamiento alternativo, inclusión bancaria y microcréditos para la producción de firmas.</p>
+          <p class="member-bio">Línea de investigación abocada al estudio de financiamiento alternativo, inclusión bancaria y microcréditos para la producción de firmas locales.</p>
         </div>
       </div>
 
@@ -741,7 +862,7 @@
         <div class="member-info">
           <h4>Lic. Alejandra Vivas</h4>
           <span class="member-role">Investigadora asociada</span>
-          <p class="member-bio">Análisis del mercado de suelo urbano, permisologías constructivas y distribución espacial del hábitat metropolitano.</p>
+          <p class="member-bio">Análisis sistemático del mercado de suelo urbano, permisologías constructivas y distribución espacial del hábitat metropolitano.</p>
         </div>
       </div>
 
@@ -752,7 +873,7 @@
         <div class="member-info">
           <h4>Lic. H. Javier Peralta</h4>
           <span class="member-role">Investigador asociado</span>
-          <p class="member-bio">Sistematización de bases de datos macroeconómicas secundarias y análisis de cuentas públicas comunales.</p>
+          <p class="member-bio">Sistematización de bases de datos macroeconómicas secundarias y análisis comparativo de cuentas públicas comunales.</p>
         </div>
       </div>
 
@@ -763,7 +884,7 @@
         <div class="member-info">
           <h4>Lic. Nahuel March Ríos</h4>
           <span class="member-role">Investigador asociado</span>
-          <p class="member-bio">Investigación aplicada sobre demografía empresarial y cálculo técnico de capitales iniciales para nuevos emprendimientos.</p>
+          <p class="member-bio">Investigación aplicada sobre demografía empresarial y cálculo técnico de capitales iniciales requeridos para nuevos emprendimientos dinámicos.</p>
         </div>
       </div>
 
@@ -774,7 +895,7 @@
         <div class="member-info">
           <h4>Lic. Matías Piccolo</h4>
           <span class="member-role">Investigador asociado</span>
-          <p class="member-bio">Estudio del entramado miPyME e impacto territorial de los distritos económicos sectoriales en CABA.</p>
+          <p class="member-bio">Estudio pormenorizado del entramado miPyME e impacto territorial y económico de los distritos económicos sectoriales en CABA.</p>
         </div>
       </div>
 
@@ -785,7 +906,7 @@
         <div class="member-info">
           <h4>Lic. Pablo Barreto</h4>
           <span class="member-role">Investigador asociado</span>
-          <p class="member-bio">Modelos de desarrollo regional y evaluación técnica de políticas públicas de transporte e infraestructura metropolitana.</p>
+          <p class="member-bio">Modelos de desarrollo regional y evaluación técnica del impacto socioeconómico de políticas públicas de transporte e infraestructura urbana.</p>
         </div>
       </div>
 
@@ -795,8 +916,8 @@
         </div>
         <div class="member-info">
           <h4>Lic. Sabrina Canelas</h4>
-          <span class="member-role">Investigador asociada</span>
-          <p class="member-bio">Análisis estadístico de canastas básicas, vulnerabilidad habitacional e indicadores socio-urbanos territoriales.</p>
+          <span class="member-role">Investigadora asociada</span>
+          <p class="member-bio">Análisis estadístico de canastas básicas regionalizadas, vulnerabilidad habitacional e indicadores socio-urbanos críticos.</p>
         </div>
       </div>
 
@@ -806,8 +927,8 @@
         </div>
         <div class="member-info">
           <h4>Lic. Victoria Quayat</h4>
-          <span class="member-role">Investigador asociada</span>
-          <p class="member-bio">Líneas de investigación en sustentabilidad urbana, economía circular aplicada y encuestas de actividad miPyME.</p>
+          <span class="member-role">Investigadora asociada</span>
+          <p class="member-bio">Líneas de investigación enfocadas en sustentabilidad urbana metropolitana, economía circular aplicada y diseño de encuestas de actividad industrial.</p>
         </div>
       </div>
 
@@ -851,7 +972,7 @@
   </footer>
 
   <script>
-    // 1. Manejo dinámico del sistema de pestañas de informes
+    // 1. Navegación e intercambio dinámico de pestañas para informes técnicos
     function cambiarPestana(evt, nombrePestana) {
       let i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tab-content");
@@ -862,7 +983,7 @@
       evt.currentTarget.classList.add("active");
     }
 
-    // 2. Script ScrollSpy inteligente para iluminar la barra de navegación
+    // 2. Script ScrollSpy inteligente para iluminar los links activos del menú superior automáticamente
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = [
       { id: 'que-es', link: document.querySelector('a[href="#que-es"]') },
@@ -876,7 +997,7 @@
       let currentSectionId = '';
       const scrollPosition = window.pageYOffset + 120;
 
-      // Si estamos muy arriba, el link activo es el de "Inicio"
+      // Retorno a estado inicial de "Inicio" si está arriba de todo
       if (window.pageYOffset < 300) {
         navLinks.forEach(link => link.classList.remove('active'));
         document.querySelector('a[href="#"]').classList.add('active');
