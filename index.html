@@ -229,6 +229,23 @@
             transform: translateY(-2px);
         }
 
+        .btn-more {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-more:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
         /* Secciones Generales */
         section {
             padding: 80px 0;
@@ -449,6 +466,10 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .text-center {
+            text-align: center;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -522,7 +543,7 @@
                 <span class="hero-tag">Centro de Estudios FCE UBA</span>
                 <h1>Investigación, Datos y Políticas Públicas para el Desarrollo Metropolitano</h1>
                 <div class="hero-btns">
-                    <a href="#informes" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Útimos Informes</a>
+                    <a href="#informes" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Últimos Informes</a>
                     <a href="#contacto" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Contactar</a>
                 </div>
             </div>
@@ -604,12 +625,12 @@
     <section id="informes" style="background-color: var(--white);">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">Documentos Tecnicos & Investigaciones</span>
+                <span class="section-subtitle">Documentos Técnicos & Investigaciones</span>
                 <h2 class="section-title">Informes y Publicaciones</h2>
             </div>
 
             <!-- Últimos Informes -->
-            <div style="margin-bottom: 40px;">
+            <div style="margin-bottom: 50px;">
                 <h3 style="margin-bottom: 15px; color: var(--primary-dark);"><i class="fa-solid fa-chart-line"></i> Últimos Informes de Coyuntura</h3>
                 <p style="color: var(--gray-dark); margin-bottom: 20px;">
                     En co-autoría técnica y articulación con el Centro de Economía Política Argentina (CEPA), elaboramos periódicamente el Monitoreo de Coyuntura Económica de la Ciudad de Buenos Aires, abordando variables de empleo, presupuesto y actividad sectorial.
@@ -624,31 +645,15 @@
                     <a href="#" class="btn btn-primary" style="background: var(--primary); color: white;"><i class="fa-solid fa-download"></i> Descargar</a>
                 </div>
 
-                <div class="pub-item">
-                    <div>
-                        <span style="font-size: 0.75rem; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700;">PDF</span>
-                        <h4 style="margin-top: 5px;">Primer Trimestre 2026: Indicadores de la Economía Porteña</h4>
-                        <p style="font-size: 0.85rem; color: var(--gray-dark);">Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
-                    </div>
-                    <a href="#" class="btn btn-primary" style="background: var(--primary); color: white;"><i class="fa-solid fa-download"></i> Descargar</a>
+                <div class="text-center">
+                    <a href="informes.html" class="btn btn-more"><i class="fa-solid fa-plus"></i> Ver más informes</a>
                 </div>
             </div>
 
             <!-- Documentos Técnicos -->
             <div style="margin-bottom: 50px;">
                 <h3 style="margin-bottom: 15px; color: var(--primary-dark);"><i class="fa-solid fa-folder-open"></i> Documentos Técnicos</h3>
-                <div class="pub-item">
-                    <div>
-                        <h4>El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente.</h4>
-                    </div>
-                    <span style="font-weight: 600; font-size: 0.85rem; color: var(--gray-dark);">Junio 2023</span>
-                </div>
-                <div class="pub-item">
-                    <div>
-                        <h4>Creación de empresas en el AMBA: realidades, oportunidades, desafíos y propuestas.</h4>
-                    </div>
-                    <span style="font-weight: 600; font-size: 0.85rem; color: var(--gray-dark);">Enero 2024</span>
-                </div>
+                
                 <div class="pub-item">
                     <div>
                         <h4>Los Distritos Económicos de la Ciudad Autónoma de Buenos Aires. Historia y resultados de la política pública.</h4>
@@ -660,6 +665,10 @@
                         <h4>Situación laboral en la Ciudad de Buenos Aires.</h4>
                     </div>
                     <span style="font-weight: 600; font-size: 0.85rem; color: var(--gray-dark);">Septiembre 2024</span>
+                </div>
+
+                <div class="text-center">
+                    <a href="documentos.html" class="btn btn-more"><i class="fa-solid fa-plus"></i> Ver más documentos</a>
                 </div>
             </div>
 
@@ -715,24 +724,10 @@
                     <div style="font-weight: 600; margin: 10px 0;">Informe del CEDEAM: Cómo hacer de CABA una ciudad más equitativa</div>
                     <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
+            </div>
 
-                <div class="media-card">
-                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">iProfesional</div>
-                    <div style="font-weight: 600; margin: 10px 0;">Buenos Aires: ¿por qué retrocede en innovación tecnológica?</div>
-                    <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnol%C3%B3gica" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">El Grito del Sur</div>
-                    <div style="font-weight: 600; margin: 10px 0;">La ciudad sin estrategia: adiós a desarrollo económico</div>
-                    <a href="https://elgritodelsur.com.ar/2025/07/la-ciudad-sin-estrategia-adios-a-desarrollo-economico-hola-agencia-bienes/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase;">Infobae</div>
-                    <div style="font-weight: 600; margin: 10px 0;">Es momento de cuidar más que nunca a las PyMEs y a los emprendedores</div>
-                    <a href="https://www.infobae.com/opinion/2024/03/06/es-momento-de-cuidar-mas-que-nunca-a-las-pymes-y-a-los-emprendedores/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
+            <div class="text-center">
+                <a href="prensa.html" class="btn btn-more"><i class="fa-solid fa-plus"></i> Ver más notas</a>
             </div>
 
             <!-- Videos -->
