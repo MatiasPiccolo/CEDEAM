@@ -8,4 +8,5 @@ Portal de informes y visualizaciones interactivas.
 
 | Sección | URL |
 |---|---|
+| Index | [Index.html](https://matiaspiccolo.github.io/CEDEAM/index.html) |
 | Portal principal | [Portada.html](https://matiaspiccolo.github.io/CEDEAM/Portada_CEDEAM.html) |
