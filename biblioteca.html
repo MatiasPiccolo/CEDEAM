@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repositorio & Publicaciones - CEDEAM | FCE UBA</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts IIEP Style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #308C71;
-            --primary-dark: #236854;
-            --primary-light: #eaf4f1;
-            --accent: #E87722;
-            --dark: #1F2937;
-            --gray-dark: #4B5563;
-            --gray-light: #F3F4F6;
-            --border: #E5E7EB;
-            --white: #FFFFFF;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+            --iiep-blue-dark: #0d233a;
+            --iiep-blue: #003366;
+            --iiep-blue-light: #1a4268;
+            --iiep-red: #a6192e;
+            --iiep-red-hover: #b81c32;
+            --iiep-bg-light: #f4f6f9;
+            --dark: #222222;
+            --gray-dark: #555555;
+            --gray-light: #e2e8f0;
+            --border: #dcdcdc;
+            --white: #ffffff;
+            --shadow: 0 3px 6px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         * {
@@ -33,15 +35,19 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
             color: var(--dark);
-            background-color: #FAFAFA;
+            background-color: var(--iiep-bg-light);
             line-height: 1.6;
         }
 
-        /* Top Bar UBA */
+        h1, h2, h3, h4, h5, h6, .brand-title, .tab-button {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Top Bar Institutional */
         .top-bar {
-            background-color: var(--dark);
+            background-color: var(--iiep-blue-dark);
             color: var(--white);
             font-size: 0.8rem;
             padding: 8px 0;
@@ -55,9 +61,14 @@
         }
 
         .top-bar a {
-            color: #D1D5DB;
+            color: #d1d5db;
             text-decoration: none;
             margin-left: 15px;
+            transition: color 0.2s;
+        }
+
+        .top-bar a:hover {
+            color: var(--white);
         }
 
         /* Layout Container */
@@ -74,13 +85,14 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 3px solid var(--iiep-red);
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 18px 0;
         }
 
         .brand {
@@ -91,96 +103,103 @@
         }
 
         .brand-title {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--iiep-blue);
             letter-spacing: -0.5px;
         }
 
         .brand-subtitle {
             font-size: 0.75rem;
             color: var(--gray-dark);
-            border-left: 2px solid var(--border);
-            padding-left: 10px;
-            line-height: 1.2;
+            border-left: 2px solid var(--iiep-red);
+            padding-left: 12px;
+            line-height: 1.3;
             text-transform: uppercase;
             font-weight: 600;
         }
 
         .back-link {
             text-decoration: none;
-            color: var(--primary);
+            color: var(--iiep-blue);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            border-radius: 6px;
-            background-color: var(--primary-light);
-            transition: all 0.2s;
+            padding: 10px 18px;
+            border-radius: 4px;
+            border: 2px solid var(--iiep-blue);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .back-link:hover {
-            background-color: var(--primary);
+            background-color: var(--iiep-blue);
             color: var(--white);
         }
 
-        /* Page Banner */
+        /* Page Banner IIEP Style */
         .page-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--iiep-blue-dark) 0%, var(--iiep-blue) 100%);
             color: var(--white);
-            padding: 50px 0;
+            padding: 55px 0;
+            border-bottom: 4px solid var(--iiep-red);
         }
 
         .page-header h1 {
             font-size: 2.2rem;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .page-header p {
-            font-size: 1rem;
-            color: #E5E7EB;
+            font-size: 1.05rem;
+            color: #e2e8f0;
             margin-top: 10px;
+            font-weight: 300;
         }
 
-        /* Tabs Navigation */
+        /* Tabs Navigation IIEP Style */
         .tabs-container {
-            margin: 40px 0;
+            margin: 40px auto;
         }
 
         .tabs-nav {
             display: flex;
             gap: 10px;
             border-bottom: 2px solid var(--border);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             flex-wrap: wrap;
         }
 
         .tab-button {
-            padding: 12px 24px;
+            padding: 14px 22px;
             background: none;
             border: none;
-            font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--gray-dark);
             cursor: pointer;
             border-bottom: 3px solid transparent;
             margin-bottom: -2px;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .tab-button:hover {
-            color: var(--primary);
+            color: var(--iiep-red);
         }
 
         .tab-button.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+            color: var(--iiep-blue);
+            border-bottom-color: var(--iiep-red);
+            background-color: var(--white);
         }
 
         /* Tab Content Panel */
@@ -192,79 +211,107 @@
             display: block;
         }
 
-        /* Cards & Items */
+        /* Items y Publicaciones */
         .pub-item {
             background: var(--white);
-            padding: 20px;
-            border-radius: 8px;
+            padding: 22px;
+            border-radius: 4px;
             border: 1px solid var(--border);
-            border-left: 4px solid var(--primary);
+            border-left: 5px solid var(--iiep-blue);
             box-shadow: var(--shadow);
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .pub-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-left-color: var(--iiep-red);
         }
 
         .btn-download {
-            background: var(--primary);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
+            background: var(--iiep-red);
+            color: var(--white);
+            padding: 9px 18px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-weight: 700;
+            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
         }
 
         .btn-download:hover {
-            background: var(--primary-dark);
+            background: var(--iiep-red-hover);
         }
 
+        /* Media Cards Grid */
         .media-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
+            gap: 22px;
         }
 
         .media-card {
             background: var(--white);
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 4px;
+            padding: 22px;
             border: 1px solid var(--border);
+            border-top: 3px solid var(--iiep-blue);
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .media-card:hover {
+            transform: translateY(-3px);
+            border-top-color: var(--iiep-red);
+            box-shadow: var(--shadow-lg);
         }
 
         .media-link {
-            color: var(--primary);
+            color: var(--iiep-blue);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.85rem;
             margin-top: 15px;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            text-transform: uppercase;
         }
 
         .media-link:hover {
+            color: var(--iiep-red);
             text-decoration: underline;
         }
 
-        /* Footer */
+        /* Footer IIEP Style */
         footer {
-            background-color: var(--dark);
+            background-color: var(--iiep-blue-dark);
             color: var(--white);
-            padding: 30px 0;
+            padding: 35px 0;
             font-size: 0.85rem;
             text-align: center;
             margin-top: 60px;
+            border-top: 4px solid var(--iiep-red);
+        }
+
+        @media (max-width: 768px) {
+            .pub-item { flex-direction: column; align-items: flex-start; }
+            .btn-download { width: 100%; justify-content: center; }
+            .brand-title { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -296,8 +343,8 @@
     <!-- Header de la Subpágina -->
     <div class="page-header">
         <div class="container">
-            <h1>Biblioteca & Repositorio de Publicaciones</h1>
-            <p>Accedé a la totalidad de informes, documentos técnicos y prensa del CEDEAM.</p>
+            <h1>Repositorio & Publicaciones</h1>
+            <p>Accedé a la totalidad de informes, documentos técnicos y notas de prensa del CEDEAM.</p>
         </div>
     </div>
 
@@ -325,20 +372,20 @@
 
             <div class="pub-item">
                 <div>
-                    <span style="font-size: 0.75rem; background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700;">PDF</span>
-                    <h3 style="margin-top: 5px; font-size: 1.1rem;">Segundo Trimestre 2026: Indicadores de la Economía Porteña</h3>
-                    <p style="font-size: 0.85rem; color: var(--gray-dark);">Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
+                    <span style="font-size: 0.75rem; background: var(--iiep-red); color: white; padding: 3px 8px; border-radius: 3px; font-weight: 700;">PDF</span>
+                    <h3 style="margin-top: 6px; font-size: 1.1rem; color: var(--iiep-blue-dark);">Segundo Trimestre 2026: Indicadores de la Economía Porteña</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 4px;">Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
                 </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
+                <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Descargar</a>
             </div>
 
             <div class="pub-item">
                 <div>
-                    <span style="font-size: 0.75rem; background: var(--primary); color: white; padding: 2px 8px; border-radius: 4px; font-weight: 700;">PDF</span>
-                    <h3 style="margin-top: 5px; font-size: 1.1rem;">Primer Trimestre 2026: Indicadores de la Economía Porteña</h3>
-                    <p style="font-size: 0.85rem; color: var(--gray-dark);">Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
+                    <span style="font-size: 0.75rem; background: var(--iiep-blue); color: white; padding: 3px 8px; border-radius: 3px; font-weight: 700;">PDF</span>
+                    <h3 style="margin-top: 6px; font-size: 1.1rem; color: var(--iiep-blue-dark);">Primer Trimestre 2026: Indicadores de la Economía Porteña</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 4px;">Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
                 </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
+                <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Descargar</a>
             </div>
         </div>
 
@@ -350,34 +397,34 @@
 
             <div class="pub-item">
                 <div>
-                    <h3 style="font-size: 1.05rem;">El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente.</h3>
-                    <p style="font-size: 0.85rem; color: var(--gray-dark);">Publicado: Junio 2023</p>
+                    <h3 style="font-size: 1.05rem; color: var(--iiep-blue-dark);">El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente.</h3>
+                    <p style="font-size: 0.85rem; color: var(--gray-dark); margin-top: 4px;">Publicado: Junio 2023</p>
                 </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
+                <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Descargar</a>
             </div>
 
             <div class="pub-item">
                 <div>
-                    <h3 style="font-size: 1.05rem;">Creación de empresas en el AMBA: realidades, oportunidades, desafíos y propuestas.</h3>
-                    <p style="font-size: 0.85rem; color: var(--gray-dark);">Publicado: Enero 2024</p>
+                    <h3 style="font-size: 1.05rem; color: var(--iiep-blue-dark);">Creación de empresas en el AMBA: realidades, oportunidades, desafíos y propuestas.</h3>
+                    <p style="font-size: 0.85rem; color: var(--gray-dark); margin-top: 4px;">Publicado: Enero 2024</p>
                 </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
+                <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Descargar</a>
             </div>
 
             <div class="pub-item">
                 <div>
-                    <h3 style="font-size: 1.05rem;">Los Distritos Económicos de la Ciudad Autónoma de Buenos Aires. Historia y resultados de la política pública.</h3>
-                    <p style="font-size: 0.85rem; color: var(--gray-dark);">Publicado: Julio 2024</p>
+                    <h3 style="font-size: 1.05rem; color: var(--iiep-blue-dark);">Los Distritos Económicos de la Ciudad Autónoma de Buenos Aires. Historia y resultados de la política pública.</h3>
+                    <p style="font-size: 0.85rem; color: var(--gray-dark); margin-top: 4px;">Publicado: Julio 2024</p>
                 </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
+                <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Descargar</a>
             </div>
 
             <div class="pub-item">
                 <div>
-                    <h3 style="font-size: 1.05rem;">Situación laboral en la Ciudad de Buenos Aires.</h3>
-                    <p style="font-size: 0.85rem; color: var(--gray-dark);">Publicado: Septiembre 2024</p>
+                    <h3 style="font-size: 1.05rem; color: var(--iiep-blue-dark);">Situación laboral en la Ciudad de Buenos Aires.</h3>
+                    <p style="font-size: 0.85rem; color: var(--gray-dark); margin-top: 4px;">Publicado: Septiembre 2024</p>
                 </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
+                <a href="#" class="btn-download"><i class="fa-solid fa-file-pdf"></i> Descargar</a>
             </div>
         </div>
 
@@ -389,118 +436,115 @@
 
             <div class="media-grid">
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">PÁGINA/12 (24/02/2026)</span>
-                    <h4 style="margin-top: 5px;">La gastronomía afectada en la Ciudad</h4>
-                    <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">PÁGINA/12 (24/02/2026)</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">La gastronomía afectada en la Ciudad</h4>
+                    <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">PÁGINA/12 (29/01/2026)</span>
-                    <h4 style="margin-top: 5px;">Quién más pierde con la reforma</h4>
-                    <a href="https://www.pagina12.com.ar/2026/01/29/quien-mas-pierde-con-la-reforma" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">PÁGINA/12 (29/01/2026)</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Quién más pierde con la reforma</h4>
+                    <a href="https://www.pagina12.com.ar/2026/01/29/quien-mas-pierde-con-la-reforma" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">MOTOR ECONÓMICO</span>
-                    <h4 style="margin-top: 5px;">Informe del CEDEAM: Cómo hacer de CABA una ciudad más equitativa</h4>
-                    <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">MOTOR ECONÓMICO</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Informe del CEDEAM: Cómo hacer de CABA una ciudad más equitativa</h4>
+                    <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">IPROFESIONAL</span>
-                    <h4 style="margin-top: 5px;">Buenos Aires: ¿por qué retrocede en innovación tecnológica?</h4>
-                    <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnol%C3%B3gica" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">IPROFESIONAL</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Buenos Aires: ¿por qué retrocede en innovación tecnológica?</h4>
+                    <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnol%C3%B3gica" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">EL GRITO DEL SUR</span>
-                    <h4 style="margin-top: 5px;">La ciudad sin estrategia: adiós a desarrollo económico</h4>
-                    <a href="https://elgritodelsur.com.ar/2025/07/la-ciudad-sin-estrategia-adios-a-desarrollo-economico-hola-agencia-bienes/" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">EL GRITO DEL SUR</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">La ciudad sin estrategia: adiós a desarrollo económico</h4>
+                    <a href="https://elgritodelsur.com.ar/2025/07/la-ciudad-sin-estrategia-adios-a-desarrollo-economico-hola-agencia-bienes/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">PÁGINA/12</span>
-                    <h4 style="margin-top: 5px;">Repensar el sistema contributivo argentino</h4>
-                    <a href="https://www.pagina12.com.ar/772514-repensar-el-sistema-contributivo-argentino-se-celebro-el-1-e" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">PÁGINA/12</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Repensar el sistema contributivo argentino</h4>
+                    <a href="https://www.pagina12.com.ar/772514-repensar-el-sistema-contributivo-argentino-se-celebro-el-1-e" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">EL CRONISTA</span>
-                    <h4 style="margin-top: 5px;">La coparticipación y el debate tributario en la Ciudad</h4>
-                    <a href="https://www.cronista.com/columnistas/la-coparticipacion-y-el-debate-tributario-en-la-ciudad/" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">EL CRONISTA</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">La coparticipación y el debate tributario en la Ciudad</h4>
+                    <a href="https://www.cronista.com/columnistas/la-coparticipacion-y-el-debate-tributario-en-la-ciudad/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">EL CRONISTA</span>
-                    <h4 style="margin-top: 5px;">Políticas productivas de la Ciudad: discontinuidad y magros resultados</h4>
-                    <a href="https://www.cronista.com/columnistas/politicas-productivas-de-la-ciudad-discontinuidad-y-magros-resultados/" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">EL CRONISTA</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Políticas productivas de la Ciudad: discontinuidad y magros resultados</h4>
+                    <a href="https://www.cronista.com/columnistas/politicas-productivas-de-la-ciudad-discontinuidad-y-magros-resultados/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">CIUDAD IMAGINARIA</span>
-                    <h4 style="margin-top: 5px;">Los Distritos Económicos en CABA: Historia y resultados</h4>
-                    <a href="https://ciudadimaginaria.com.ar/2024/07/17/los-distritos-economicos-en-la-ciudad-de-buenos-aires-historia-y-resultados-de-la-politica-publica/" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">CIUDAD IMAGINARIA</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Los Distritos Económicos en CABA: Historia y resultados</h4>
+                    <a href="https://ciudadimaginaria.com.ar/2024/07/17/los-distritos-economicos-en-la-ciudad-de-buenos-aires-historia-y-resultados-de-la-politica-publica/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">EL CRONISTA</span>
-                    <h4 style="margin-top: 5px;">Impuesto a las Ganancias: aniquilar a la clase media</h4>
-                    <a href="https://www.cronista.com/columnistas/impuesto-a-las-ganancias-aniquilar-a-la-clase-media" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">EL CRONISTA</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Impuesto a las Ganancias: aniquilar a la clase media</h4>
+                    <a href="https://www.cronista.com/columnistas/impuesto-a-las-ganancias-aniquilar-a-la-clase-media" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">INFOBAE</span>
-                    <h4 style="margin-top: 5px;">Es momento de cuidar más que nunca a las PyMEs y emprendedores</h4>
-                    <a href="https://www.infobae.com/opinion/2024/03/06/es-momento-de-cuidar-mas-que-nunca-a-las-pymes-y-a-los-emprendedores/" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">INFOBAE</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Es momento de cuidar más que nunca a las PyMEs y emprendedores</h4>
+                    <a href="https://www.infobae.com/opinion/2024/03/06/es-momento-de-cuidar-mas-que-nunca-a-las-pymes-y-a-los-emprendedores/" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">TÉLAM</span>
-                    <h4 style="margin-top: 5px;">Subte CABA y las políticas de transporte</h4>
-                    <a href="https://www.telam.com.ar/notas/202308/635810-subte-caba-larreta.html" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">TÉLAM</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Subte CABA y las políticas de transporte</h4>
+                    <a href="https://www.telam.com.ar/notas/202308/635810-subte-caba-larreta.html" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">PÁGINA/12</span>
-                    <h4 style="margin-top: 5px;">La ciudad expulsiva</h4>
-                    <a href="https://www.pagina12.com.ar/556119-la-ciudad-expulsiva-que-diseno-el-gobierno-del-pro" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">PÁGINA/12</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">La ciudad expulsiva</h4>
+                    <a href="https://www.pagina12.com.ar/556119-la-ciudad-expulsiva-que-diseno-el-gobierno-del-pro" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">EL ECONOMISTA</span>
-                    <h4 style="margin-top: 5px;">Pérdida de empresas industriales en CABA (2008-2021)</h4>
-                    <a href="https://eleconomista.com.ar/economia/la-ciudad-buenos-aires-perdio-195-sus-empresas-industriales-2008-2021-n66304" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">EL ECONOMISTA</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Pérdida de empresas industriales en CABA (2008-2021)</h4>
+                    <a href="https://eleconomista.com.ar/economia/la-ciudad-buenos-aires-perdio-195-sus-empresas-industriales-2008-2021-n66304" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
                 <div class="media-card">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">PÁGINA/12</span>
-                    <h4 style="margin-top: 5px;">Los exterminadores de las industrias</h4>
-                    <a href="https://www.pagina12.com.ar/588201-los-exterminadores-de-las-industrias" target="_blank" class="media-link">Leer artículo completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--iiep-red); text-transform: uppercase;">PÁGINA/12</span>
+                    <h4 style="margin-top: 8px; color: var(--iiep-blue-dark);">Los exterminadores de las industrias</h4>
+                    <a href="https://www.pagina12.com.ar/588201-los-exterminadores-de-las-industrias" target="_blank" class="media-link">Leer nota <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <!-- Footer -->
+    <!-- Footer IIEP Style -->
     <footer>
         <div class="container">
             <p>&copy; 2026 CEDEAM - Centro de Estudios del Desarrollo del AMBA | Facultad de Ciencias Económicas - UBA</p>
         </div>
     </footer>
 
-    <!-- Lógica JavaScript para cambio de pestañas -->
+    <!-- JS Tabs -->
     <script>
         function switchTab(event, tabId) {
-            // Ocultar todas las pestañas
             const panels = document.querySelectorAll('.tab-panel');
             panels.forEach(panel => panel.classList.remove('active'));
 
-            // Desactivar todos los botones
             const buttons = document.querySelectorAll('.tab-button');
             buttons.forEach(button => button.classList.remove('active'));
 
-            // Activar la pestaña seleccionada
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
