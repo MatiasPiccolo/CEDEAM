@@ -155,7 +155,7 @@
             text-decoration: none;
             color: var(--fce-blue-dark);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             text-transform: uppercase;
             padding: 8px 0;
             position: relative;
@@ -204,7 +204,7 @@
         }
 
         .hero-fce h2 {
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             font-weight: 800;
             max-width: 850px;
             line-height: 1.25;
@@ -212,7 +212,7 @@
         }
 
         .hero-fce p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             max-width: 750px;
             color: #e2eeef;
             margin-bottom: 30px;
@@ -222,8 +222,8 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 26px;
-            font-size: 0.88rem;
+            padding: 12px 24px;
+            font-size: 0.85rem;
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
@@ -259,9 +259,6 @@
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 12px;
             margin-bottom: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
         }
 
         .section-title {
@@ -270,6 +267,7 @@
             font-weight: 800;
             text-transform: uppercase;
             position: relative;
+            display: inline-block;
         }
 
         .section-title::after {
@@ -282,7 +280,49 @@
             background-color: var(--fce-orange);
         }
 
-        /* 4. SECCIÓN DESTACADA: GEIAL 2026 */
+        /* 4. OBJETIVOS INSTITUCIONALES */
+        .obj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .obj-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--fce-blue);
+            padding: 30px 25px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .obj-card:hover {
+            border-top-color: var(--fce-orange);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .obj-card i {
+            font-size: 2.2rem;
+            color: var(--fce-orange);
+            margin-bottom: 15px;
+        }
+
+        .obj-card h3 {
+            color: var(--fce-blue-dark);
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .obj-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* 5. SECCIÓN GEIAL 2026 */
         .geial-section {
             background-color: #ffffff;
             border-top: 1px solid var(--border-color);
@@ -327,7 +367,7 @@
 
         .geial-content p {
             color: var(--text-main);
-            font-size: 1.02rem;
+            font-size: 1rem;
             line-height: 1.7;
             margin-bottom: 15px;
         }
@@ -335,7 +375,7 @@
         .geial-network-box {
             background-color: var(--fce-blue-dark);
             color: #ffffff;
-            padding: 25px;
+            padding: 22px;
             border-radius: 6px;
             border-top: 4px solid var(--fce-orange);
             margin-top: 20px;
@@ -385,17 +425,16 @@
         }
 
         .stat-label {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        /* 5. Sección de Informes & Publicaciones */
+        /* 6. INFORMES Y PUBLICACIONES (CON BOTÓN A BIBLIOTECA) */
         .pub-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
             gap: 25px;
             margin-bottom: 35px;
         }
@@ -428,14 +467,14 @@
         }
 
         .pub-card h3 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--fce-blue-dark);
             margin-bottom: 10px;
             line-height: 1.4;
         }
 
         .pub-card p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
             margin-bottom: 20px;
         }
@@ -443,9 +482,6 @@
         .pub-actions {
             border-top: 1px solid var(--border-color);
             padding-top: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .link-action {
@@ -472,11 +508,10 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: var(--shadow-md);
-            margin-top: 20px;
         }
 
         .library-cta-text h4 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 800;
             margin-bottom: 5px;
         }
@@ -486,7 +521,125 @@
             font-size: 0.95rem;
         }
 
-        /* 6. Footer */
+        /* 7. EQUIPO DE TRABAJO */
+        .team-section {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .team-card {
+            background: var(--fce-bg-gray);
+            border: 1px solid var(--border-color);
+            padding: 30px 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .team-card:hover {
+            border-color: var(--fce-orange);
+            box-shadow: var(--shadow-md);
+            background: #ffffff;
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background-color: var(--fce-blue-dark);
+            color: var(--fce-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 15px;
+            border: 3px solid var(--fce-orange-light);
+        }
+
+        .team-card h3 {
+            color: var(--fce-blue-dark);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .team-card .role {
+            color: var(--fce-orange);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-top: 4px;
+            margin-bottom: 10px;
+        }
+
+        .team-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 8. CEDEAM EN LOS MEDIOS */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .media-card {
+            background: var(--fce-card-bg);
+            border-radius: 4px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--fce-orange);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+
+        .media-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .media-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--fce-orange);
+            text-transform: uppercase;
+        }
+
+        .media-card h4 {
+            color: var(--fce-blue-dark);
+            font-size: 0.95rem;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .media-link {
+            color: var(--fce-blue-mid);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .media-link:hover {
+            color: var(--fce-orange);
+        }
+
+        /* 9. Pie de Página */
         footer {
             background-color: var(--fce-blue-dark);
             color: #ffffff;
@@ -534,7 +687,7 @@
             .footer-grid { grid-template-columns: 1fr; }
             .header-content { flex-direction: column; gap: 15px; text-align: center; }
             .brand-info { border-left: none; padding-left: 0; margin-top: 5px; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
             .hero-fce h2 { font-size: 1.8rem; }
             .btn-outline { margin-left: 0; margin-top: 10px; }
         }
@@ -569,10 +722,12 @@
 
                 <nav>
                     <ul>
-                        <li><a href="#geial" class="nav-link">Ecosistema GEIAL</a></li>
+                        <li><a href="#objetivos" class="nav-link">Objetivos</a></li>
+                        <li><a href="#geial" class="nav-link">GEIAL 2026</a></li>
                         <li><a href="#informes" class="nav-link">Informes</a></li>
-                        <li><a href="Biblioteca.html" class="nav-link">Biblioteca Digital</a></li>
-                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                        <li><a href="#equipo" class="nav-link">Equipo</a></li>
+                        <li><a href="#medios" class="nav-link">Medios</a></li>
+                        <li><a href="biblioteca.html" class="nav-link">Biblioteca Digital</a></li>
                     </ul>
                 </nav>
             </div>
@@ -592,19 +747,46 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DESTACADA: GEIAL 2026 -->
+    <!-- 1. OBJETIVOS INSTITUCIONALES -->
+    <section id="objetivos" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Objetivos del Centro</h2>
+            </div>
+
+            <div class="obj-grid">
+                <div class="obj-card">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h3>Monitoreo Económico</h3>
+                    <p>Elaborar diagnósticos periódicos sobre la actividad económica, empleo, PyMEs y finanzas públicas del Área Metropolitana.</p>
+                </div>
+
+                <div class="obj-card">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Ecosistema Innovador</h3>
+                    <p>Relevar y analizar las condiciones para el emprendimiento dinámico y la innovación en la Ciudad de Buenos Aires y el conurbano.</p>
+                </div>
+
+                <div class="obj-card">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <h3>Insumos para Políticas</h3>
+                    <p>Proporcionar datos rigurosos y evidencia técnica para el diseño de políticas públicas de desarrollo productivo regional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SECCIÓN DESTACADA: GEIAL 2026 -->
     <section id="geial" class="section-padding geial-section">
         <div class="container">
             <div class="section-header">
-                <div>
-                    <h2 class="section-title">Iniciativa Destacada</h2>
-                </div>
+                <h2 class="section-title">Iniciativa Destacada</h2>
             </div>
 
             <div class="geial-card">
                 <div class="geial-content">
                     <span class="geial-badge-year">
-                        <i class="fa-solid fa-award icon-orange"></i> Programa de Investigación 2026
+                        <i class="fa-solid fa-award icon-orange"></i> Medición Regional 2026
                     </span>
                     <h3>Medición del Ecosistema Emprendedor CABA 2026</h3>
                     <p>
@@ -647,13 +829,11 @@
         </div>
     </section>
 
-    <!-- SECCIÓN: INFORMES & PUBLICACIONES CON BOTÓN A BIBLIOTECA -->
+    <!-- 3. INFORMES & PUBLICACIONES (CON BOTÓN DE ACCESO A LA BIBLIOTECA) -->
     <section id="informes" class="section-padding">
         <div class="container">
             <div class="section-header">
-                <div>
-                    <h2 class="section-title">Últimos Informes y Publicaciones</h2>
-                </div>
+                <h2 class="section-title">Últimos Informes y Publicaciones</h2>
             </div>
 
             <div class="pub-grid">
@@ -694,15 +874,82 @@
                 </div>
             </div>
 
-            <!-- CTA DESTACADO A BIBLIOTECA COMPLETA -->
+            <!-- BOTÓN PRINCIPAL PARA IR A BIBLIOTECA.HTML -->
             <div class="library-cta-box">
                 <div class="library-cta-text">
                     <h4><i class="fa-solid fa-box-archive icon-orange"></i> Repositorio Completo de Publicaciones</h4>
                     <p>Accedé al archivo histórico con la totalidad de informes de coyuntura, documentos de trabajo y apariciones en medios de comunicación.</p>
                 </div>
                 <a href="biblioteca.html" class="btn-fce btn-orange">
-                    <i class="fa-solid fa-folder-open"></i> Ir a la Biblioteca Complete
+                    <i class="fa-solid fa-folder-open"></i> Ver todos los informes en Biblioteca
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EQUIPO DE TRABAJO -->
+    <section id="equipo" class="section-padding team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Equipo de Trabajo</h2>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3>Dirección Ejecutiva</h3>
+                    <div class="role">CEDEAM - FCE UBA</div>
+                    <p>Coordinación institucional, gestión de investigación aplicada y dirección de proyectos de desarrollo regional.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Investigadores</h3>
+                    <div class="role">Análisis Económico</div>
+                    <p>Especialistas en economía urbana, mercado laboral, finanzas públicas y estructura productiva del AMBA.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Equipo GEIAL & PyMEs</h3>
+                    <div class="role">Ecosistemas Emprendedores</div>
+                    <p>Relevamiento de campo, vinculación con actores territoriales y análisis de dinamismo emprendedor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CEDEAM EN LOS MEDIOS -->
+    <section id="medios" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">CEDEAM en los Medios</h2>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-card">
+                    <span class="media-tag">PÁGINA/12 | 24/02/2026</span>
+                    <h4>La gastronomía afectada en la Ciudad</h4>
+                    <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <div class="media-card">
+                    <span class="media-tag">MOTOR ECONÓMICO</span>
+                    <h4>Informe del CEDEAM: Cómo hacer de CABA una ciudad más equitativa</h4>
+                    <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <div class="media-card">
+                    <span class="media-tag">IPROFESIONAL</span>
+                    <h4>Buenos Aires: ¿por qué retrocede en innovación tecnológica?</h4>
+                    <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnol%C3%B3gica" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <div class="media-card">
+                    <span class="media-tag">EL CRONISTA</span>
+                    <h4>Políticas productivas de la Ciudad: discontinuidad y magros resultados</h4>
+                    <a href="https://www.cronista.com/columnistas/politicas-productivas-de-la-ciudad-discontinuidad-y-magros-resultados/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
             </div>
         </div>
     </section>
