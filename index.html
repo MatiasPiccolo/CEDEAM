@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio & Publicaciones - CEDEAM | FCE UBA</title>
-    
+    <title>CEDEAM | Centro de Estudios del Desarrollo del AMBA - FCE UBA</title>
+
     <!-- Tipografía Institucional UBA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
+    <!-- Icons FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -45,7 +45,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5, h6, .nav-link, .btn-fce, .badge-fce, .tab-button {
+        h1, h2, h3, h4, h5, h6, .nav-link, .btn-fce, .badge-fce {
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -140,6 +140,73 @@
             font-weight: 600;
         }
 
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--fce-blue-dark);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            border-radius: 3px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--fce-orange);
+            color: #ffffff;
+        }
+
+        /* 3. Banner Hero Estilo Económicas UBA */
+        .hero-fce {
+            background: linear-gradient(135deg, rgba(15, 30, 54, 0.95) 0%, rgba(22, 43, 76, 0.88) 100%), 
+                        url('https://economicas.uba.ar/wp-content/uploads/2016/03/fachada-fce.jpg') center/cover no-repeat;
+            color: #ffffff;
+            padding: 60px 0 70px;
+            border-bottom: 5px solid var(--fce-orange);
+        }
+
+        .hero-badge {
+            background-color: var(--fce-orange);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-fce h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            max-width: 850px;
+            line-height: 1.25;
+            margin-bottom: 15px;
+        }
+
+        .hero-fce p {
+            font-size: 1.05rem;
+            max-width: 750px;
+            color: #e2eeef;
+            margin-bottom: 25px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* Botones */
         .btn-fce {
             display: inline-flex;
             align-items: center;
@@ -164,232 +231,282 @@
         }
 
         .btn-outline {
-            border: 2px solid var(--fce-blue-dark);
-            color: var(--fce-blue-dark);
+            border: 2px solid #ffffff;
+            color: #ffffff;
         }
 
         .btn-outline:hover {
-            background-color: var(--fce-blue-dark);
-            color: #ffffff;
+            background-color: #ffffff;
+            color: var(--fce-blue-dark);
         }
 
-        /* 3. Banner de Página */
-        .hero-fce {
-            background: linear-gradient(135deg, rgba(15, 30, 54, 0.95) 0%, rgba(22, 43, 76, 0.88) 100%), 
-                        url('https://economicas.uba.ar/wp-content/uploads/2016/03/fachada-fce.jpg') center/cover no-repeat;
-            color: #ffffff;
-            padding: 50px 0 60px;
-            border-bottom: 5px solid var(--fce-orange);
-        }
-
-        .hero-badge {
-            background-color: var(--fce-orange);
-            color: #ffffff;
+        .btn-sm {
+            padding: 6px 12px;
             font-size: 0.75rem;
+        }
+
+        .btn-block {
+            margin-top: 15px;
+            text-align: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            width: 100%;
+        }
+
+        /* Layout Principal con Sidebar */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.8fr 1.2fr;
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Secciones */
+        .section-block {
+            background: var(--fce-card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header-fce {
+            border-bottom: 2px solid var(--fce-bg-gray);
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title-fce {
+            font-size: 1.35rem;
+            color: var(--fce-blue-dark);
             font-weight: 800;
             text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 2px;
-            display: inline-block;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
+            position: relative;
         }
 
-        .hero-fce h2 {
-            font-size: 2.2rem;
+        .section-title-fce::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--fce-orange);
+        }
+
+        .section-desc {
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Tarjetas de Objetivos */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .obj-card {
+            background-color: #fcfcfc;
+            border-left: 4px solid var(--fce-orange);
+            padding: 15px 18px;
+            border-radius: 0 4px 4px 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .obj-card strong {
+            color: var(--fce-blue-dark);
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .obj-card p {
+            font-size: 0.85rem;
+        }
+
+        /* Lista de Informes */
+        .report-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: #fff;
+        }
+
+        .report-item:hover {
+            border-color: var(--fce-orange);
+            box-shadow: var(--shadow-md);
+        }
+
+        .report-title {
+            font-weight: 700;
+            color: var(--fce-blue-dark);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .report-title:hover {
+            color: var(--fce-orange);
+        }
+
+        .report-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Sidebar Widgets */
+        .widget-box {
+            background: var(--fce-card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--fce-orange);
+            border-radius: 4px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            color: var(--fce-blue-dark);
             font-weight: 800;
-            max-width: 850px;
-            line-height: 1.25;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .widget-text {
+            font-size: 0.82rem;
+            color: var(--text-muted);
             margin-bottom: 10px;
         }
 
-        .hero-fce p {
-            font-size: 1.05rem;
-            max-width: 750px;
-            color: #e2eeef;
-        }
-
-        /* 4. Sistema de Solapas / Tabs */
-        .tabs-container {
-            margin: 40px auto 60px;
-        }
-
-        .tabs-nav {
-            display: flex;
-            gap: 10px;
-            border-bottom: 2px solid var(--border-color);
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .tab-button {
-            padding: 12px 24px;
-            background: none;
-            border: none;
-            font-size: 0.9rem;
+        .widget-link {
+            font-size: 0.78rem;
             font-weight: 700;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tab-button:hover {
             color: var(--fce-orange);
-        }
-
-        .tab-button.active {
-            color: var(--fce-orange);
-            border-bottom-color: var(--fce-orange);
-            background-color: #ffffff;
-            border-radius: 4px 4px 0 0;
-        }
-
-        .tab-panel {
-            display: none;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
-
-        .tab-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            background: #ffffff;
-            padding: 15px 20px;
-            border-left: 4px solid var(--fce-orange);
-            border-radius: 0 4px 4px 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* Cards & Items */
-        .pub-item {
-            background: var(--fce-card-bg);
-            padding: 20px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--fce-orange);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 15px;
-            transition: all 0.2s;
-        }
-
-        .pub-item:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--fce-orange);
-        }
-
-        .pub-item h3 {
-            color: var(--fce-blue-dark);
-            font-size: 1.05rem;
-            margin-top: 4px;
-            font-weight: 700;
-        }
-
-        .pub-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 3px;
-        }
-
-        .badge-pdf {
-            font-size: 0.7rem;
-            background-color: var(--fce-orange);
-            color: #ffffff;
-            padding: 2px 8px;
-            border-radius: 2px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .btn-download {
-            background-color: var(--fce-orange);
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 3px;
             text-decoration: none;
+        }
+
+        .news-mini-item {
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .news-mini-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .news-tag {
+            font-size: 0.7rem;
+            color: var(--fce-orange);
             font-weight: 700;
-            font-size: 0.8rem;
             text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-            transition: background 0.2s;
         }
 
-        .btn-download:hover {
-            background-color: var(--fce-orange-hover);
+        .news-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 2px;
+            line-height: 1.3;
         }
 
-        /* Grid de Medios */
-        .media-grid {
+        .news-link:hover {
+            color: var(--fce-orange);
+        }
+
+        .director-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--fce-blue-dark);
+        }
+
+        .director-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .team-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            color: var(--fce-blue-mid);
+        }
+
+        .team-list {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Libros Grid */
+        .book-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        .media-card {
-            background: var(--fce-card-bg);
+        .book-card-fce {
+            border: 1px solid var(--border-color);
             border-radius: 4px;
             padding: 20px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--fce-orange);
-            box-shadow: var(--shadow-sm);
+            background: #fbfbfb;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.2s;
         }
 
-        .media-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .media-tag {
-            font-size: 0.72rem;
+        .book-tag {
+            font-size: 0.7rem;
             font-weight: 800;
             color: var(--fce-orange);
             text-transform: uppercase;
         }
 
-        .media-card h4 {
+        .book-card-fce h4 {
             color: var(--fce-blue-dark);
-            font-size: 0.95rem;
-            margin-top: 6px;
-            line-height: 1.4;
+            font-size: 1rem;
+            margin-bottom: 8px;
         }
 
-        .media-link {
-            color: var(--fce-blue-mid);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            margin-top: 15px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-transform: uppercase;
-            transition: color 0.2s;
+        .book-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
         }
 
-        .media-link:hover {
-            color: var(--fce-orange);
+        .book-authors {
+            font-size: 0.75rem;
+            margin-top: 8px;
+            color: #777;
         }
 
-        /* 5. Pie de Página Institucional */
+        /* Footer Oficial */
         footer {
             background-color: var(--fce-blue-dark);
             color: #ffffff;
@@ -432,12 +549,12 @@
 
         /* Responsive */
         @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .header-content { flex-direction: column; gap: 15px; text-align: center; }
             .brand-info { border-left: none; padding-left: 0; margin-top: 5px; }
             .hero-fce h2 { font-size: 1.6rem; }
-            .pub-item { flex-direction: column; align-items: flex-start; }
-            .btn-download { width: 100%; justify-content: center; }
+            .hero-buttons { justify-content: center; }
         }
     </style>
 </head>
@@ -460,7 +577,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="brand-box">
+                <a href="#" class="brand-box">
                     <div class="brand-logo-text">CEDEAM</div>
                     <div class="brand-info">
                         <h1>Centro de Estudios del Desarrollo del AMBA</h1>
@@ -468,200 +585,177 @@
                     </div>
                 </a>
 
-                <a href="index.html" class="btn-fce btn-outline"><i class="fa-solid fa-arrow-left"></i> Volver a Portada</a>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                        <li><a href="#quienes-somos" class="nav-link">El Centro</a></li>
+                        <li><a href="#informes" class="nav-link">Informes</a></li>
+                        <li><a href="#publicaciones" class="nav-link">Publicaciones</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-    <!-- Header de la Subpágina -->
-    <section class="hero-fce">
+    <!-- Banner Principal -->
+    <section class="hero-fce" id="inicio">
         <div class="container">
-            <span class="hero-badge"><i class="fa-solid fa-book-open"></i> Repositorio Abierto</span>
-            <h2>Biblioteca & Publicaciones</h2>
-            <p>Accedé a la totalidad de informes periódicos, documentos técnicos de investigación y apariciones en prensa del CEDEAM.</p>
+            <span class="hero-badge"><i class="fa-solid fa-bookmark"></i> Investigación & Transferencia</span>
+            <h2>Investigación aplicada al desarrollo productivo y económico del Área Metropolitana de Buenos Aires</h2>
+            <p>Generación de datos primarios, monitoreo de coyuntura local y articulación técnica para el fortalecimiento de la gestión pública y el entramado MiPyME.</p>
+            <div class="hero-buttons">
+                <a href="#informes" class="btn-fce btn-orange"><i class="fa-solid fa-file-invoice"></i> Ver Informes de Coyuntura</a>
+                <a href="#quienes-somos" class="btn-fce btn-outline"><i class="fa-solid fa-university"></i> Conocer el Centro</a>
+            </div>
         </div>
     </section>
 
-    <!-- Contenido Principal con Sistema de Solapas/Tabs -->
-    <main class="container tabs-container">
-        
-        <!-- Pestañas de Navegación -->
-        <div class="tabs-nav">
-            <button class="tab-button active" onclick="switchTab(event, 'informes-tab')">
-                <i class="fa-solid fa-chart-line icon-orange"></i> Informes de Coyuntura
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'documentos-tab')">
-                <i class="fa-solid fa-folder-open icon-orange"></i> Documentos Técnicos
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'medios-tab')">
-                <i class="fa-solid fa-newspaper icon-orange"></i> Prensa & Medios
-            </button>
+    <!-- Contenido Principal + Sidebar -->
+    <div class="container">
+        <div class="main-layout">
+            
+            <!-- Columna Principal -->
+            <main>
+                <!-- Sección Institucional -->
+                <section class="section-block" id="quienes-somos">
+                    <div class="section-header-fce">
+                        <h3 class="section-title-fce">¿Quiénes Somos?</h3>
+                    </div>
+                    <p class="section-desc">
+                        El <strong>CEDEAM</strong> es un espacio académico dependiente de la Facultad de Ciencias Económicas de la UBA dedicado al estudio cuantitativo y cualitativo de las dinámicas productivas, laborales y financieras del Gran Buenos Aires y la CABA.
+                    </p>
+
+                    <div class="objectives-grid">
+                        <div class="obj-card">
+                            <strong>Objetivo 01</strong>
+                            <p>Producir informes periódicos sobre la estructura socioeconómica metropolitana.</p>
+                        </div>
+                        <div class="obj-card">
+                            <strong>Objetivo 02</strong>
+                            <p>Generar relevamientos e información estadística primaria propia.</p>
+                        </div>
+                        <div class="obj-card">
+                            <strong>Objetivo 03</strong>
+                            <p>Analizar el ecosistema MiPyME y el entramado emprendedor regional.</p>
+                        </div>
+                        <div class="obj-card">
+                            <strong>Objetivo 04</strong>
+                            <p>Promover la transferencia científica a organismos de gestión pública.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Informes de Coyuntura -->
+                <section class="section-block" id="informes">
+                    <div class="section-header-fce">
+                        <h3 class="section-title-fce">Informes y Monitor Metropolitano</h3>
+                    </div>
+                    <p class="section-subtitle">
+                        Publicaciones elaboradas en articulación técnica con el Centro de Economía Política Argentina (CEPA).
+                    </p>
+
+                    <div class="report-item">
+                        <div>
+                            <a href="#" class="report-title">Monitoreo Económico CABA - 2° Trimestre 2026</a>
+                            <div class="report-meta"><i class="fa-regular fa-calendar"></i> Junio 2026 | Evolución de la actividad, empleo y recursos fiscales</div>
+                        </div>
+                        <a href="#" class="btn-fce btn-orange btn-sm"><i class="fa-solid fa-download"></i> PDF</a>
+                    </div>
+
+                    <div class="report-item">
+                        <div>
+                            <a href="#" class="report-title">Los Distritos Económicos de CABA: Evaluación de Impacto</a>
+                            <div class="report-meta"><i class="fa-regular fa-calendar"></i> Documento Técnico N° 4</div>
+                        </div>
+                        <a href="#" class="btn-fce btn-orange btn-sm"><i class="fa-solid fa-download"></i> PDF</a>
+                    </div>
+
+                    <div class="report-item">
+                        <div>
+                            <a href="#" class="report-title">Informe de Empleo e Inserción Laboral en el AMBA</a>
+                            <div class="report-meta"><i class="fa-regular fa-calendar"></i> Documento Técnico N° 3</div>
+                        </div>
+                        <a href="#" class="btn-fce btn-orange btn-sm"><i class="fa-solid fa-download"></i> PDF</a>
+                    </div>
+                </section>
+
+                <!-- Libros -->
+                <section class="section-block" id="publicaciones">
+                    <div class="section-header-fce">
+                        <h3 class="section-title-fce">Novedades Editoriales</h3>
+                    </div>
+
+                    <div class="book-grid">
+                        <div class="book-card-fce">
+                            <div>
+                                <span class="book-tag">Libro | 2026</span>
+                                <h4>Buenos Aires: Deep Tech</h4>
+                                <p class="book-desc">Innovación, ciencia y desarrollo productivo en la ciudad del futuro.</p>
+                                <p class="book-authors">Sánchez, R., Plummer, A., Vivas, A., Quayat, M., Piccolo, M., Rojo Brizuela, A.</p>
+                            </div>
+                            <a href="#" class="btn-fce btn-orange btn-block">Adquirir Ejemplar</a>
+                        </div>
+
+                        <div class="book-card-fce">
+                            <div>
+                                <span class="book-tag">Libro | 2025</span>
+                                <h4>La Ciudad Posible</h4>
+                                <p class="book-desc">Innovación y política pública para el desarrollo metropolitano.</p>
+                                <p class="book-authors">Sánchez, R. (Comp.) - Editorial Punto de Encuentro.</p>
+                            </div>
+                            <a href="#" class="btn-fce btn-orange btn-block">Adquirir Ejemplar</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Sidebar Lateral Derecha -->
+            <aside>
+                <!-- Red GEIAL Widget -->
+                <div class="widget-box">
+                    <div class="widget-title"><i class="fa-solid fa-network-wired icon-orange"></i> Red GEIAL</div>
+                    <p class="widget-text">
+                        El CEDEAM lidera la medición del **Ecosistema Emprendedor CABA 2026** junto a la red Latinoamericana GEIAL (+30 ecosistemas regionales).
+                    </p>
+                    <a href="#" class="widget-link">Ver metodología y avances &rarr;</a>
+                </div>
+
+                <!-- CEDEAM en Prensa Widget -->
+                <div class="widget-box">
+                    <div class="widget-title"><i class="fa-solid fa-newspaper icon-orange"></i> En los Medios</div>
+                    
+                    <div class="news-mini-item">
+                        <span class="news-tag">Página/12 | Feb 2026</span>
+                        <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad" target="_blank" class="news-link">Impacto del consumo en el sector gastronómico porteño</a>
+                    </div>
+
+                    <div class="news-mini-item">
+                        <span class="news-tag">Página/12 | Ene 2026</span>
+                        <a href="https://www.pagina12.com.ar/2026/01/29/quien-mas-pierde-con-la-reforma" target="_blank" class="news-link">Análisis sobre las reformas fiscales metropolitana</a>
+                    </div>
+
+                    <div class="news-mini-item">
+                        <span class="news-tag">Motor Económico</span>
+                        <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank" class="news-link">Propuestas para una ciudad más equitativa</a>
+                    </div>
+                </div>
+
+                <!-- Equipo de Investigación Widget -->
+                <div class="widget-box">
+                    <div class="widget-title"><i class="fa-solid fa-users icon-orange"></i> Dirección</div>
+                    <p class="director-name">Raúl Oscar Sánchez</p>
+                    <p class="director-title">Director del Centro de Estudios</p>
+                    
+                    <strong class="team-label">Investigadores:</strong>
+                    <p class="team-list">
+                        A. Plummer, A. Vivas, H. J. Peralta, N. March Ríos, M. Piccolo, P. Barreto, S. Canelas.
+                    </p>
+                </div>
+            </aside>
+
         </div>
-
-        <!-- PANEL 1: INFORMES DE COYUNTURA -->
-        <div id="informes-tab" class="tab-panel active">
-            <p class="tab-desc">
-                Informes periódicos de coyuntura socioeconómica elaborados en articulación técnica con el Centro de Economía Política Argentina (CEPA).
-            </p>
-
-            <div class="pub-item">
-                <div>
-                    <span class="badge-pdf">PDF</span>
-                    <h3>Segundo Trimestre 2026: Indicadores de la Economía Porteña</h3>
-                    <p>Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <span class="badge-pdf">PDF</span>
-                    <h3>Primer Trimestre 2026: Indicadores de la Economía Porteña</h3>
-                    <p>Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-        </div>
-
-        <!-- PANEL 2: DOCUMENTOS TÉCNICOS -->
-        <div id="documentos-tab" class="tab-panel">
-            <p class="tab-desc">
-                Investigaciones estructurales, diagnósticos territoriales y documentos de trabajo del AMBA y CABA.
-            </p>
-
-            <div class="pub-item">
-                <div>
-                    <h3>El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente.</h3>
-                    <p>Documento de Trabajo | Publicado: Junio 2023</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <h3>Creación de empresas en el AMBA: realidades, oportunidades, desafíos y propuestas.</h3>
-                    <p>Documento de Trabajo | Publicado: Enero 2024</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <h3>Los Distritos Económicos de la Ciudad Autónoma de Buenos Aires. Historia y resultados de la política pública.</h3>
-                    <p>Documento Técnico N° 4 | Publicado: Julio 2024</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <h3>Situación laboral en la Ciudad de Buenos Aires.</h3>
-                    <p>Documento Técnico N° 3 | Publicado: Septiembre 2024</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-        </div>
-
-        <!-- PANEL 3: EN LOS MEDIOS -->
-        <div id="medios-tab" class="tab-panel">
-            <p class="tab-desc">
-                Recopilación de columnas de opinión, notas periodísticas y análisis en medios de comunicación.
-            </p>
-
-            <div class="media-grid">
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12 | 24/02/2026</span>
-                    <h4>La gastronomía afectada en la Ciudad</h4>
-                    <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12 | 29/01/2026</span>
-                    <h4>Quién más pierde con la reforma</h4>
-                    <a href="https://www.pagina12.com.ar/2026/01/29/quien-mas-pierde-con-la-reforma" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">MOTOR ECONÓMICO</span>
-                    <h4>Informe del CEDEAM: Cómo hacer de CABA una ciudad más equitativa</h4>
-                    <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">IPROFESIONAL</span>
-                    <h4>Buenos Aires: ¿por qué retrocede en innovación tecnológica?</h4>
-                    <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnol%C3%B3gica" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL GRITO DEL SUR</span>
-                    <h4>La ciudad sin estrategia: adiós a desarrollo económico</h4>
-                    <a href="https://elgritodelsur.com.ar/2025/07/la-ciudad-sin-estrategia-adios-a-desarrollo-economico-hola-agencia-bienes/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12</span>
-                    <h4>Repensar el sistema contributivo argentino</h4>
-                    <a href="https://www.pagina12.com.ar/772514-repensar-el-sistema-contributivo-argentino-se-celebro-el-1-e" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL CRONISTA</span>
-                    <h4>La coparticipación y el debate tributario en la Ciudad</h4>
-                    <a href="https://www.cronista.com/columnistas/la-coparticipacion-y-el-debate-tributario-en-la-ciudad/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL CRONISTA</span>
-                    <h4>Políticas productivas de la Ciudad: discontinuidad y magros resultados</h4>
-                    <a href="https://www.cronista.com/columnistas/politicas-productivas-de-la-ciudad-discontinuidad-y-magros-resultados/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">CIUDAD IMAGINARIA</span>
-                    <h4>Los Distritos Económicos en CABA: Historia y resultados</h4>
-                    <a href="https://ciudadimaginaria.com.ar/2024/07/17/los-distritos-economicos-en-la-ciudad-de-buenos-aires-historia-y-resultados-de-la-politica-publica/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL CRONISTA</span>
-                    <h4>Impuesto a las Ganancias: aniquilar a la clase media</h4>
-                    <a href="https://www.cronista.com/columnistas/impuesto-a-las-ganancias-aniquilar-a-la-clase-media" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">INFOBAE</span>
-                    <h4>Es momento de cuidar más que nunca a las PyMEs y emprendedores</h4>
-                    <a href="https://www.infobae.com/opinion/2024/03/06/es-momento-de-cuidar-mas-que-nunca-a-las-pymes-y-a-los-emprendedores/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">TÉLAM</span>
-                    <h4>Subte CABA y las políticas de transporte</h4>
-                    <a href="https://www.telam.com.ar/notas/202308/635810-subte-caba-larreta.html" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12</span>
-                    <h4>La ciudad expulsiva</h4>
-                    <a href="https://www.pagina12.com.ar/556119-la-ciudad-expulsiva-que-diseno-el-gobierno-del-pro" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL ECONOMISTA</span>
-                    <h4>Pérdida de empresas industriales en CABA (2008-2021)</h4>
-                    <a href="https://eleconomista.com.ar/economia/la-ciudad-buenos-aires-perdio-195-sus-empresas-industriales-2008-2021-n66304" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12</span>
-                    <h4>Los exterminadores de las industrias</h4>
-                    <a href="https://www.pagina12.com.ar/588201-los-exterminadores-de-las-industrias" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-        </div>
-
-    </main>
+    </div>
 
     <!-- Pie de Página Institucional -->
     <footer id="contacto">
@@ -695,18 +789,56 @@
         </div>
     </footer>
 
-    <!-- Lógica JavaScript para cambio de pestañas -->
+    <!-- Lógica JavaScript Integrada -->
     <script>
-        function switchTab(event, tabId) {
-            const panels = document.querySelectorAll('.tab-panel');
-            panels.forEach(panel => panel.classList.remove('active'));
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Smooth scroll para la navegación
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    if (targetId === '#') return;
 
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 2. Resaltado activo del menú según la sección visible
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let currentSection = '';
+                const scrollPosition = window.pageYOffset + 120;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
