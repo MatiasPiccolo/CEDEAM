@@ -374,6 +374,251 @@
             margin-top: 4px;
         }
 
+        /* Banner Repositorio Completo */
+        .repo-banner {
+            background-color: var(--fce-blue-dark);
+            border-left: 5px solid var(--fce-orange);
+            border-radius: 4px;
+            padding: 22px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 25px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .repo-banner-info {
+            color: #ffffff;
+        }
+
+        .repo-banner-info h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        .repo-banner-info p {
+            font-size: 0.85rem;
+            color: #c5d6e8;
+            margin: 0;
+        }
+
+        .repo-banner-btn {
+            background-color: var(--fce-orange);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.82rem;
+            padding: 12px 20px;
+            border-radius: 3px;
+            text-decoration: none;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .repo-banner-btn:hover {
+            background-color: var(--fce-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Sección GEIAL */
+        .geial-section {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .geial-tag {
+            background-color: var(--fce-orange-light);
+            color: var(--fce-orange);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .geial-content h3 {
+            font-size: 1.55rem;
+            color: var(--fce-blue-dark);
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 15px;
+        }
+
+        .geial-content p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            line-height: 1.55;
+        }
+
+        .geial-box {
+            background-color: var(--fce-blue-dark);
+            border-left: 4px solid var(--fce-orange);
+            padding: 15px;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            margin-top: 15px;
+        }
+
+        .geial-box strong {
+            color: var(--fce-orange);
+        }
+
+        .geial-metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .metric-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--fce-orange);
+        }
+
+        .metric-card i {
+            font-size: 1.6rem;
+            color: var(--fce-orange);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .metric-num {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--fce-blue-dark);
+            line-height: 1.1;
+        }
+
+        .metric-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Estilos Integrantes Ampliados */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .team-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--fce-blue);
+        }
+
+        .team-card.featured::before {
+            background-color: var(--fce-orange);
+        }
+
+        .team-role {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--fce-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .team-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--fce-blue-dark);
+            margin-bottom: 6px;
+        }
+
+        .team-bio {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .team-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .team-tag {
+            background-color: var(--fce-bg-gray);
+            color: var(--fce-blue-mid);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        .collaborators-list {
+            margin-top: 25px;
+            background-color: #fcfcfc;
+            border: 1px dashed var(--border-color);
+            border-radius: 6px;
+            padding: 18px;
+        }
+
+        .collaborators-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--fce-blue-dark);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .collaborators-names {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
         /* Sidebar Widgets */
         .widget-box {
             background: var(--fce-card-bg);
@@ -555,6 +800,9 @@
             .brand-info { border-left: none; padding-left: 0; margin-top: 5px; }
             .hero-fce h2 { font-size: 1.6rem; }
             .hero-buttons { justify-content: center; }
+            .geial-section { grid-template-columns: 1fr; }
+            .repo-banner { flex-direction: column; text-align: center; }
+            .repo-banner-info h4 { justify-content: center; }
         }
     </style>
 </head>
@@ -589,7 +837,9 @@
                     <ul>
                         <li><a href="#inicio" class="nav-link active">Inicio</a></li>
                         <li><a href="#quienes-somos" class="nav-link">El Centro</a></li>
+                        <li><a href="#geial" class="nav-link">Red GEIAL</a></li>
                         <li><a href="#informes" class="nav-link">Informes</a></li>
+                        <li><a href="#equipo" class="nav-link">Equipo</a></li>
                         <li><a href="#publicaciones" class="nav-link">Publicaciones</a></li>
                         <li><a href="#contacto" class="nav-link">Contacto</a></li>
                     </ul>
@@ -646,6 +896,49 @@
                     </div>
                 </section>
 
+                <!-- NUEVA SECCIÓN: GEIAL -->
+                <section class="section-block" id="geial">
+                    <div class="geial-section">
+                        <div class="geial-content">
+                            <span class="geial-tag"><i class="fa-solid fa-location-dot"></i> Medición Regional 2026</span>
+                            <h3>Medición del Ecosistema Emprendedor CABA 2026</h3>
+                            <p>
+                                Desde el <strong>CEDEAM — Facultad de Ciencias Económicas UBA</strong> lideramos durante el 2026 la medición del ecosistema emprendedor de la Ciudad de Buenos Aires, en articulación con <strong>GEIAL</strong>.
+                            </p>
+                            <p>
+                                Este proceso relevó información clave sobre las condiciones para emprender, identificar fortalezas y brechas, y construir un diagnóstico que aporte insumos para mejorar las estrategias de desarrollo productivo e innovación.
+                            </p>
+
+                            <div class="geial-box">
+                                <i class="fa-solid fa-earth-americas icon-orange"></i> <strong>Red Regional:</strong> Formar parte de <strong>GEIAL</strong> implica integrarse a una red de <strong>+30 ecosistemas y +80 organizaciones</strong> de América Latina, comprometidas con fortalecer el emprendimiento dinámico en la región.
+                            </div>
+                        </div>
+
+                        <div class="geial-metrics-grid">
+                            <div class="metric-card">
+                                <i class="fa-solid fa-city"></i>
+                                <div class="metric-num">CABA</div>
+                                <div class="metric-label">Medición Local 2026</div>
+                            </div>
+                            <div class="metric-card">
+                                <i class="fa-solid fa-diagram-project"></i>
+                                <div class="metric-num">+30</div>
+                                <div class="metric-label">Ecosistemas Regionales</div>
+                            </div>
+                            <div class="metric-card">
+                                <i class="fa-solid fa-building-columns"></i>
+                                <div class="metric-num">+80</div>
+                                <div class="metric-label">Organizaciones Aliadas</div>
+                            </div>
+                            <div class="metric-card">
+                                <i class="fa-solid fa-rocket"></i>
+                                <div class="metric-num">LATAM</div>
+                                <div class="metric-label">Red de Emprendimiento</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Informes de Coyuntura -->
                 <section class="section-block" id="informes">
                     <div class="section-header-fce">
@@ -677,6 +970,78 @@
                             <div class="report-meta"><i class="fa-regular fa-calendar"></i> Documento Técnico N° 3</div>
                         </div>
                         <a href="#" class="btn-fce btn-orange btn-sm"><i class="fa-solid fa-download"></i> PDF</a>
+                    </div>
+
+                    <!-- NUEVA CAJA / BOTÓN REPOSITORIO COMPLETO -->
+                    <div class="repo-banner">
+                        <div class="repo-banner-info">
+                            <h4><i class="fa-solid fa-box-archive icon-orange"></i> Repositorio Completo de Publicaciones</h4>
+                            <p>Accedé al archivo histórico con la totalidad de informes de coyuntura, documentos de trabajo y apariciones en medios de comunicación.</p>
+                        </div>
+                        <a href="Biblioteca.html" class="repo-banner-btn">
+                            <i class="fa-solid fa-folder-open"></i> Ver todos los informes en Biblioteca
+                        </a>
+                    </div>
+                </section>
+
+                <!-- NUEVA SECCIÓN DETALLADA: INTEGRANTES Y EQUIPO -->
+                <section class="section-block" id="equipo">
+                    <div class="section-header-fce">
+                        <h3 class="section-title-fce">Equipo de Investigación</h3>
+                    </div>
+                    <p class="section-subtitle">
+                        El Centro reúne a investigadores, economistas y especialistas dedicados al análisis regional e interdisciplinario.
+                    </p>
+
+                    <div class="team-grid">
+                        <div class="team-card featured">
+                            <span class="team-role">Director</span>
+                            <h4 class="team-name">Raúl Oscar Sánchez</h4>
+                            <p class="team-bio">Docente e investigador de la FCE-UBA. Especialista en economía urbana, planificación metropolitana y políticas de desarrollo local.</p>
+                            <div class="team-tags">
+                                <span class="team-tag">Desarrollo Urbano</span>
+                                <span class="team-tag">Gestión Pública</span>
+                            </div>
+                        </div>
+
+                        <div class="team-card">
+                            <span class="team-role">Investigador Senior</span>
+                            <h4 class="team-name">Matías Piccolo</h4>
+                            <p class="team-bio">Economista especializado en ciencia de datos espaciales, análisis presupuestario e indicadores socioeconómicos del AMBA.</p>
+                            <div class="team-tags">
+                                <span class="team-tag">Econometría</span>
+                                <span class="team-tag">GIS / Datos</span>
+                            </div>
+                        </div>
+
+                        <div class="team-card">
+                            <span class="team-role">Investigadora Senior</span>
+                            <h4 class="team-name">Agustina Plummer</h4>
+                            <p class="team-bio">Especialista en desarrollo industrial, innovación tecnológica y medición del ecosistema emprendedor en la región.</p>
+                            <div class="team-tags">
+                                <span class="team-tag">Red GEIAL</span>
+                                <span class="team-tag">Deep Tech</span>
+                            </div>
+                        </div>
+
+                        <div class="team-card">
+                            <span class="team-role">Investigadora</span>
+                            <h4 class="team-name">Aldana Vivas</h4>
+                            <p class="team-bio">Investigadora focalizada en mercado laboral, distribución del ingreso y distritos económicos productivos de CABA.</p>
+                            <div class="team-tags">
+                                <span class="team-tag">Mercado Laboral</span>
+                                <span class="team-tag">Pyme</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collaborators-list">
+                        <div class="collaborators-title"><i class="fa-solid fa-users icon-orange"></i> Investigadores Asociados y Colaboradores</div>
+                        <p class="collaborators-names">
+                            <strong>Investigadores:</strong> H. J. Peralta, N. March Ríos, P. Barreto, S. Canelas.<br>
+                            <strong>Coordinación Técnica y Datos:</strong> M. Quayat, A. Rojo Brizuela.<br>
+                            <strong>Articulación Institucional:</strong> Equipo de Asistentes de Investigación y Pasantes Académicos FCE UBA.
+                        </p>
                     </div>
                 </section>
 
@@ -718,7 +1083,7 @@
                     <p class="widget-text">
                         El CEDEAM lidera la medición del **Ecosistema Emprendedor CABA 2026** junto a la red Latinoamericana GEIAL (+30 ecosistemas regionales).
                     </p>
-                    <a href="#" class="widget-link">Ver metodología y avances &rarr;</a>
+                    <a href="#geial" class="widget-link">Ver metodología y avances &rarr;</a>
                 </div>
 
                 <!-- CEDEAM en Prensa Widget -->
