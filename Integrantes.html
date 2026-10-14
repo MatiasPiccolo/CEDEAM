@@ -248,23 +248,6 @@
             flex-grow: 1; /* Empuja las redes sociales al fondo */
         }
 
-        .member-areas {
-            margin-bottom: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .area-pill {
-            background-color: var(--fce-bg-gray);
-            color: var(--text-muted);
-            font-size: 0.68rem;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-        }
-
         /* Redes y Contacto */
         .member-footer {
             border-top: 1px dashed var(--border-color);
@@ -281,7 +264,7 @@
 
         .member-socials a {
             color: var(--fce-blue-mid);
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: color 0.2s;
         }
 
@@ -290,12 +273,13 @@
         }
 
         .member-email {
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
+            font-weight: 600;
         }
 
         .member-email:hover {
@@ -399,27 +383,20 @@
         <!-- Grid de Tarjetas de Igual Tamaño -->
         <div class="team-grid">
 
-            <!-- Integrante 1 (Director) -->
+            <!-- Integrante 1 -->
             <div class="member-card">
                 <div class="member-photo-wrapper">
-                    <!-- Reemplazar src por la ruta de foto real (ej: img/equipo/sanchez.jpg) -->
                     <img src="https://via.placeholder.com/400x400/0f1e36/FFFFFF?text=Ra%C3%BAl+S%C3%A1nchez" alt="Raúl Oscar Sánchez">
                 </div>
                 <div class="member-body">
                     <h3 class="member-name">Raúl Oscar Sánchez</h3>
                     <p class="member-title">Director del CEDEAM</p>
                     <p class="member-bio">Docente e investigador de la FCE-UBA. Especialista en planificación económica metropolitana, desarrollo territorial y políticas públicas locales.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Desarrollo AMBA</span>
-                        <span class="area-pill">Política Pública</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:rsanchez@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
                         <div class="member-socials">
                             <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" title="Perfil Académico"><i class="fa-solid fa-graduation-cap"></i></a>
                         </div>
                     </div>
                 </div>
@@ -434,17 +411,11 @@
                     <h3 class="member-name">A. Plummer</h3>
                     <p class="member-title">Investigador Senior</p>
                     <p class="member-bio">Especialista en estructuración financiera, proyectos Deep Tech y análisis de coyuntura productiva metropolitana.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Deep Tech</span>
-                        <span class="area-pill">Finanzas</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:aplummer@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
                         <div class="member-socials">
                             <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
                         </div>
                     </div>
                 </div>
@@ -459,11 +430,6 @@
                     <h3 class="member-name">A. Vivas</h3>
                     <p class="member-title">Investigadora Senior</p>
                     <p class="member-bio">Investigadora focalizada en desarrollo socioeconómico, estructura productiva industrial y encadenamientos regionales.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Socioeconomía</span>
-                        <span class="area-pill">PyMEs</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:avivas@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
@@ -483,11 +449,6 @@
                     <h3 class="member-name">H. J. Peralta</h3>
                     <p class="member-title">Investigador</p>
                     <p class="member-bio">Especialista en economía urbana, evaluación de distritos económicos y dinámicas del mercado de suelo.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Economía Urbana</span>
-                        <span class="area-pill">CABA</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:hperalta@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
@@ -507,11 +468,6 @@
                     <h3 class="member-name">N. March Ríos</h3>
                     <p class="member-title">Investigador GEIAL</p>
                     <p class="member-bio">Investigador centrado en ecosistemas emprendedores de CABA y articulación con redes de emprendimiento dinámico en LATAM.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Red GEIAL</span>
-                        <span class="area-pill">Emprendimiento</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:nmarch@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
@@ -531,17 +487,11 @@
                     <h3 class="member-name">Matías Piccolo</h3>
                     <p class="member-title">Investigador / Análisis Cuantitativo</p>
                     <p class="member-bio">Análisis de datos, econometría aplicada e indicadores de la actividad económica, empleo y finanzas públicas subnacionales.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Análisis de Datos</span>
-                        <span class="area-pill">Coyuntura</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:mpiccolo@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
                         <div class="member-socials">
                             <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -556,11 +506,6 @@
                     <h3 class="member-name">P. Barreto</h3>
                     <p class="member-title">Analista de Investigación</p>
                     <p class="member-bio">Relevamiento de datos primarios, encuestas a MiPyMEs e informes periódicos de empleo e inserción laboral.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Mercado Laboral</span>
-                        <span class="area-pill">Estadística</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:pbarreto@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
@@ -580,11 +525,6 @@
                     <h3 class="member-name">S. Canelas</h3>
                     <p class="member-title">Analista de Investigación</p>
                     <p class="member-bio">Monitoreo de finanzas públicas provinciales y locales, indicadores de recaudación y transferencia de recursos.</p>
-                    
-                    <div class="member-areas">
-                        <span class="area-pill">Finanzas Públicas</span>
-                        <span class="area-pill">Recaudación</span>
-                    </div>
 
                     <div class="member-footer">
                         <a href="mailto:scanelas@economicas.uba.ar" class="member-email"><i class="fa-regular fa-envelope"></i> Contacto</a>
