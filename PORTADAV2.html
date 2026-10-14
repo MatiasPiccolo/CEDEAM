@@ -106,7 +106,6 @@
         .brand-box {
             display: flex;
             align-items: center;
-            gap: 15px;
             text-decoration: none;
         }
 
@@ -119,25 +118,6 @@
             border-radius: 4px;
             letter-spacing: 1px;
             box-shadow: 0 2px 6px rgba(255, 102, 0, 0.3);
-        }
-
-        .brand-info {
-            border-left: 3px solid var(--fce-blue);
-            padding-left: 12px;
-        }
-
-        .brand-info h1 {
-            font-size: 1.15rem;
-            color: var(--fce-blue-dark);
-            font-weight: 800;
-            line-height: 1.2;
-            text-transform: uppercase;
-        }
-
-        .brand-info p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 600;
         }
 
         /* Navegación */
@@ -692,7 +672,6 @@
         @media (max-width: 900px) {
             .footer-grid { grid-template-columns: 1fr; }
             .header-content { flex-direction: column; gap: 15px; text-align: center; }
-            .brand-info { border-left: none; padding-left: 0; margin-top: 5px; }
             .hero-fce h2 { font-size: 1.6rem; }
             .hero-buttons { justify-content: center; }
             .geial-section { grid-template-columns: 1fr; }
@@ -716,16 +695,12 @@
         </div>
     </div>
 
-    <!-- Encabezado / Logo Institucional -->
+    <!-- Encabezado / Logo Solo CEDEAM -->
     <header>
         <div class="container">
             <div class="header-content">
                 <a href="#" class="brand-box">
                     <div class="brand-logo-text">CEDEAM</div>
-                    <div class="brand-info">
-                        <h1>Centro de Estudios del Desarrollo del AMBA</h1>
-                        <p>Secretaría de Investigación | Facultad de Ciencias Económicas UBA</p>
-                    </div>
                 </a>
 
                 <nav>
@@ -748,8 +723,8 @@
     <section class="hero-fce" id="inicio">
         <div class="container">
             <span class="hero-badge"><i class="fa-solid fa-bookmark"></i> Investigación & Transferencia</span>
-            <h2>Investigación aplicada al desarrollo productivo y económico del Área Metropolitana de Buenos Aires</h2>
-            <p>Generación de datos primarios, monitoreo de coyuntura local y articulación técnica para el fortalecimiento de la gestión pública y el entramado MiPyME.</p>
+            <h2>Centro de Estudios del Desarrollo del Área Metropolitana de Buenos Aires</h2>
+            <p>Investigación aplicada al desarrollo productivo y económico del Área Metropolitana de Buenos Aires</p>
             <div class="hero-buttons">
                 <a href="#informes" class="btn-fce btn-orange"><i class="fa-solid fa-file-invoice"></i> Ver Informes de Coyuntura</a>
             </div>
