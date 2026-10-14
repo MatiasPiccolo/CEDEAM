@@ -12,4 +12,5 @@ Portal de informes y visualizaciones interactivas.
 | Portal principal | [Portada.html](https://matiaspiccolo.github.io/CEDEAM/Portada_CEDEAM.html) |
 | Bliblioteca | [Biblioteca.html](https://matiaspiccolo.github.io/CEDEAM/biblioteca.html) |
 | Integrantes | [Integrantes.html](https://matiaspiccolo.github.io/CEDEAM/Integrantes.html) |
+| Comunicación | [Comunicacion.html](https://matiaspiccolo.github.io/CEDEAM/comunicacion.html) |
 | PORTADAV2 | [PORTADAV2.html](https://matiaspiccolo.github.io/CEDEAM/PORTADAV2.html) |
