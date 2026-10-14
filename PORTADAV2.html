@@ -312,7 +312,7 @@
         /* Tarjetas de Objetivos */
         .objectives-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
@@ -320,23 +320,43 @@
         .obj-card {
             background-color: #fcfcfc;
             border-left: 4px solid var(--fce-orange);
-            padding: 15px 18px;
+            padding: 16px 18px;
             border-radius: 0 4px 4px 0;
             border-top: 1px solid var(--border-color);
             border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .obj-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .obj-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .obj-card-header i {
+            font-size: 1.1rem;
+            color: var(--fce-orange);
         }
 
         .obj-card strong {
             color: var(--fce-blue-dark);
-            display: block;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
         }
 
         .obj-card p {
-            font-size: 0.85rem;
+            font-size: 0.83rem;
+            color: var(--text-main);
+            line-height: 1.5;
         }
 
         /* Lista de Informes */
@@ -764,7 +784,6 @@
             <p>Generación de datos primarios, monitoreo de coyuntura local y articulación técnica para el fortalecimiento de la gestión pública y el entramado MiPyME.</p>
             <div class="hero-buttons">
                 <a href="#informes" class="btn-fce btn-orange"><i class="fa-solid fa-file-invoice"></i> Ver Informes de Coyuntura</a>
-                <a href="#quienes-somos" class="btn-fce btn-outline"><i class="fa-solid fa-university"></i> Conocer el Centro</a>
             </div>
         </div>
     </section>
@@ -786,20 +805,51 @@
 
                     <div class="objectives-grid">
                         <div class="obj-card">
-                            <strong>Objetivo 01</strong>
-                            <p>Producir informes periódicos sobre la estructura socioeconómica metropolitana.</p>
+                            <div class="obj-card-header">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <strong>Investigación Aplicada</strong>
+                            </div>
+                            <p>Producir informes sobre las problemáticas y potencialidades del AMBA.</p>
                         </div>
+
                         <div class="obj-card">
-                            <strong>Objetivo 02</strong>
-                            <p>Generar relevamientos e información estadística primaria propia.</p>
+                            <div class="obj-card-header">
+                                <i class="fa-solid fa-clipboard-question"></i>
+                                <strong>Información Primaria</strong>
+                            </div>
+                            <p>Generar información primaria a través de la implementación de encuestas.</p>
                         </div>
+
                         <div class="obj-card">
-                            <strong>Objetivo 03</strong>
-                            <p>Analizar el ecosistema MiPyME y el entramado emprendedor regional.</p>
+                            <div class="obj-card-header">
+                                <i class="fa-solid fa-rocket"></i>
+                                <strong>Análisis Ecosistémico</strong>
+                            </div>
+                            <p>Sistematizar información estadística secundaria sobre el entramado MiPyME haciendo especial hincapié en el ecosistema emprendedor.</p>
                         </div>
+
                         <div class="obj-card">
-                            <strong>Objetivo 04</strong>
-                            <p>Promover la transferencia científica a organismos de gestión pública.</p>
+                            <div class="obj-card-header">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <strong>Formación Académica</strong>
+                            </div>
+                            <p>Contribuir a la formación de alumnos, docentes, investigadores y funcionarios de gobierno.</p>
+                        </div>
+
+                        <div class="obj-card">
+                            <div class="obj-card-header">
+                                <i class="fa-solid fa-comments"></i>
+                                <strong>Divulgación y Debate</strong>
+                            </div>
+                            <p>Difundir y debatir las temáticas abordadas con distintos actores.</p>
+                        </div>
+
+                        <div class="obj-card">
+                            <div class="obj-card-header">
+                                <i class="fa-solid fa-handshake-angle"></i>
+                                <strong>Transferencia</strong>
+                            </div>
+                            <p>Realizar actividades de transferencia de conocimiento.</p>
                         </div>
                     </div>
                 </section>
@@ -850,7 +900,7 @@
                 <!-- Informes de Coyuntura -->
                 <section class="section-block" id="informes">
                     <div class="section-header-fce">
-                        <h3 class="section-title-fce">Informes y Monitor Metropolitano</h3>
+                        <h3 class="section-title-fce">INFORMES Y DOCUMENTOS</h3>
                     </div>
                     <p class="section-subtitle">
                         Publicaciones elaboradas en articulación técnica con el Centro de Economía Política Argentina (CEPA).
