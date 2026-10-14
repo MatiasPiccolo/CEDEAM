@@ -371,62 +371,6 @@
             background-color: var(--fce-orange-hover);
         }
 
-        /* Grid de Medios */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .media-card {
-            background: var(--fce-card-bg);
-            border-radius: 4px;
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--fce-orange);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.2s;
-        }
-
-        .media-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .media-tag {
-            font-size: 0.72rem;
-            font-weight: 800;
-            color: var(--fce-orange);
-            text-transform: uppercase;
-        }
-
-        .media-card h4 {
-            color: var(--fce-blue-dark);
-            font-size: 0.95rem;
-            margin-top: 6px;
-            line-height: 1.4;
-        }
-
-        .media-link {
-            color: var(--fce-blue-mid);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            margin-top: 15px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-        .media-link:hover {
-            color: var(--fce-orange);
-        }
-
         /* 5. Pie de Página Institucional */
         footer {
             background-color: var(--fce-blue-dark);
@@ -520,12 +464,12 @@
 
                         <!-- Desplegable Comunicación -->
                         <li>
-                            <a href="#medios-tab" class="nav-link">
+                            <a href="comunicacion.html" class="nav-link">
                                 COMUNICACIÓN <i class="fa-solid fa-caret-down"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="javascript:void(0)" onclick="switchTabByDropdown('medios-tab')" class="dropdown-item">CEDEAM en los medios</a>
-                                <a href="index.html#publicaciones" class="dropdown-item">Publicaciones / Novedades editoriales</a>
+                                <a href="comunicacion.html#medios-tab" class="dropdown-item">CEDEAM en los medios</a>
+                                <a href="comunicacion.html#libros-tab" class="dropdown-item">Publicaciones / Novedades editoriales</a>
                             </div>
                         </li>
 
@@ -541,7 +485,7 @@
         <div class="container">
             <span class="hero-badge"><i class="fa-solid fa-book-open"></i> Repositorio Abierto</span>
             <h2>Biblioteca & Publicaciones</h2>
-            <p>Accedé a la totalidad de informes periódicos, documentos técnicos de investigación y apariciones en prensa del CEDEAM.</p>
+            <p>Accedé a la totalidad de informes periódicos de coyuntura y documentos técnicos de investigación del CEDEAM.</p>
         </div>
     </section>
 
@@ -555,9 +499,6 @@
             </button>
             <button id="btn-documentos-tab" class="tab-button" onclick="switchTab(event, 'documentos-tab')">
                 <i class="fa-solid fa-folder-open icon-orange"></i> Documentos Técnicos
-            </button>
-            <button id="btn-medios-tab" class="tab-button" onclick="switchTab(event, 'medios-tab')">
-                <i class="fa-solid fa-newspaper icon-orange"></i> Prensa & Medios
             </button>
         </div>
 
@@ -622,105 +563,6 @@
                     <p>Documento Técnico N° 3 | Publicado: Septiembre 2024</p>
                 </div>
                 <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-        </div>
-
-        <!-- PANEL 3: EN LOS MEDIOS -->
-        <div id="medios-tab" class="tab-panel">
-            <p class="tab-desc">
-                Recopilación de columnas de opinión, notas periodísticas y análisis en medios de comunicación.
-            </p>
-
-            <div class="media-grid">
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12 | 24/02/2026</span>
-                    <h4>La gastronomía afectada en la Ciudad</h4>
-                    <a href="https://www.pagina12.com.ar/2026/02/24/la-gastronomia-afectada-en-la-ciudad" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12 | 29/01/2026</span>
-                    <h4>Quién más pierde con la reforma</h4>
-                    <a href="https://www.pagina12.com.ar/2026/01/29/quien-mas-pierde-con-la-reforma" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">MOTOR ECONÓMICO</span>
-                    <h4>Informe del CEDEAM: Cómo hacer de CABA una ciudad más equitativa</h4>
-                    <a href="https://motoreconomico.com.ar/informe-del-cedeamcomo-hacer-de-caba-una-ciudad-mas-equitativa/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">IPROFESIONAL</span>
-                    <h4>Buenos Aires: ¿por qué retrocede en innovación tecnológica?</h4>
-                    <a href="https://www.iprofesional.com/tecnologia/436246-buenos-aires-por-que-retrocede-en-innovacion-tecnol%C3%B3gica" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL GRITO DEL SUR</span>
-                    <h4>La ciudad sin estrategia: adiós a desarrollo económico</h4>
-                    <a href="https://elgritodelsur.com.ar/2025/07/la-ciudad-sin-estrategia-adios-a-desarrollo-economico-hola-agencia-bienes/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12</span>
-                    <h4>Repensar el sistema contributivo argentino</h4>
-                    <a href="https://www.pagina12.com.ar/772514-repensar-el-sistema-contributivo-argentino-se-celebro-el-1-e" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL CRONISTA</span>
-                    <h4>La coparticipación y el debate tributario en la Ciudad</h4>
-                    <a href="https://www.cronista.com/columnistas/la-coparticipacion-y-el-debate-tributario-en-la-ciudad/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL CRONISTA</span>
-                    <h4>Políticas productivas de la Ciudad: discontinuidad y magros resultados</h4>
-                    <a href="https://www.cronista.com/columnistas/politicas-productivas-de-la-ciudad-discontinuidad-y-magros-resultados/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">CIUDAD IMAGINARIA</span>
-                    <h4>Los Distritos Económicos en CABA: Historia y resultados</h4>
-                    <a href="https://ciudadimaginaria.com.ar/2024/07/17/los-distritos-economicos-en-la-ciudad-de-buenos-aires-historia-y-resultados-de-la-politica-publica/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL CRONISTA</span>
-                    <h4>Impuesto a las Ganancias: aniquilar a la clase media</h4>
-                    <a href="https://www.cronista.com/columnistas/impuesto-a-las-ganancias-aniquilar-a-la-clase-media" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">INFOBAE</span>
-                    <h4>Es momento de cuidar más que nunca a las PyMEs y emprendedores</h4>
-                    <a href="https://www.infobae.com/opinion/2024/03/06/es-momento-de-cuidar-mas-que-nunca-a-las-pymes-y-a-los-emprendedores/" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">TÉLAM</span>
-                    <h4>Subte CABA y las políticas de transporte</h4>
-                    <a href="https://www.telam.com.ar/notas/202308/635810-subte-caba-larreta.html" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12</span>
-                    <h4>La ciudad expulsiva</h4>
-                    <a href="https://www.pagina12.com.ar/556119-la-ciudad-expulsiva-que-diseno-el-gobierno-del-pro" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">EL ECONOMISTA</span>
-                    <h4>Pérdida de empresas industriales en CABA (2008-2021)</h4>
-                    <a href="https://eleconomista.com.ar/economia/la-ciudad-buenos-aires-perdio-195-sus-empresas-industriales-2008-2021-n66304" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="media-card">
-                    <span class="media-tag">PÁGINA/12</span>
-                    <h4>Los exterminadores de las industrias</h4>
-                    <a href="https://www.pagina12.com.ar/588201-los-exterminadores-de-las-industrias" target="_blank" class="media-link">Leer artículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
             </div>
         </div>
 
@@ -791,7 +633,7 @@
             document.querySelector('.tabs-container').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Detectar si la URL viene con hash (ej: biblioteca.html#medios-tab)
+        // Detectar si la URL viene con hash (ej: biblioteca.html#documentos-tab)
         document.addEventListener('DOMContentLoaded', () => {
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById(hash)) {
