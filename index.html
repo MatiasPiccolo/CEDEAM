@@ -756,23 +756,23 @@
                         
                         <!-- Desplegable Publicaciones -->
                         <li>
-                            <a href="#informes" class="nav-link">
+                            <a href="biblioteca.html" class="nav-link">
                                 PUBLICACIONES <i class="fa-solid fa-caret-down"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="biblioteca.html#documentos" class="dropdown-item">Documentos de trabajo</a>
-                                <a href="#informes" class="dropdown-item">Informes de coyuntura</a>
+                                <a href="biblioteca.html#documentos-tab" class="dropdown-item">Documentos de trabajo</a>
+                                <a href="biblioteca.html#informes-tab" class="dropdown-item">Informes de coyuntura</a>
                             </div>
                         </li>
 
                         <!-- Desplegable Comunicación -->
                         <li>
-                            <a href="#medios" class="nav-link">
+                            <a href="comunicacion.html" class="nav-link">
                                 COMUNICACIÓN <i class="fa-solid fa-caret-down"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="#medios" class="dropdown-item">CEDEAM en los medios</a>
-                                <a href="#publicaciones" class="dropdown-item">Publicaciones / Novedades editoriales</a>
+                                <a href="comunicacion.html#medios-tab" class="dropdown-item">CEDEAM en los medios</a>
+                                <a href="comunicacion.html#libros-tab" class="dropdown-item">Publicaciones / Novedades editoriales</a>
                             </div>
                         </li>
 
@@ -940,7 +940,7 @@
                     <div class="repo-banner">
                         <div class="repo-banner-info">
                             <h4><i class="fa-solid fa-box-archive icon-orange"></i> Repositorio Completo de Publicaciones</h4>
-                            <p>Accedé al archivo histórico con la totalidad de informes de coyuntura, documentos de trabajo y apariciones en medios de comunicación.</p>
+                            <p>Accedé al archivo histórico con la totalidad de informes de coyuntura y documentos de trabajo.</p>
                         </div>
                         <a href="biblioteca.html" class="repo-banner-btn">
                             <i class="fa-solid fa-folder-open"></i> Ver todos los informes en Biblioteca
@@ -962,7 +962,7 @@
                                 <p class="book-desc">Innovación, ciencia y desarrollo productivo en la ciudad del futuro.</p>
                                 <p class="book-authors">Sánchez, R., Plummer, A., Vivas, A., Quayat, M., Piccolo, M., Rojo Brizuela, A.</p>
                             </div>
-                            <a href="#" class="btn-fce btn-orange btn-block">Adquirir Ejemplar</a>
+                            <a href="comunicacion.html#libros-tab" class="btn-fce btn-orange btn-block">Adquirir Ejemplar</a>
                         </div>
 
                         <div class="book-card-fce">
@@ -972,7 +972,7 @@
                                 <p class="book-desc">Innovación y política pública para el desarrollo metropolitano.</p>
                                 <p class="book-authors">Sánchez, R. (Comp.) - Editorial Punto de Encuentro.</p>
                             </div>
-                            <a href="#" class="btn-fce btn-orange btn-block">Adquirir Ejemplar</a>
+                            <a href="comunicacion.html#libros-tab" class="btn-fce btn-orange btn-block">Adquirir Ejemplar</a>
                         </div>
                     </div>
                 </section>
@@ -1013,7 +1013,7 @@
                     </div>
 
                     <div class="media-actions">
-                        <a href="biblioteca.html#medios-tab" class="btn-fce btn-orange">
+                        <a href="comunicacion.html#medios-tab" class="btn-fce btn-orange">
                             <i class="fa-solid fa-newspaper"></i> Ver más notas
                         </a>
                     </div>
@@ -1057,8 +1057,8 @@
     <!-- Lógica JavaScript Integrada -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Smooth scroll para la navegación interna
-            const navLinks = document.querySelectorAll('nav a[href^="#"], .dropdown-menu a[href^="#"]');
+            // Smooth scroll para la navegación interna de la misma página
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
@@ -1080,7 +1080,7 @@
                 });
             });
 
-            // 2. Resaltado activo del menú según la sección visible
+            // Resaltado activo del menú según la sección visible
             const sections = document.querySelectorAll('section[id]');
             const mainNavLinks = document.querySelectorAll('nav > ul > li > .nav-link');
 
