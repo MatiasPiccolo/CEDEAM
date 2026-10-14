@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio & Publicaciones - CEDEAM | FCE UBA</title>
+    <title>Comunicación & Publicaciones - CEDEAM | FCE UBA</title>
     
     <!-- Tipografía Institucional UBA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5, h6, .nav-link, .btn-fce, .badge-fce, .tab-button {
+        h1, h2, h3, h4, h5, h6, .nav-link, .btn-fce, .badge-fce, .tab-button, .dropdown-item {
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -106,7 +106,6 @@
         .brand-box {
             display: flex;
             align-items: center;
-            gap: 15px;
             text-decoration: none;
         }
 
@@ -121,23 +120,72 @@
             box-shadow: 0 2px 6px rgba(255, 102, 0, 0.3);
         }
 
-        .brand-info {
-            border-left: 3px solid var(--fce-blue);
-            padding-left: 12px;
+        /* Navegación y Menús Desplegables */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+            align-items: center;
         }
 
-        .brand-info h1 {
-            font-size: 1.15rem;
+        nav li {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
             color: var(--fce-blue-dark);
-            font-weight: 800;
-            line-height: 1.2;
+            font-weight: 700;
+            font-size: 0.82rem;
             text-transform: uppercase;
+            padding: 10px 14px;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
         }
 
-        .brand-info p {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .nav-link:hover, .nav-link.active, nav li:hover > .nav-link {
+            background-color: var(--fce-orange);
+            color: #ffffff;
+        }
+
+        /* Submenú desplegable (Dropdown) */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1a1a1a;
+            min-width: 230px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 0 0 4px 4px;
+            border-top: 3px solid var(--fce-orange);
+            display: none;
+            flex-direction: column;
+            z-index: 1100;
+            padding: 6px 0;
+        }
+
+        nav li:hover .dropdown-menu {
+            display: flex;
+        }
+
+        .dropdown-item {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 18px;
+            font-size: 0.78rem;
             font-weight: 600;
+            line-height: 1.3;
+            transition: all 0.2s ease;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--fce-orange);
+            color: #ffffff;
+            padding-left: 22px;
         }
 
         .btn-fce {
@@ -163,14 +211,12 @@
             transform: translateY(-1px);
         }
 
-        .btn-outline {
-            border: 2px solid var(--fce-blue-dark);
-            color: var(--fce-blue-dark);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--fce-blue-dark);
-            color: #ffffff;
+        .btn-block {
+            margin-top: 15px;
+            text-align: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            width: 100%;
         }
 
         /* 3. Banner de Página */
@@ -269,70 +315,6 @@
             box-shadow: var(--shadow-sm);
         }
 
-        /* Cards & Items */
-        .pub-item {
-            background: var(--fce-card-bg);
-            padding: 20px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--fce-orange);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 15px;
-            transition: all 0.2s;
-        }
-
-        .pub-item:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--fce-orange);
-        }
-
-        .pub-item h3 {
-            color: var(--fce-blue-dark);
-            font-size: 1.05rem;
-            margin-top: 4px;
-            font-weight: 700;
-        }
-
-        .pub-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 3px;
-        }
-
-        .badge-pdf {
-            font-size: 0.7rem;
-            background-color: var(--fce-orange);
-            color: #ffffff;
-            padding: 2px 8px;
-            border-radius: 2px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .btn-download {
-            background-color: var(--fce-orange);
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 3px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-            transition: background 0.2s;
-        }
-
-        .btn-download:hover {
-            background-color: var(--fce-orange-hover);
-        }
-
         /* Grid de Medios */
         .media-grid {
             display: grid;
@@ -389,6 +371,62 @@
             color: var(--fce-orange);
         }
 
+        /* Libros / Novedades Editoriales Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card-fce {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            border-top: 4px solid var(--fce-blue-dark);
+            padding: 25px;
+            background: var(--fce-card-bg);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+
+        .book-card-fce:hover {
+            box-shadow: var(--shadow-md);
+            border-top-color: var(--fce-orange);
+            transform: translateY(-2px);
+        }
+
+        .book-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--fce-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .book-card-fce h4 {
+            color: var(--fce-blue-dark);
+            font-size: 1.2rem;
+            margin: 8px 0;
+            font-weight: 800;
+        }
+
+        .book-desc {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .book-authors {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
         /* 5. Pie de Página Institucional */
         footer {
             background-color: var(--fce-blue-dark);
@@ -434,10 +472,8 @@
         @media (max-width: 900px) {
             .footer-grid { grid-template-columns: 1fr; }
             .header-content { flex-direction: column; gap: 15px; text-align: center; }
-            .brand-info { border-left: none; padding-left: 0; margin-top: 5px; }
             .hero-fce h2 { font-size: 1.6rem; }
-            .pub-item { flex-direction: column; align-items: flex-start; }
-            .btn-download { width: 100%; justify-content: center; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -456,19 +492,44 @@
         </div>
     </div>
 
-    <!-- Encabezado / Logo Institucional -->
+    <!-- Encabezado / Logo Institucional y Navegación con Menús Desplegables -->
     <header>
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="brand-box">
                     <div class="brand-logo-text">CEDEAM</div>
-                    <div class="brand-info">
-                        <h1>Centro de Estudios del Desarrollo del AMBA</h1>
-                        <p>Secretaría de Investigación | Facultad de Ciencias Económicas UBA</p>
-                    </div>
                 </a>
 
-                <a href="index.html" class="btn-fce btn-outline"><i class="fa-solid fa-arrow-left"></i> Volver a Portada</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html#quienes-somos" class="nav-link">EL CENTRO</a></li>
+                        <li><a href="Integrantes.html" class="nav-link">EQUIPO</a></li>
+                        
+                        <!-- Desplegable Publicaciones -->
+                        <li>
+                            <a href="biblioteca.html" class="nav-link">
+                                PUBLICACIONES <i class="fa-solid fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="biblioteca.html#documentos-tab" class="dropdown-item">Documentos de trabajo</a>
+                                <a href="biblioteca.html#informes-tab" class="dropdown-item">Informes de coyuntura</a>
+                            </div>
+                        </li>
+
+                        <!-- Desplegable Comunicación -->
+                        <li>
+                            <a href="#medios-tab" class="nav-link active">
+                                COMUNICACIÓN <i class="fa-solid fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="javascript:void(0)" onclick="switchTabByDropdown('medios-tab')" class="dropdown-item">CEDEAM en los medios</a>
+                                <a href="javascript:void(0)" onclick="switchTabByDropdown('libros-tab')" class="dropdown-item">Publicaciones / Novedades editoriales</a>
+                            </div>
+                        </li>
+
+                        <li><a href="index.html#contacto" class="nav-link">CONTACTO</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
@@ -476,9 +537,9 @@
     <!-- Header de la Subpágina -->
     <section class="hero-fce">
         <div class="container">
-            <span class="hero-badge"><i class="fa-solid fa-book-open"></i> Repositorio Abierto</span>
-            <h2>Biblioteca & Publicaciones</h2>
-            <p>Accedé a la totalidad de informes periódicos, documentos técnicos de investigación y apariciones en prensa del CEDEAM.</p>
+            <span class="hero-badge"><i class="fa-solid fa-bullhorn"></i> Portal de Comunicación</span>
+            <h2>Prensa & Novedades Editoriales</h2>
+            <p>Apariciones en medios de comunicación, artículos de divulgación socioeconómica y libros publicados por los investigadores del CEDEAM.</p>
         </div>
     </section>
 
@@ -487,85 +548,18 @@
         
         <!-- Pestañas de Navegación -->
         <div class="tabs-nav">
-            <button class="tab-button active" onclick="switchTab(event, 'informes-tab')">
-                <i class="fa-solid fa-chart-line icon-orange"></i> Informes de Coyuntura
+            <button id="btn-medios-tab" class="tab-button active" onclick="switchTab(event, 'medios-tab')">
+                <i class="fa-solid fa-newspaper icon-orange"></i> CEDEAM en los Medios
             </button>
-            <button class="tab-button" onclick="switchTab(event, 'documentos-tab')">
-                <i class="fa-solid fa-folder-open icon-orange"></i> Documentos Técnicos
-            </button>
-            <button class="tab-button" onclick="switchTab(event, 'medios-tab')">
-                <i class="fa-solid fa-newspaper icon-orange"></i> Prensa & Medios
+            <button id="btn-libros-tab" class="tab-button" onclick="switchTab(event, 'libros-tab')">
+                <i class="fa-solid fa-book icon-orange"></i> Novedades Editoriales
             </button>
         </div>
 
-        <!-- PANEL 1: INFORMES DE COYUNTURA -->
-        <div id="informes-tab" class="tab-panel active">
+        <!-- PANEL 1: CEDEAM EN LOS MEDIOS -->
+        <div id="medios-tab" class="tab-panel active">
             <p class="tab-desc">
-                Informes periódicos de coyuntura socioeconómica elaborados en articulación técnica con el Centro de Economía Política Argentina (CEPA).
-            </p>
-
-            <div class="pub-item">
-                <div>
-                    <span class="badge-pdf">PDF</span>
-                    <h3>Segundo Trimestre 2026: Indicadores de la Economía Porteña</h3>
-                    <p>Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <span class="badge-pdf">PDF</span>
-                    <h3>Primer Trimestre 2026: Indicadores de la Economía Porteña</h3>
-                    <p>Actividad, empleo, consumo y cuentas públicas en un contexto de alta incertidumbre.</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-        </div>
-
-        <!-- PANEL 2: DOCUMENTOS TÉCNICOS -->
-        <div id="documentos-tab" class="tab-panel">
-            <p class="tab-desc">
-                Investigaciones estructurales, diagnósticos territoriales y documentos de trabajo del AMBA y CABA.
-            </p>
-
-            <div class="pub-item">
-                <div>
-                    <h3>El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente.</h3>
-                    <p>Documento de Trabajo | Publicado: Junio 2023</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <h3>Creación de empresas en el AMBA: realidades, oportunidades, desafíos y propuestas.</h3>
-                    <p>Documento de Trabajo | Publicado: Enero 2024</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <h3>Los Distritos Económicos de la Ciudad Autónoma de Buenos Aires. Historia y resultados de la política pública.</h3>
-                    <p>Documento Técnico N° 4 | Publicado: Julio 2024</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-
-            <div class="pub-item">
-                <div>
-                    <h3>Situación laboral en la Ciudad de Buenos Aires.</h3>
-                    <p>Documento Técnico N° 3 | Publicado: Septiembre 2024</p>
-                </div>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Descargar</a>
-            </div>
-        </div>
-
-        <!-- PANEL 3: EN LOS MEDIOS -->
-        <div id="medios-tab" class="tab-panel">
-            <p class="tab-desc">
-                Recopilación de columnas de opinión, notas periodísticas y análisis en medios de comunicación.
+                Recopilación de notas periodísticas, entrevistas y columnas de opinión publicadas en diversos medios de prensa.
             </p>
 
             <div class="media-grid">
@@ -661,6 +655,37 @@
             </div>
         </div>
 
+        <!-- PANEL 2: NOVEDADES EDITORIALES (LIBROS) -->
+        <div id="libros-tab" class="tab-panel">
+            <p class="tab-desc">
+                Publicaciones bibliográficas compiladas y elaboradas por el equipo de investigadores del CEDEAM.
+            </p>
+
+            <div class="book-grid">
+                <!-- Libro 1 -->
+                <div class="book-card-fce">
+                    <div>
+                        <span class="book-tag"><i class="fa-solid fa-book-bookmark"></i> Libro | 2026</span>
+                        <h4>Buenos Aires: Deep Tech</h4>
+                        <p class="book-desc">Innovación, ciencia y desarrollo productivo en la ciudad del futuro. Análisis profundo sobre el ecosistema tecnológico, empresas de base científica y el rol de las políticas públicas locales.</p>
+                        <p class="book-authors"><strong>Autores:</strong> Sánchez, R., Plummer, A., Vivas, A., Quayat, M., Piccolo, M., Rojo Brizuela, A.</p>
+                    </div>
+                    <a href="#" class="btn-fce btn-orange btn-block"><i class="fa-solid fa-cart-shopping"></i> Adquirir Ejemplar</a>
+                </div>
+
+                <!-- Libro 2 -->
+                <div class="book-card-fce">
+                    <div>
+                        <span class="book-tag"><i class="fa-solid fa-book-bookmark"></i> Libro | 2025</span>
+                        <h4>La Ciudad Posible</h4>
+                        <p class="book-desc">Innovación y política pública para el desarrollo metropolitano. Aborda los desafíos estructurales de la gestión urbana, la inclusión productiva y la planificación estratégica del AMBA.</p>
+                        <p class="book-authors"><strong>Compilador:</strong> Sánchez, R. (Comp.) — Editorial Punto de Encuentro.</p>
+                    </div>
+                    <a href="#" class="btn-fce btn-orange btn-block"><i class="fa-solid fa-cart-shopping"></i> Adquirir Ejemplar</a>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Pie de Página Institucional -->
@@ -695,7 +720,7 @@
         </div>
     </footer>
 
-    <!-- Lógica JavaScript para cambio de pestañas -->
+    <!-- Lógica JavaScript para cambio de pestañas y detección de Hash -->
     <script>
         function switchTab(event, tabId) {
             const panels = document.querySelectorAll('.tab-panel');
@@ -705,8 +730,36 @@
             buttons.forEach(button => button.classList.remove('active'));
 
             document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
         }
+
+        function switchTabByDropdown(tabId) {
+            const btnId = `btn-${tabId}`;
+            const btn = document.getElementById(btnId);
+
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            if (btn) {
+                btn.classList.add('active');
+            }
+
+            document.querySelector('.tabs-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Detectar si la URL viene con hash específico (ej: comunicacion.html#libros-tab)
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                switchTabByDropdown(hash);
+            }
+        });
     </script>
 </body>
 </html>
