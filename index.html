@@ -100,7 +100,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;
         }
 
         .brand-box {
@@ -111,13 +111,19 @@
 
         .brand-logo-text {
             background-color: var(--fce-orange);
-            color: #ffffff;
-            font-weight: 900;
-            font-size: 1.5rem;
-            padding: 8px 14px;
+            padding: 6px 12px;
             border-radius: 4px;
-            letter-spacing: 1px;
             box-shadow: 0 2px 6px rgba(255, 102, 0, 0.3);
+            display: flex;
+            align-items: center;
+            height: 52px;
+        }
+
+        .brand-logo-text img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            display: block;
         }
 
         /* Navegación y Menús Desplegables */
@@ -322,13 +328,20 @@
         }
 
         .section-desc {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
         .section-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--fce-blue-dark);
+            font-weight: 800;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
         }
 
         /* Tarjetas de Objetivos */
@@ -746,7 +759,9 @@
         <div class="container">
             <div class="header-content">
                 <a href="#" class="brand-box">
-                    <div class="brand-logo-text">CEDEAM</div>
+                    <div class="brand-logo-text">
+                        <img src="CEDEAM_extendida_blanco.png" alt="CEDEAM - Centro de Estudios del Desarrollo Económico del Área Metropolitana">
+                    </div>
                 </a>
 
                 <nav>
@@ -803,59 +818,64 @@
                 <!-- Sección Institucional -->
                 <section class="section-block" id="quienes-somos">
                     <div class="section-header-fce">
-                        <h3 class="section-title-fce">¿Quiénes Somos?</h3>
+                        <h3 class="section-title-fce">Sobre el CEDEAM</h3>
                     </div>
                     <p class="section-desc">
-                        El <strong>CEDEAM</strong> es un espacio académico dependiente de la Facultad de Ciencias Económicas de la UBA dedicado al estudio cuantitativo y cualitativo de las dinámicas productivas, laborales y financieras del Gran Buenos Aires y la CABA.
+                        El Centro de Estudios del Desarrollo Económico del Área Metropolitana (CEDEAM), de la Facultad de Ciencias Económicas de la Universidad de Buenos Aires (FCE-UBA), es un espacio de investigación, análisis y producción de conocimiento sobre las dinámicas económicas y productivas del Área Metropolitana de Buenos Aires (AMBA).
                     </p>
+                    <p class="section-desc">
+                        Nuestro trabajo busca contribuir a una mejor comprensión de los desafíos y oportunidades del desarrollo metropolitano, generando información y evidencia que aporten al debate público, la toma de decisiones y el diseño de políticas e iniciativas de desarrollo.
+                    </p>
+
+                    <h4 class="section-subtitle">Nuestros objetivos</h4>
 
                     <div class="objectives-grid">
                         <div class="obj-card">
                             <div class="obj-card-header">
                                 <i class="fa-solid fa-chart-line"></i>
-                                <strong>Investigación Aplicada</strong>
+                                <strong>Desarrollo económico, urbano y territorial</strong>
                             </div>
-                            <p>Producir informes sobre las problemáticas y potencialidades del AMBA.</p>
+                            <p>Analizar las dinámicas económicas, productivas y urbanas del AMBA, considerando las particularidades de sus territorios, las desigualdades y los desafíos de un desarrollo metropolitano equilibrado.</p>
                         </div>
 
                         <div class="obj-card">
                             <div class="obj-card-header">
-                                <i class="fa-solid fa-clipboard-question"></i>
-                                <strong>Información Primaria</strong>
+                                <i class="fa-solid fa-building"></i>
+                                <strong>Entramado productivo y empresarial</strong>
                             </div>
-                            <p>Generar información primaria a través de la implementación de encuestas.</p>
+                            <p>Estudiar la estructura y evolución del tejido productivo, con especial atención a las MiPyMEs, sus capacidades, problemáticas y oportunidades de desarrollo.</p>
                         </div>
 
                         <div class="obj-card">
                             <div class="obj-card-header">
                                 <i class="fa-solid fa-rocket"></i>
-                                <strong>Análisis Ecosistémico</strong>
+                                <strong>Emprendimiento e innovación</strong>
                             </div>
-                            <p>Sistematizar información estadística secundaria sobre el entramado MiPyME haciendo especial hincapié en el ecosistema emprendedor.</p>
+                            <p>Investigar las dinámicas emprendedoras, los ecosistemas de innovación y las nuevas tendencias tecnológicas y productivas, identificando oportunidades para fortalecer el desarrollo económico regional.</p>
                         </div>
 
                         <div class="obj-card">
                             <div class="obj-card-header">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                                <strong>Formación Académica</strong>
+                                <i class="fa-solid fa-database"></i>
+                                <strong>Producción de información y conocimiento</strong>
                             </div>
-                            <p>Contribuir a la formación de alumnos, docentes, investigadores y funcionarios de gobierno.</p>
-                        </div>
-
-                        <div class="obj-card">
-                            <div class="obj-card-header">
-                                <i class="fa-solid fa-comments"></i>
-                                <strong>Divulgación y Debate</strong>
-                            </div>
-                            <p>Difundir y debatir las temáticas abordadas con distintos actores.</p>
+                            <p>Generar evidencia a través de investigaciones, relevamientos, encuestas y análisis estadísticos que permitan comprender las transformaciones económicas y territoriales.</p>
                         </div>
 
                         <div class="obj-card">
                             <div class="obj-card-header">
                                 <i class="fa-solid fa-handshake-angle"></i>
-                                <strong>Transferencia</strong>
+                                <strong>Articulación y transferencia de conocimiento</strong>
                             </div>
-                            <p>Realizar actividades de transferencia de conocimiento.</p>
+                            <p>Promover la vinculación entre la universidad, el sector público, las empresas y otras instituciones, contribuyendo al diseño de iniciativas y políticas de desarrollo.</p>
+                        </div>
+
+                        <div class="obj-card">
+                            <div class="obj-card-header">
+                                <i class="fa-solid fa-comments"></i>
+                                <strong>Formación y debate público</strong>
+                            </div>
+                            <p>Impulsar espacios de formación, intercambio y difusión que acerquen el conocimiento académico a los distintos actores de la sociedad.</p>
                         </div>
                     </div>
                 </section>
@@ -867,10 +887,10 @@
                             <span class="geial-tag"><i class="fa-solid fa-location-dot"></i> Medición Regional 2026</span>
                             <h3>Medición del Ecosistema Emprendedor CABA 2026</h3>
                             <p>
-                                Desde el <strong>CEDEAM — Facultad de Ciencias Económicas UBA</strong> lideramos durante el 2026 la medición del ecosistema emprendedor de la Ciudad de Buenos Aires, en articulación con <strong>GEIAL</strong>.
+                                Desde el CEDEAM - Facultad de Ciencias Económicas UBA lideramos durante el 2026 la medición del ecosistema emprendedor de la Ciudad de Buenos Aires en articulación con GEIAL (Grupo de Ecosistemas Inteligentes de América Latina).
                             </p>
                             <p>
-                                Este proceso relevó información clave sobre las condiciones para emprender, identificar fortalezas y brechas, y construir un diagnóstico que aporte insumos para mejorar las estrategias de desarrollo productivo e innovación.
+                                Durante este proceso se relevó información clave sobre las condiciones para emprender, con el fin de identificar fortalezas y brechas, y construir un diagnóstico que aporte insumos que permitan mejorar las estrategias de desarrollo productivo e innovación en el sistema emprendedor.
                             </p>
 
                             <div class="geial-box">
@@ -908,9 +928,6 @@
                     <div class="section-header-fce">
                         <h3 class="section-title-fce">INFORMES Y DOCUMENTOS</h3>
                     </div>
-                    <p class="section-subtitle">
-                        Publicaciones elaboradas en articulación técnica con el Centro de Economía Política Argentina (CEPA).
-                    </p>
 
                     <div class="report-item">
                         <div>
@@ -940,7 +957,7 @@
                     <div class="repo-banner">
                         <div class="repo-banner-info">
                             <h4><i class="fa-solid fa-box-archive icon-orange"></i> Repositorio Completo de Publicaciones</h4>
-                            <p>Accedé al archivo histórico con la totalidad de informes de coyuntura y documentos de trabajo.</p>
+                            <p>Accedé al archivo histórico con la totalidad de informes de coyuntura, documentos de trabajo, artículos y apariciones en medios de comunicación.</p>
                         </div>
                         <a href="biblioteca.html" class="repo-banner-btn">
                             <i class="fa-solid fa-folder-open"></i> Ver todos los informes en Biblioteca
@@ -980,7 +997,7 @@
                 <!-- SECCIÓN: EN LOS MEDIOS -->
                 <section class="section-block" id="medios">
                     <div class="section-header-fce">
-                        <h3 class="section-title-fce">CEDEAM EN LOS MEDIOS</h3>
+                        <h3 class="section-title-fce">MEDIOS</h3>
                     </div>
                     <p class="section-subtitle">
                         Apariciones, columnas de opinión y análisis socioeconómico en medios de comunicación.
@@ -1043,7 +1060,6 @@
                 <div class="footer-col">
                     <h4>Enlaces de Interés</h4>
                     <a href="https://economicas.uba.ar" target="_blank">Facultad de Cs. Económicas</a>
-                    <a href="https://ojs.economicas.uba.ar/" target="_blank">Portal de Revistas OJS</a>
                     <a href="https://www.uba.ar" target="_blank">Universidad de Buenos Aires</a>
                 </div>
             </div>
