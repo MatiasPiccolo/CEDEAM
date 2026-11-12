@@ -296,17 +296,6 @@
             display: block;
         }
 
-        .tab-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            background: #ffffff;
-            padding: 15px 20px;
-            border-left: 4px solid var(--fce-orange);
-            border-radius: 0 4px 4px 0;
-            box-shadow: var(--shadow-sm);
-        }
-
         /* Cards & Items */
         .pub-item {
             background: var(--fce-card-bg);
@@ -458,7 +447,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a href="javascript:void(0)" onclick="switchTabByDropdown('documentos-tab')" class="dropdown-item">Documentos de trabajo</a>
-                                <a href="javascript:void(0)" onclick="switchTabByDropdown('informes-tab')" class="dropdown-item">Informes de coyuntura</a>
+                                <a href="javascript:void(0)" onclick="switchTabByDropdown('informes-tab')" class="dropdown-item">Informes</a>
                             </div>
                         </li>
 
@@ -484,8 +473,8 @@
     <section class="hero-fce">
         <div class="container">
             <span class="hero-badge"><i class="fa-solid fa-book-open"></i> Repositorio Abierto</span>
-            <h2>Biblioteca & Publicaciones</h2>
-            <p>Accedé a la totalidad de informes periódicos de coyuntura y documentos técnicos de investigación del CEDEAM.</p>
+            <h2>Publicaciones</h2>
+            <p>Accedé a la totalidad de informes y documentos de trabajo.</p>
         </div>
     </section>
 
@@ -495,19 +484,15 @@
         <!-- Pestañas de Navegación -->
         <div class="tabs-nav">
             <button id="btn-informes-tab" class="tab-button active" onclick="switchTab(event, 'informes-tab')">
-                <i class="fa-solid fa-chart-line icon-orange"></i> Informes de Coyuntura
+                <i class="fa-solid fa-chart-line icon-orange"></i> Informes
             </button>
             <button id="btn-documentos-tab" class="tab-button" onclick="switchTab(event, 'documentos-tab')">
-                <i class="fa-solid fa-folder-open icon-orange"></i> Documentos Técnicos
+                <i class="fa-solid fa-folder-open icon-orange"></i> Documentos
             </button>
         </div>
 
         <!-- PANEL 1: INFORMES DE COYUNTURA -->
         <div id="informes-tab" class="tab-panel active">
-            <p class="tab-desc">
-                Informes periódicos de coyuntura socioeconómica elaborados en articulación técnica con el Centro de Economía Política Argentina (CEPA).
-            </p>
-
             <div class="pub-item">
                 <div>
                     <span class="badge-pdf">PDF</span>
@@ -529,10 +514,6 @@
 
         <!-- PANEL 2: DOCUMENTOS TÉCNICOS -->
         <div id="documentos-tab" class="tab-panel">
-            <p class="tab-desc">
-                Investigaciones estructurales, diagnósticos territoriales y documentos de trabajo del AMBA y CABA.
-            </p>
-
             <div class="pub-item">
                 <div>
                     <h3>El tejido empresarial en la Ciudad Autónoma de Buenos Aires. Composición y evolución reciente.</h3>
@@ -589,7 +570,6 @@
                 <div class="footer-col">
                     <h4>Enlaces de Interés</h4>
                     <a href="https://economicas.uba.ar" target="_blank">Facultad de Cs. Económicas</a>
-                    <a href="https://ojs.economicas.uba.ar/" target="_blank">Portal de Revistas OJS</a>
                     <a href="https://www.uba.ar" target="_blank">Universidad de Buenos Aires</a>
                 </div>
             </div>
